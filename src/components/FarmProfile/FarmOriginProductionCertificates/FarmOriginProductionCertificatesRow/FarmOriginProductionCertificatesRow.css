@@ -1,0 +1,46 @@
+.FarmOriginProductionCertificatesRow {
+  display: grid;
+  gap: .5rem;
+  padding: .5rem 0;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  font-size: .9rem;
+  min-width: 80rem;
+}
+
+.FarmOriginProductionCertificatesRow--data {
+  cursor: pointer;
+}
+
+.FarmOriginProductionCertificatesRow--data > * {
+  display: flex;
+  align-items: center;
+}
+
+.FarmOriginProductionCertificatesRow__product {
+  display: flex;
+  gap: 1rem;
+  font-size: .85rem;
+  padding: .75rem .5rem .75rem 2rem;
+  animation: FarmExportCertificatesRow__product_appears .2s ease both;
+}
+
+.FarmOriginProductionCertificatesRow__product__farm_link {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.FarmOriginProductionCertificatesRow__product__scientific_name {
+  font-style: italic;
+}
+
+@keyframes FarmOriginProductionCertificatesRow__product_appears {
+  0% {
+    opacity: 0;
+    transform: translateX(-.25rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

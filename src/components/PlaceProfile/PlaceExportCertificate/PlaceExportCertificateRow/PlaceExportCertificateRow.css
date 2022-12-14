@@ -1,0 +1,27 @@
+.PlaceExportCertificateRow__product {
+  display: flex;
+  gap: 1rem;
+  font-size: .85rem;
+  padding: .75rem .5rem .75rem 2rem;
+  animation: PlaceExportCertificateRow__product_appears .2s ease both;
+}
+
+.PlaceExportCertificateRow__farm_link {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.PlaceExportCertificateRow__scientific_name {
+  font-style: italic;
+}
+
+@keyframes PlaceExportCertificateRow__product_appears {
+  0% {
+    opacity: 0;
+    transform: translateX(-.25rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,37 @@
+.PlaceSearchResultCard {
+  background-color: var(--light-gray-background-color);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+  font-size: .9rem;
+  display: grid;
+  grid-template: repeat(3, auto) / auto 1fr;
+  gap: .35rem 2rem;
+}
+
+.PlaceSearchResultCard:hover {
+  box-shadow: 0 .05rem .25rem rgba(0, 0, 0, .1);
+  background-color: var(--light-gray-focus-background-color);
+}
+
+.PlaceSearchResultCard__icon {
+  font-size: 3rem;
+  grid-row: span 3;
+  opacity: .7;
+}
+
+.PlaceSearchResultCard__title {
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+.PlaceSearchResultCard__subtitle {
+  font-size: .8rem;
+}
+
+.PlaceSearchResultCard__location {
+  text-transform: capitalize;
+  font-size: .8rem;
+  color: var(--text-color);
+}

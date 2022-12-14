@@ -1,0 +1,42 @@
+.UsersManagement {
+  display: flex;
+  flex: 1;
+}
+
+.UsersManagement__container {
+  padding: 0;
+}
+
+.UsersManagement__menu_title {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.UsersManagement__menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.UsersManagement__menu_link {
+  padding: .65rem;
+  padding-right: 1rem;
+  display: flex;
+  gap: 1rem;
+  border-radius: .6rem;
+  align-items: center;
+  font-weight: 500;
+}
+
+.UsersManagement__menu_link svg {
+  font-size: 1.5rem;
+}
+
+.UsersManagement__menu_link--active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.UsersManagement__content {
+  flex: 1;
+  padding: 0 4rem;
+}

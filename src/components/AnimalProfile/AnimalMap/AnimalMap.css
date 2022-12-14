@@ -1,0 +1,36 @@
+.AnimalMap {
+  aspect-ratio: 1.5 / 1;
+  padding-top: 1rem;
+  max-height: 80vh;
+}
+
+.AnimalMap__marker {
+  background-color: var(--background-color);
+  border: .25rem solid var(--primary-color);
+  border-radius: 0 .35rem .35rem .35rem;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: .75rem;
+  min-width: 5.75rem;
+  min-height: 1.5rem;
+  word-break: keep-all;
+}
+
+.AnimalMap__marker_event_index {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  min-height: 1.5rem;
+  font-size: .75rem;
+  padding: .2rem .3rem .2rem .2rem;
+  margin-right: .25rem;
+}
+
+@media (max-width: 768px) {
+
+  .AnimalMap {
+    aspect-ratio: 1 / 1.25;
+    padding-top: 1rem;
+  }
+  
+}

@@ -1,0 +1,16 @@
+.PermissionsSearchResult {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.PermissionsSearchResult p {
+  grid-column: span 2;
+  place-self: center center;
+  font-size: 1.5rem;
+}
+
+.PermissionsSearchResult button {
+  padding: 2rem;
+}

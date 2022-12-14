@@ -1,0 +1,40 @@
+.SearchResults__container {
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color) 5rem,
+    var(--background-color) 0
+  );
+}
+
+.SearchResults {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.SearchResults__container .CenteredContainer__content {
+  padding: 1rem 0rem;
+}
+
+.SearchResults__overlay {
+  background: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: calc(var(--navbar-height) + 7.1rem);
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  transition: all .35s ease;
+  pointer-events: none;
+}
+
+.SearchResults__overlay--active {
+  background: rgba(0, 0, 0, .35);
+}
+
+@media (max-width: 768px) {
+  .SearchResults {
+    grid-template: auto 1fr / 1fr;
+    gap: 0;
+  }
+}

@@ -1,0 +1,46 @@
+.NavBarUserData {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto;
+  grid-auto-flow: column;
+  gap: 0.1rem;
+  place-items: center end;
+  cursor: pointer;
+  text-transform: lowercase;
+  position: relative;
+}
+
+.NavBarUserData__icon {
+  font-size: 2.2rem;
+  margin-left: .6rem;
+  padding: .25rem;
+  background: linear-gradient(-45deg, var(--alert-color) -50%, var(--primary-color) 250%);
+  border-radius: 50%;
+  color: var(--white-color);
+}
+
+.NavBarUserData__name {
+  text-transform: capitalize;
+  font-size: .9rem;
+  text-align: right;
+  font-weight: 500;
+}
+
+.NavBarUserData__role {
+  text-transform: uppercase;
+  font-size: .6rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+.NavBarUserData__role_icon {
+  font-size: .7rem;
+  color: var(--primary-color);
+}
+
+.NavBarUserData__logout {
+  font-size: .6rem;
+  text-transform: capitalize;
+}

@@ -1,0 +1,147 @@
+.FarmProfile__container {
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color) 8rem,
+    var(--background-color) 0
+  );
+}
+
+.FarmProfile__container .CenteredContainer__content {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+}
+
+.FarmProfile__header {
+  color: var(--light-text-color);
+  display: grid;
+  gap: .5rem 1rem;
+  font-size: 1.5rem;
+  grid-template: auto auto 1fr / auto 50ch 1fr;
+  width: 100%;
+  height: 5rem;
+}
+
+.FarmProfile__avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  grid-row: span 3;
+  background-color: var(--light-gray-background-color);
+  border: .35rem solid var(--light-gray-active-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 4rem;
+}
+
+.FarmProfile__name {
+  font-weight: 500;
+  place-self: center start;
+  padding-top: .5rem;
+}
+
+.FarmProfile__subtitle {
+  font-size: .9rem;
+}
+
+.FarmProfile__location {
+  text-transform: capitalize;
+}
+
+.FarmProfile__photos_container {
+  grid-row: span 3;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+.FarmProfile__photos_container img {
+  height: 5rem;
+  object-fit: cover;
+  box-shadow: 0 0 0 .5rem white;
+  transform: rotate(3deg);
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+}
+
+.FarmProfile__photos_container img::after {
+  content: '';
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: red;
+}
+
+.FarmProfile__photos_container img:nth-child(1) {
+  transform: translateX(40%) rotate(3deg);
+}
+
+.FarmProfile__photos_container img:nth-child(2) {
+  transform: translateX(20%) rotate(-3deg);
+}
+
+.FarmProfile__body {
+  display: grid;
+  grid-template: auto auto / 1fr 2fr;
+  gap: 1rem;
+}
+
+.FarmProfile__place_data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.FarmProfile__extra_data, .FarmProfile__contact_data {
+  background-color: var(--light-gray-background-color);
+  padding: 1.5rem;
+}
+
+.FarmProfile__links {
+  background-color: var(--light-gray-background-color);
+  grid-column: span 2;
+  padding: 1.5rem;
+}
+
+.FarmProfile__section_title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.FarmProfile__extra_data_list {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: .9rem;
+}
+
+.FarmProfile__extra_data_list li {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.FarmProfile__extra_data_list h4 {
+  font-weight: 500;
+}
+
+.FarmProfile__processes {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-gray-background-color);
+  padding: 1.5rem;
+}
+
+.FarmProfile__links {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3rem;
+}

@@ -1,0 +1,38 @@
+.FarmAnimals {
+  padding-top: 1rem;
+  font-size: .9rem;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.FarmAnimals__row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: .5rem;
+  padding: .35rem 0;
+  transition: all .15s ease;
+}
+
+.FarmAnimals__row:first-child {
+  font-weight: bold;
+}
+
+.FarmAnimals__row:not(:first-child) {
+  cursor: pointer;
+}
+
+.FarmAnimals__row:hover:not(:first-child) {
+  background-color: var(--focus-color);
+  color: var(--white-color);
+}
+
+.FarmAnimals__row > div {
+  display: flex;
+  align-items: center;
+}
+
+.FarmAnimals__no_animals {
+  padding-top: 1rem;
+}

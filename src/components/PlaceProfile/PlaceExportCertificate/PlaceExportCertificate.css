@@ -1,0 +1,49 @@
+.PlaceExportCertificate {
+  background-color: var(--light-gray-background-color);
+  padding-top: 1rem;
+  overflow-x: scroll;
+}
+
+.PlaceExportCertificate__empty_list_message {
+  border: 1px solid var(--dark-borders-color);
+  justify-self: center;
+  align-self: center;
+  padding: 2rem;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  opacity: .7;
+  text-align: center;
+  font-size: .9rem;
+}
+
+.PlaceExportCertificate__authorization_row {
+  display: grid;
+  gap: .5rem;
+  padding: .5rem 0;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  font-size: .9rem;
+  min-width: 60rem;
+}
+
+.PlaceExportCertificate__authorization_row--data {
+  cursor: pointer;
+}
+
+.PlaceExportCertificate__authorization_row--data > * {
+  display: flex;
+  align-items: center;
+}
+
+.PlaceExportCertificate__plant_link {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.PlaceExportCertificate__authorization_row:not(:first-child):hover {
+  background-color: var(--gray-background-color);
+}
+
+.PlaceExportCertificate__authorization_row:first-child {
+  font-weight: bold;
+}

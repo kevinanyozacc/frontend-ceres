@@ -1,0 +1,20 @@
+.CenteredContainer {
+  min-height: calc(66vh - var(--navbar-height));
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.CenteredContainer__content {
+  max-width: var(--max-content-width);
+  width: 100%;
+  display: flex;
+  padding: 2rem 5rem;
+}
+
+@media (max-width: 768px) {
+  .CenteredContainer__content {
+    flex-direction: column;
+    padding: 2rem;
+  }
+}

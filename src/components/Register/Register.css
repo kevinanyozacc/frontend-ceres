@@ -1,0 +1,215 @@
+.Register {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.Register__background {
+  background: linear-gradient(var(--primary-color), rgba(255, 255, 255, .5)), url('../../assets/images/hero1-compressed.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  height: calc(100vh - var(--navbar-height));
+}
+
+.Register__container {
+  background: var(--white-color);
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+  border-radius: .15rem;
+  box-shadow: 0 .1rem .25rem var(--shadows-color);
+  animation: Register__anim_form_appears .25s ease both;
+}
+
+.Register__title {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.Register__form {
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  background: var(--background-color);
+}
+
+.Register__form_part {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Register__form_part:not(:last-child) {
+  border-right: 1px dashed var(--dark-borders-color);
+  padding-right: 3rem;
+}
+
+.Register__field_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Register__field_label {
+  display: flex;
+  padding-bottom: .5rem;
+  font-weight: bold;
+  font-size: .9rem;
+}
+
+.Register__field_label::after {
+  content: '*';
+  color: var(--alert-color);
+  margin-left: .05rem;
+}
+
+.Register__input {
+  padding: .75rem 1rem;
+  font-size: 1.2rem;
+  transition: all .25s ease;
+  border: none;
+  border-radius: .15rem;
+  box-shadow: 0 0 0 1px var(--dark-borders-color);
+  width: 30ch;
+}
+
+.Register__input:focus {
+  box-shadow:
+    0 0 0 .15rem var(--shadows-color),
+    0 0 0 .2rem var(--focus-color);
+  outline: none;
+}
+
+.Register__input[aria-invalid="true"] {
+  box-shadow: 0 0 0 1px var(--alert-color);
+}
+
+.Register__input[aria-invalid="true"]:focus {
+  box-shadow:
+    0 0 0 .15rem var(--shadows-color),
+    0 0 0 .2rem var(--alert-color);
+}
+
+.Register__button {
+  background: var(--primary-color);
+  color: var(--light-text-color);
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: .75rem 2rem;
+  border-radius: .25rem;
+  transition: all .15s ease;
+  width: 100%;
+}
+
+.Register__button:disabled {
+  opacity: .7;
+}
+
+.Register__forgot_password_link {
+  display: flex;
+  padding: 0 0 .25rem 0;
+  color: var(--primary-color);
+  font-size: .9rem;
+  margin-top: 1.5rem;
+}
+
+.Register__field_container > *[role='alert'] {
+  color: var(--alert-color);
+  font-size: .8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  height: 2rem;
+}
+
+.Register__icono_error {
+  font-size: 1.1rem;
+}
+
+.Register__credentials_error_container {
+  width: 100%;
+  box-shadow: 0 0 0 1px var(--alert-color);
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+  font-size: .9rem;
+  display: grid;
+  border-radius: .1rem;
+  grid-template: auto auto / auto auto;
+  background-color: var(--light-alert-color);
+  gap: .5rem;
+  line-height: 1.5;
+}
+
+.Register__credentials_error_title {
+  font-weight: bold;
+}
+
+.Register__credentials_error_icon {
+  grid-row: span 2;
+  place-self: start center;
+  font-size: 1.5rem;
+  color: var(--alert-color);
+  margin-right: .75rem;
+}
+
+.Register__logging_in_message {
+  align-self: center;
+  font-size: .9rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: .5rem;
+}
+
+.Register__logging_in_message::before {
+  content: '';
+  display: block;
+  border-radius: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background: radial-gradient(var(--background-color) 50%, transparent 0), conic-gradient(var(--primary-color) 70%, transparent 0);
+  animation: Register__anim_logging_in 1s ease infinite both;
+}
+
+.Register__register_text {
+  border-top: 1px solid var(--light-borders-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.Register__register_link {
+  background: var(--primary-color);
+  color: var(--light-text-color);
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: .75rem 2rem;
+  border-radius: .25rem;
+  transition: all .15s ease;
+  width: 100%;
+}
+
+@keyframes Register__anim_form_appears {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes Register__anim_logging_in {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

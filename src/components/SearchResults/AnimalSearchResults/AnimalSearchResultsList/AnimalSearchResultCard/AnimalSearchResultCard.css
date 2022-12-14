@@ -1,0 +1,54 @@
+.AnimalSearchResultCard {
+  background-color: var(--light-gray-background-color);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all .25s ease-in-out;
+  font-size: .9rem;
+  display: grid;
+  grid-template: repeat(3, auto) / auto 1fr;
+  gap: .35rem 2rem;
+  position: relative;
+}
+
+.AnimalSearchResultCard:hover {
+  box-shadow: 0 .05rem .25rem rgba(0, 0, 0, .1);
+  background-color: var(--light-gray-focus-background-color);
+}
+
+.AnimalSearchResultCard__icon {
+  font-size: 3rem;
+  grid-row: span 3;
+  opacity: .7;
+}
+
+.AnimalSearchResultCard__title {
+  font-size: 1rem;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+.AnimalSearchResultCard__subtitle {
+  font-size: .8rem;
+}
+
+.AnimalSearchResultCard__location {
+  text-transform: capitalize;
+  font-size: .8rem;
+  color: var(--text-color);
+}
+
+.AnimalSearchResultCard__gender_icon {
+  position: absolute;
+  left: 2.75rem;
+  top: 2.75rem;
+  font-size: 1.25rem;
+  filter: drop-shadow(0 0 .05rem var(--shadows-color));
+}
+
+.AnimalSearchResultCard__gender_icon--male {
+  color: var(--focus-color);
+}
+
+.AnimalSearchResultCard__gender_icon--female {
+  color: var(--alert-color);
+}

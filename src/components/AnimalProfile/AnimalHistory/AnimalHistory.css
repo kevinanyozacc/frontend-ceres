@@ -1,0 +1,55 @@
+.AnimalHistory {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.AnimalHistory__row {
+  padding: 1rem;
+  display: grid;
+  grid-template: auto 1fr / auto 1fr;
+  gap: .25rem 1rem;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .15s ease;
+  line-height: 1.15;
+}
+
+.AnimalHistory__row:hover {
+  background-color: var(--light-gray-focus-background-color);
+}
+
+.AnimalHistory__row:active {
+  background-color: var(--light-gray-active-background-color);
+}
+
+.AnimalHistory__row:not(:last-child) {
+  border-bottom: 1px dashed var(--shadows-color);
+}
+
+.AnimalHistory__event_id {
+  background-color: var(--primary-color);
+  grid-row: span 2;
+  aspect-ratio: 1 / 1;
+  place-self: center;
+  width: 2.5rem;
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+
+.AnimalHistory__event_label {
+  place-self: end start;
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+}
+
+.AnimalHistory__event_date {
+  place-self: start start;
+  font-size: .75rem;
+  opacity: .95;
+}

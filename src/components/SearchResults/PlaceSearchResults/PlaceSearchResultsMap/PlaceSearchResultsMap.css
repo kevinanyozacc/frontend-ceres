@@ -1,0 +1,10 @@
+.PlaceSearchResultsMap {
+  height: calc(100vh - 16.5rem);
+  background-color: var(--light-gray-background-color);
+}
+
+@media (max-width: 768px) {
+  .PlaceSearchResultsMap {
+    display: none;
+  }
+}

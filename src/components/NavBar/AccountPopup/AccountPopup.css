@@ -1,0 +1,49 @@
+.AccountPopup {
+  background-color: var(--background-color);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all .15s ease;
+  position: absolute;
+  top: calc(100% + .5rem);
+  text-transform: none;
+  box-shadow: 0 .1rem .3rem var(--shadows-color);
+}
+
+.AccountPopup--visible {
+  opacity: 1;
+}
+
+.AccountPopup__boton_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  font-size: .9rem;
+  padding: .75rem .5rem;
+  gap: 1rem;
+  background-color: var(--background-color);
+  transition: all .15s ease;
+  font-weight: 500;
+}
+
+.AccountPopup__boton_menu:hover {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+}
+
+.AccountPopup__boton_menu svg {
+  font-size: 1.25rem;
+}
+
+.AccountPopup__boton_menu:first-child {
+  border-radius: .25rem .25rem 0 0;
+}
+
+.AccountPopup__boton_menu:not(:last-child) {
+  border-bottom: 1px solid var(--light-gray-background-color);
+}
+
+.AccountPopup__boton_menu:last-child {
+  border-radius: 0 0 .25rem .25rem;
+}

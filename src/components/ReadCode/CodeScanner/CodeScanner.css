@@ -1,0 +1,24 @@
+.CodeScanner {
+  padding: 2rem;
+  height: 70vh;
+}
+
+.CodeScanner__instruction {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.CodeScanner__reader_container {
+  position: relative;
+}
+
+.CodeScanner__reader_container::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 80%;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  background-color: red;
+}

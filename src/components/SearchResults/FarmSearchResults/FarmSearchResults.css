@@ -1,0 +1,15 @@
+.FarmSearchResults {
+  display: grid;
+  grid-template: 1fr / 1fr calc(45% - 1rem) 25%;
+  flex: 1;
+  gap: .75rem 1rem;
+  position: relative;
+  padding: .75rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .FarmSearchResults {
+    grid-template: auto 1fr / 1fr;
+    gap: 0;
+  }
+}

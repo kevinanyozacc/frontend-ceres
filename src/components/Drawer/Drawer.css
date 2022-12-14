@@ -1,0 +1,58 @@
+.Drawer__sheet {
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all .5s ease-in-out;
+}
+
+.Drawer__sheet--visible {
+  pointer-events: all;
+  background-color: rgba(0, 0, 0, .25);
+}
+
+.Drawer {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100vh;
+  z-index: 4;
+  background: var(--primary-color);
+  color: var(--light-text-color);
+  transition: all .25s ease-out;
+  padding: 1rem;
+}
+
+.Drawer--visible {
+  left: 0;
+}
+
+.Drawer__close_button {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  background: none;
+  color: var(--white-color);
+}
+
+.Drawer__list {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.Drawer__link {
+  display: flex;
+  align-items: center;
+  font-size: 1.35rem;
+  gap: 1rem;
+  padding: 1rem 2rem 1rem 0;
+}
+
+.Drawer__link_icon {
+  font-size: 2rem;
+}

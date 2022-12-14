@@ -1,0 +1,25 @@
+.ValidateUser {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ValidateUser__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.ValidateUser__table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ValidateUser__row {
+  display: flex;
+  padding: .5rem 0;
+}
+
+.ValidateUser__row > * {
+  flex: 1;
+}

@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto';
+  color: var(--text-color);
+}
+
+input {
+  font-family: 'Roboto';
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: 'Roboto';
+}
