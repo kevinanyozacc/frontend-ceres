@@ -24,3 +24,6 @@ yarn-error.log*
 node_modules
 notes.txt
 #.env
+
+.env
+vpn.env

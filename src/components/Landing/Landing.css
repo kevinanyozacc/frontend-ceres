@@ -23,6 +23,14 @@
   min-height: calc(75vh - var(--navbar-height)) !important;
 }
 
+.Landing__Section {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .Landing__mini_loader {
   width: 3rem;
   height: 3rem;
@@ -44,6 +52,10 @@
   }
 
   .Landing__big_numbers {
+    flex-direction: column;
+  }
+
+  .Landing__Section {
     flex-direction: column;
   }
 
