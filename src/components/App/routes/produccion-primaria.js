@@ -1,0 +1,42 @@
+import { Route } from "react-router-dom";
+import SearchResults from "../../SearchResults";
+import Searcher from "../../Searcher";
+
+const ProductionPrimariaRoute = [
+  <Route
+    path="/produccion-primaria"
+    element={
+      <Searcher title="Producción Primaria" name="produccion-primaria" />
+    }
+  />,
+  <Route
+    path="/produccion-primaria"
+    element={
+      <Searcher title="Producción Primaria" name="produccion-primaria" />
+    }
+  />,
+  <Route path="/produccion-primaria">
+    <Route
+      path="vegetal"
+      element={<SearchResults parent="produccion-primaria" name="vegetal" />}
+    />
+    <Route
+      path="animal"
+      element={<SearchResults parent="produccion-primaria" name="animal" />}
+    />
+    <Route
+      path="predio"
+      element={<SearchResults parent="produccion-primaria" name="predio" />}
+    />
+    <Route
+      path="alimento"
+      element={<SearchResults parent="produccion-primaria" name="alimento" />}
+    />
+    <Route
+      path="consulta"
+      element={<SearchResults parent="produccion-primaria" name="consulta" />}
+    />
+  </Route>,
+];
+
+export default ProductionPrimariaRoute;

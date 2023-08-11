@@ -13,10 +13,10 @@ import NavBar from "../NavBar";
 import PlaceProfile from "../PlaceProfile";
 import ReadCode from "../ReadCode";
 import Register from "../Register";
-import SearchResults from "../SearchResults";
-import Searcher from "../Searcher";
 import UsersManagement from "../UsersManagement";
 import "./App.css";
+import ProcesamientoPrimarioRoute from "./routes/procesamiento-primario";
+import ProductionPrimariaRoute from "./routes/produccion-primaria";
 
 const App = () => {
   return (
@@ -32,40 +32,10 @@ const App = () => {
         <Route path="/animal/:id" element={<AnimalProfile />} />
         <Route path="/predio/:id" element={<FarmProfile />} />
         <Route path="/" element={<Landing />} />
-        <Route
-          path="/produccion-primaria"
-          element={
-            <Searcher title="Producción Primaria" name="produccion-primaria" />
-          }
-        />
-        <Route path="/produccion-primaria">
-          <Route
-            path="vegetal"
-            element={
-              <SearchResults parent="produccion-primaria" name="vegetal" />
-            }
-          />
-          <Route path="animal" />
-          <Route path="predio" />
-          <Route path="alimento" />
-          <Route path="consulta" />
-        </Route>
-        <Route
-          path="/procesamiento-primario"
-          element={
-            <Searcher
-              title="Procesamiento Primario"
-              name="procesamiento-primario"
-            />
-          }
-        />
-        <Route path="/procesamiento-primario" element={<SearchResults />}>
-          <Route path="vegetal" />
-          <Route path="animal" />
-          <Route path="predio" />
-          <Route path="alimento" />
-          <Route path="consulta" />
-        </Route>
+        {/* rutas de producción primaria */}
+        {ProductionPrimariaRoute?.map((component) => component)}
+        {/* rutas de procesamiento primario */}
+        {ProcesamientoPrimarioRoute?.map((component) => component)}
         <Route path="/leer-codigo" element={<ReadCode />}>
           <Route path="confirmacion/:code" />
         </Route>

@@ -7,6 +7,7 @@ import {
   setSearchTerm,
   tabMethods,
 } from "../../redux/ducks/search";
+import { BreadcrumbSimple } from "../BreadCrumb/BreadCrumb";
 import CenteredContainer from "../CenteredContainer";
 import AnimalSearchResults from "./AnimalSearchResults";
 import FarmSearchResults from "./FarmSearchResults";
@@ -39,26 +40,32 @@ const SearchResults = ({ parent, name }) => {
   if (!searchTerm) return null;
 
   return (
-    <CenteredContainer className="SearchResults__container">
-      <div
-        className={classNames({
-          SearchResults__overlay: true,
-          "SearchResults__overlay--active": searchFocused,
-        })}
-      />
-      <div className="SearchResults">
-        <SearchResultsBar />
-        {tabMethods.vegetal.key === currentBody?.key ? (
-          <PlaceSearchResults />
-        ) : null}
-        {tabMethods.animal.key === currentBody?.key ? (
-          <AnimalSearchResults />
-        ) : null}
-        {tabMethods.predio.key === currentBody?.key ? (
-          <FarmSearchResults />
-        ) : null}
-      </div>
-    </CenteredContainer>
+    <>
+      <CenteredContainer className="SearchResults__container">
+        <div
+          className={classNames({
+            SearchResults__overlay: true,
+            "SearchResults__overlay--active": searchFocused,
+          })}
+        />
+        <div className="SearchResults">
+          <SearchResultsBar />
+          <BreadcrumbSimple
+            options={[{ name: currentParent.title, url: currentParent.url }]}
+            title={currentBody.label}
+          />
+          {tabMethods.vegetal.key === currentBody?.key ? (
+            <PlaceSearchResults />
+          ) : null}
+          {tabMethods.animal.key === currentBody?.key ? (
+            <AnimalSearchResults />
+          ) : null}
+          {tabMethods.predio.key === currentBody?.key ? (
+            <FarmSearchResults />
+          ) : null}
+        </div>
+      </CenteredContainer>
+    </>
   );
 };
 

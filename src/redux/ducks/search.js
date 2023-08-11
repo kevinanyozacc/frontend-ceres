@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const tabMethods = {
   vegetal: {
     key: "vegetal",
-    label: "vegetal",
+    label: "Vegetal",
     description: `
         Ingresa nombre, RUC, código vegetal, u otro atributo para buscar vegetales de la cadena agropecuaria supervisados por el SENASA.
       `,
@@ -12,7 +12,7 @@ export const tabMethods = {
   },
   animal: {
     key: "animal",
-    label: "animal",
+    label: "Animal",
     description: `
         Busca introduciendo el código de aretado de animal o alguna parte de este, por ejemplo PO1403-0005042.
       `,
@@ -21,7 +21,7 @@ export const tabMethods = {
   },
   place: {
     key: "place",
-    label: "establecimiento",
+    label: "Establecimiento",
     description: `
         Ingresa nombre, RUC, código de establecimiento, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.
       `,
@@ -30,7 +30,7 @@ export const tabMethods = {
   },
   predio: {
     key: "predio",
-    label: "predio",
+    label: "Predio",
     description: `
         Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
       `,
@@ -39,7 +39,7 @@ export const tabMethods = {
   },
   alimento: {
     key: "alimento",
-    label: "alimento",
+    label: "Alimento",
     description: `
         Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
       `,
@@ -48,7 +48,7 @@ export const tabMethods = {
   },
   consulta: {
     key: "consulta",
-    label: "consulta",
+    label: "Consulta",
     description: `
         Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
       `,
@@ -60,6 +60,7 @@ export const tabMethods = {
 export const searchMethods = {
   "produccion-primaria": {
     title: "Producción Primaria",
+    url: "/produccion-primaria",
     data: [
       tabMethods.vegetal,
       tabMethods.animal,
@@ -70,6 +71,7 @@ export const searchMethods = {
   },
   "procesamiento-primario": {
     title: "Procesamiento Primario",
+    url: "/procesamiento-primario",
     data: [
       tabMethods.vegetal,
       tabMethods.animal,
