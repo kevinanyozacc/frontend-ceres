@@ -28,11 +28,6 @@ const App = () => {
         <Route path="/acceso" element={<Login />} />
         <Route path="/registro" element={<Register />} />
         <Route path="/usuarios/*" element={<UsersManagement />} />
-        <Route path="/busqueda" element={<SearchResults />}>
-          <Route path="lugar" />
-          <Route path="animal" />
-          <Route path="predio" />
-        </Route>
         <Route path="/establecimiento/:type/:id" element={<PlaceProfile />} />
         <Route path="/animal/:id" element={<AnimalProfile />} />
         <Route path="/predio/:id" element={<FarmProfile />} />
@@ -43,6 +38,18 @@ const App = () => {
             <Searcher title="Producción Primaria" name="produccion-primaria" />
           }
         />
+        <Route path="/produccion-primaria">
+          <Route
+            path="vegetal"
+            element={
+              <SearchResults parent="produccion-primaria" name="vegetal" />
+            }
+          />
+          <Route path="animal" />
+          <Route path="predio" />
+          <Route path="alimento" />
+          <Route path="consulta" />
+        </Route>
         <Route
           path="/procesamiento-primario"
           element={
@@ -52,6 +59,13 @@ const App = () => {
             />
           }
         />
+        <Route path="/procesamiento-primario" element={<SearchResults />}>
+          <Route path="vegetal" />
+          <Route path="animal" />
+          <Route path="predio" />
+          <Route path="alimento" />
+          <Route path="consulta" />
+        </Route>
         <Route path="/leer-codigo" element={<ReadCode />}>
           <Route path="confirmacion/:code" />
         </Route>

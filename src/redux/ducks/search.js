@@ -58,20 +58,26 @@ export const tabMethods = {
 };
 
 export const searchMethods = {
-  "produccion-primaria": [
-    tabMethods.vegetal,
-    tabMethods.animal,
-    tabMethods.predio,
-    tabMethods.alimento,
-    tabMethods.consulta,
-  ],
-  "procesamiento-primario": [
-    tabMethods.vegetal,
-    tabMethods.animal,
-    tabMethods.predio,
-    tabMethods.alimento,
-    tabMethods.consulta,
-  ],
+  "produccion-primaria": {
+    title: "Producción Primaria",
+    data: [
+      tabMethods.vegetal,
+      tabMethods.animal,
+      tabMethods.predio,
+      tabMethods.alimento,
+      tabMethods.consulta,
+    ],
+  },
+  "procesamiento-primario": {
+    title: "Procesamiento Primario",
+    data: [
+      tabMethods.vegetal,
+      tabMethods.animal,
+      tabMethods.predio,
+      tabMethods.alimento,
+      tabMethods.consulta,
+    ],
+  },
 };
 
 export class SearchSortCriteria {

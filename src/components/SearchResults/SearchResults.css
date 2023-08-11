@@ -19,7 +19,7 @@
 .SearchResults__overlay {
   background: rgba(0, 0, 0, 0);
   position: absolute;
-  top: calc(var(--navbar-height) + 7.1rem);
+  top: calc(var(--navbar-height) + 5rem);
   right: 0;
   left: 0;
   bottom: 0;

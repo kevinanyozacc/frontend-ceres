@@ -19,22 +19,13 @@ const SearcherBox = ({ title, name }) => {
   const dispatch = useDispatch();
 
   const options = useMemo(() => {
-    return searchMethods[name] || [];
+    return searchMethods[name]?.data || [];
   }, [name]);
 
   const search = (e) => {
     e.preventDefault();
     if (searchTerm) {
-      switch (searchMethod.key) {
-        case "animal":
-          navigate(`/busqueda/animal?q=${searchTerm}`);
-          break;
-        case "farm":
-          navigate(`/busqueda/predio?q=${searchTerm}`);
-          break;
-        default:
-          navigate(`/busqueda/lugar?q=${searchTerm}`);
-      }
+      navigate(`/${name}/${searchMethod.key}?q=${searchTerm}`);
     } else {
       inputSearchRef.current.focus();
     }
