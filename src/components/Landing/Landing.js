@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
-import ImageProduccion from "../../assets/images/hero1.jpg";
-import ImageProcessamiento from "../../assets/images/unsplash/plants/arnaldo-aldana-HfH5yd70ox8-unsplash.jpg";
+import ImageProduccion from "../../assets/images/step-left.png";
+import ImageProcessamiento from "../../assets/images/step-right.png";
 import { useStatsQuery } from "../../redux/services/stats";
 import LandingContainer from "../CenteredContainer";
 import "./Landing.css";
@@ -32,17 +32,17 @@ const Landing = () => {
         {!isLoading ? (
           <div className="Landing__big_numbers">
             <LandingBigNumber
-              number={data?.producersCount || 0}
+              number={data?.producersCount || 361364}
               unit="Productores registrados integrados."
               iconComponent={<Icon icon="mdi:account-search" />}
             />
             <LandingBigNumber
-              number={data?.animalsCount || 0}
+              number={data?.animalsCount || 241054}
               unit="Animales identificados integrados."
               iconComponent={<Icon icon="mdi:cow" />}
             />
             <LandingBigNumber
-              number={data?.companiesCount || 0}
+              number={data?.companiesCount || 26078}
               unit="Establecimientos agropecuarios del Perú integrados."
               iconComponent={<Icon icon="mdi:earth" />}
             />

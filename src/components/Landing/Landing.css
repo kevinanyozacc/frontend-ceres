@@ -24,6 +24,7 @@
 }
 
 .Landing__Section {
+  margin-top: 1em;
   display: flex;
   height: 400px;
   width: 100%;
