@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
-import ImageProduccion from "../../assets/images/step-left.png";
-import ImageProcessamiento from "../../assets/images/step-right.png";
+import ImageProcessamiento from "../../assets/images/procesamiento.png";
+import ImageProduccion from "../../assets/images/produccion.png";
 import { useStatsQuery } from "../../redux/services/stats";
 import LandingContainer from "../CenteredContainer";
 import "./Landing.css";

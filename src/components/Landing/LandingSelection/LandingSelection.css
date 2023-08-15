@@ -27,7 +27,7 @@
   width: 100%;
   background-repeat: no-repeat!important;
   background-position: center!important;
-  background-size: cover!important;
+  background-size: contain!important;
   filter: opacity(.4);
   padding-top: 5em;
 }
