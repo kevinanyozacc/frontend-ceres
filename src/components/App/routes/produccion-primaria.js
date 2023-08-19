@@ -17,6 +17,12 @@ const ProductionPrimariaRoute = [
   />,
   <Route path="/produccion-primaria">
     <Route
+      path="establishment"
+      element={
+        <SearchResults parent="produccion-primaria" name="establishment" />
+      }
+    />
+    <Route
       path="vegetal"
       element={<SearchResults parent="produccion-primaria" name="vegetal" />}
     />

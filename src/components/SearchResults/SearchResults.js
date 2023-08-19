@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import classNames from "classnames";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -5,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import {
   searchMethods,
   setSearchTerm,
+  setSearchType,
   tabMethods,
 } from "../../redux/ducks/search";
 import { BreadcrumbSimple } from "../BreadCrumb/BreadCrumb";
@@ -33,6 +35,12 @@ const SearchResults = ({ parent, name }) => {
     dispatch(setSearchTerm(new URLSearchParams(search).get("q")));
   }, [dispatch, search]);
 
+  useEffect(() => {
+    if (currentBody) {
+      dispatch(setSearchType(`${currentParent.type}.${currentBody.key}`));
+    }
+  }, [currentBody]);
+
   if (!currentParent) return null;
 
   if (!currentBody) return null;
@@ -54,6 +62,9 @@ const SearchResults = ({ parent, name }) => {
             options={[{ name: currentParent.title, url: currentParent.url }]}
             title={currentBody.label}
           />
+          {tabMethods.establishment.key === currentBody?.key ? (
+            <PlaceSearchResults />
+          ) : null}
           {tabMethods.vegetal.key === currentBody?.key ? (
             <PlaceSearchResults />
           ) : null}

@@ -1,39 +1,58 @@
-import { useMemo } from 'react'
-import { useSearchForFarmQuery, useSearchForProviderQuery } from '../../../../redux/services/search'
-import { useDispatch, useSelector } from 'react-redux'
-import { setPlaceFilter, addTypeFilter, clearTypesFilter, removeTypeFilter, setYearFilter, setHQFilter } from '../../../../redux/ducks/search'
-import Select from 'react-select'
-import './FarmSearchResultsFilters.css'
-import { isEmpty } from 'lodash'
-import { formatPlaceType, getIconByPlaceType } from '../../../../helpers/places'
-import { InlineIcon } from '@iconify/react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+import { setHQFilter, setPlaceFilter } from "../../../../redux/ducks/search";
+import { useSearchForFarmQuery } from "../../../../redux/services/search";
+import "./FarmSearchResultsFilters.css";
 
 const FarmSearchResultsFilters = () => {
+  const dispatch = useDispatch();
+  const { searchTerm, placeFilter, hqFilter, searchType } = useSelector(
+    (state) => state.search
+  );
+  const { data, error, isLoading, isFetching } = useSearchForFarmQuery({
+    search: searchTerm,
+    type: searchType,
+  });
 
-  const { searchTerm, placeFilter, hqFilter, yearFilter, typesFilters } = useSelector(state => state.search)
-  const { data, error, isLoading, isFetching } = useSearchForFarmQuery(searchTerm)
-  const dispatch = useDispatch()
+  const departamentosOptions = useMemo(
+    () =>
+      data
+        ? [
+            {
+              label: `Todos (${data.departamentos.reduce(
+                (acc, d) => acc + d.count,
+                0
+              )})`,
+            },
+            ...data.departamentos.map((d) => ({
+              value: d.name,
+              label: `${d.name.toUpperCase()} (${d.count})`,
+            })),
+          ]
+        : [],
+    [data, searchTerm]
+  );
 
-  const departamentosOptions = useMemo(() => (
-    data
-      ? [
-          { label: `Todos (${data.departamentos.reduce((acc, d) => acc + d.count, 0)})` },
-          ...data.departamentos.map(d => ({ value: d.name, label: `${d.name.toUpperCase()} (${d.count})` }))
-        ]
-      : []
-  ), [data, searchTerm])
+  const hqsOptions = useMemo(
+    () =>
+      data
+        ? [
+            {
+              label: `Todos (${data.hqs.reduce((acc, d) => acc + d.count, 0)})`,
+            },
+            ...data.hqs.map((d) => ({
+              value: d.name,
+              label: `${d.name} (${d.count})`,
+            })),
+          ]
+        : [],
+    [data, searchTerm]
+  );
 
-  const hqsOptions = useMemo(() => (
-    data
-      ? [
-          { label: `Todos (${data.hqs.reduce((acc, d) => acc + d.count, 0)})` },
-          ...data.hqs.map(d => ({ value: d.name, label: `${d.name} (${d.count})` }))
-        ]
-      : []
-  ), [data, searchTerm])
-
-  if (isLoading || isFetching) return <div />
-  if (error) return <div>Error</div>
+  if (isLoading || isFetching) return <div />;
+  if (error) return <div>Error</div>;
 
   return (
     <div className="FarmSearchResultsFilters">
@@ -43,8 +62,8 @@ const FarmSearchResultsFilters = () => {
           <label htmlFor="advanced-filters-place-select">Sede</label>
           <Select
             id="advanced-filters-hq-select"
-            value={hqsOptions.find(v => v.value === hqFilter)}
-            onChange={v => dispatch(setHQFilter(v.value))}
+            value={hqsOptions.find((v) => v.value === hqFilter)}
+            onChange={(v) => dispatch(setHQFilter(v.value))}
             options={hqsOptions}
             placeholder={hqsOptions[0].label}
           />
@@ -53,8 +72,8 @@ const FarmSearchResultsFilters = () => {
           <label htmlFor="advanced-filters-place-select">Departamento</label>
           <Select
             id="advanced-filters-place-select"
-            value={departamentosOptions.find(v => v.value === placeFilter)}
-            onChange={v => dispatch(setPlaceFilter(v.value))}
+            value={departamentosOptions.find((v) => v.value === placeFilter)}
+            onChange={(v) => dispatch(setPlaceFilter(v.value))}
             options={departamentosOptions}
             placeholder={departamentosOptions[0].label}
           />
@@ -72,7 +91,7 @@ const FarmSearchResultsFilters = () => {
         ))} */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FarmSearchResultsFilters
+export default FarmSearchResultsFilters;

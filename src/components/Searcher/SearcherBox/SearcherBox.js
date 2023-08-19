@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import useFocusInput from "../../../hooks/useFocusInput";
 import {
   searchMethods,
@@ -51,6 +52,9 @@ const SearcherBox = ({ title, name }) => {
           htmlFor="LandingSearchBox__search_input_id"
           className="LandingSearchBox__title"
         >
+          <Link to="/" className="LandingSearchBox__back">
+            <Icon icon="ep:back" className="LandingSearchBox__back__icon" />
+          </Link>
           {title}
         </label>
         <div className="LandingSearchBox__search_options_container">

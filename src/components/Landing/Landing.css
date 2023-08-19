@@ -20,7 +20,7 @@
 
 .Landing__hero {
   background: linear-gradient(var(--hero-background-color), white);
-  min-height: calc(75vh - var(--navbar-height)) !important;
+  min-height: calc(65vh - var(--navbar-height)) !important;
 }
 
 .Landing__Section {

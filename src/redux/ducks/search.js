@@ -1,6 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const tabMethods = {
+  establishment: {
+    key: "establishment",
+    label: "Establecimiento",
+    description: `
+        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar vegetales de la cadena agropecuaria supervisados por el SENASA.
+      `,
+    hint: "Escribe lugar, nombre de predio, etc.",
+    icon: "jam:store",
+  },
   vegetal: {
     key: "vegetal",
     label: "Vegetal",
@@ -60,8 +69,10 @@ export const tabMethods = {
 export const searchMethods = {
   "produccion-primaria": {
     title: "Producción Primaria",
+    type: "production",
     url: "/produccion-primaria",
     data: [
+      tabMethods.establishment,
       tabMethods.vegetal,
       tabMethods.animal,
       tabMethods.predio,
@@ -71,8 +82,10 @@ export const searchMethods = {
   },
   "procesamiento-primario": {
     title: "Procesamiento Primario",
+    type: "processing",
     url: "/procesamiento-primario",
     data: [
+      tabMethods.establishment,
       tabMethods.vegetal,
       tabMethods.animal,
       tabMethods.predio,
@@ -97,6 +110,7 @@ const slice = createSlice({
   initialState: {
     searchTerm: undefined,
     searchFocused: false,
+    searchType: undefined,
     placeFilter: undefined,
     hqFilter: undefined,
     yearFilter: undefined,
@@ -116,6 +130,9 @@ const slice = createSlice({
     },
     setSearchFocused: (state, { payload: searchFocused }) => {
       state.searchFocused = searchFocused;
+    },
+    setSearchType: (state, { payload: searchType }) => {
+      state.searchType = searchType;
     },
     setPlaceFilter: (state, { payload: placeName }) => {
       state.placeFilter = placeName;
@@ -151,6 +168,7 @@ export const {
   setSearchTerm,
   setSearchMethod,
   setSearchFocused,
+  setSearchType,
   setPlaceFilter,
   setYearFilter,
   setHQFilter,

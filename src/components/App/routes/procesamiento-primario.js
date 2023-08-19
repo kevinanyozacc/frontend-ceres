@@ -11,6 +11,12 @@ const ProcesamientoPrimarioRoute = [
   />,
   <Route path="/procesamiento-primario">
     <Route
+      path="establishment"
+      element={
+        <SearchResults parent="procesamiento-primario" name="establishment" />
+      }
+    />
+    <Route
       path="vegetal"
       element={<SearchResults parent="procesamiento-primario" name="vegetal" />}
     />
