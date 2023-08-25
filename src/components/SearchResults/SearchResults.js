@@ -37,7 +37,7 @@ const SearchResults = ({ parent, name }) => {
 
   useEffect(() => {
     if (currentBody) {
-      dispatch(setSearchType(`${currentParent.type}.${currentBody.key}`));
+      dispatch(setSearchType(currentParent.type));
     }
   }, [currentBody]);
 
