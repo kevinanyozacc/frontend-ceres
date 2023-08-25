@@ -7,7 +7,7 @@ import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
 import { productionRoute } from "../config";
 
-function AnimalShowPage() {
+function PredioShowPage() {
   return (
     <CenteredContainer className="PlaceProfile__container">
       <HeaderSimple
@@ -24,13 +24,14 @@ function AnimalShowPage() {
           title="San Jose"
           options={[
             productionRoute,
-            { url: `${productionRoute.url}/animal?q=a`, name: "Animal" },
+            { url: `${productionRoute.url}/predio?q=a`, name: "Predio" },
           ]}
         />
         <div className="flex">
           <div className="col-2">
-            <CardContainer title="Datos Generales">
+            <CardContainer title="Animal">
               <CardSimple>
+                <CardTitle title="Establecimiento" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
             </CardContainer>
@@ -38,45 +39,42 @@ function AnimalShowPage() {
           <div className="col-3">
             <CardContainer title="Vigilancia">
               <CardSimple>
-                <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
+                <CardTitle title="Certificados de lugar de producción" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
               <CardSimple>
-                <CardTitle title="Inspección > Acta" />
+                <CardTitle title="Certificados de exportacion relacionados" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
             </CardContainer>
           </div>
         </div>
 
-        <CardContainer title="Control">
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Vacunación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-
-            <CardSimple>
-              <CardTitle title="Exportación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
+        <div className="flex mt-3">
+          <div className="col-2">
+            <CardContainer title="Vegetal">
+              <CardSimple>
+                <CardTitle title="Establecimiento" />
+                <CardBody>Hola</CardBody>
+              </CardSimple>
+            </CardContainer>
           </div>
-
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Importación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-
-            <CardSimple>
-              <CardTitle title="Importación > Acta Pos Entrada" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
+          <div className="col-3">
+            <CardContainer title="Vigilancia">
+              <CardSimple>
+                <CardTitle title="Certificados de lugar de producción" />
+                <CardBody>Hola</CardBody>
+              </CardSimple>
+              <CardSimple>
+                <CardTitle title="Certificados de exportacion relacionados" />
+                <CardBody>Hola</CardBody>
+              </CardSimple>
+            </CardContainer>
           </div>
-        </CardContainer>
+        </div>
       </div>
     </CenteredContainer>
   );
 }
 
-export default AnimalShowPage;
+export default PredioShowPage;

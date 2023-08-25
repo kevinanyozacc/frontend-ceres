@@ -1,15 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './reset.css'
-import './colors.css'
-import './assets/fonts/stylesheet.css'
-import App from './components/App'
-import reportWebVitals from './reportWebVitals'
-import { BrowserRouter } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import "./assets/fonts/stylesheet.css";
+import "./colors.css";
+import App from "./components/App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import "./reset.css";
 
-import { store, persistor } from './redux/store'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./redux/store";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,7 +22,7 @@ ReactDOM.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

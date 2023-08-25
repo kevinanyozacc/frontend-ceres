@@ -1,5 +1,9 @@
 import { Route } from "react-router-dom";
+import AlimentoShowPage from "../../../pages/production/alimento/alimento-show";
 import AnimalShowPage from "../../../pages/production/animal/animal-show";
+import ConsultaShowPage from "../../../pages/production/consulta/consulta-show";
+import PredioShowPage from "../../../pages/production/predio/predio-show";
+import VegetalShowPage from "../../../pages/production/vegetal/vegetal-show";
 import SearchResults from "../../SearchResults";
 import Searcher from "../../Searcher";
 
@@ -48,6 +52,10 @@ const ProductionPrimariaRoute = [
   // info
   <Route path="/produccion-primaria">
     <Route path="animal/:id" element={<AnimalShowPage />} />
+    <Route path="vegetal/:id" element={<VegetalShowPage />} />
+    <Route path="predio/:id" element={<PredioShowPage />} />
+    <Route path="alimento/:id" element={<AlimentoShowPage />} />
+    <Route path="consulta/:id" element={<ConsultaShowPage />} />
   </Route>,
 ];
 

@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1em;
+}
+
+.text-subtitle {
+  font-weight: 700;
+  margin-bottom: 0.4em;
+  text-decoration: underline;
+  margin-left: 0.3em;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.mb-1 {
+  margin-bottom: 0.5em;
+}
+
+.mt-2 {
+  margin-top: 1em;
+}
+
+.mt-3 {
+  margin-top: 1.5em;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex > div {
+  margin: 0.3em;
+  flex: 1;
+}
+
+.flex > .col-1 {
+  flex: 1;
+}
+
+.flex > .col-2 {
+  flex: 2;
+}
+
+.flex > .col-3 {
+  flex: 3;
+}

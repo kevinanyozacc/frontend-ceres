@@ -5,9 +5,8 @@ import { CardContainer } from "../../../shared/cards/components/card-container";
 import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
-import { productionRoute } from "../config";
 
-function AnimalShowPage() {
+function VegetalShowPage() {
   return (
     <CenteredContainer className="PlaceProfile__container">
       <HeaderSimple
@@ -23,8 +22,8 @@ function AnimalShowPage() {
         <BreadcrumbSimple
           title="San Jose"
           options={[
-            productionRoute,
-            { url: `${productionRoute.url}/animal?q=a`, name: "Animal" },
+            { url: "", name: "Producción Primaria" },
+            { url: "", name: "Vegetal" },
           ]}
         />
         <div className="flex">
@@ -41,42 +40,24 @@ function AnimalShowPage() {
                 <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
-              <CardSimple>
-                <CardTitle title="Inspección > Acta" />
-                <CardBody>Hola</CardBody>
-              </CardSimple>
             </CardContainer>
           </div>
         </div>
 
         <CardContainer title="Control">
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Vacunación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
+          <CardSimple className="mb-1">
+            <CardTitle title="Exportación > Certificado Importacion > RIU" />
+            <CardBody>Certificado</CardBody>
+          </CardSimple>
 
-            <CardSimple>
-              <CardTitle title="Exportación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-          </div>
-
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Importación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-
-            <CardSimple>
-              <CardTitle title="Importación > Acta Pos Entrada" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-          </div>
+          <CardSimple>
+            <CardTitle title="Importación > RIU" />
+            <CardBody>Hola</CardBody>
+          </CardSimple>
         </CardContainer>
       </div>
     </CenteredContainer>
   );
 }
 
-export default AnimalShowPage;
+export default VegetalShowPage;

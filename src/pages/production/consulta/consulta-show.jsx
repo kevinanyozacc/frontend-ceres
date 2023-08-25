@@ -7,7 +7,7 @@ import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
 import { productionRoute } from "../config";
 
-function AnimalShowPage() {
+function ConsultaShowPage() {
   return (
     <CenteredContainer className="PlaceProfile__container">
       <HeaderSimple
@@ -24,7 +24,7 @@ function AnimalShowPage() {
           title="San Jose"
           options={[
             productionRoute,
-            { url: `${productionRoute.url}/animal?q=a`, name: "Animal" },
+            { url: `${productionRoute.url}/consulta?q=a`, name: "Consultas" },
           ]}
         />
         <div className="flex">
@@ -36,47 +36,21 @@ function AnimalShowPage() {
             </CardContainer>
           </div>
           <div className="col-3">
-            <CardContainer title="Vigilancia">
+            <CardContainer title="Sensibilización">
               <CardSimple>
-                <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
+                <CardTitle title="Capacitación > Constancias y Certificados" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
               <CardSimple>
-                <CardTitle title="Inspección > Acta" />
+                <CardTitle title="Ecos > Productores > Constancias" />
                 <CardBody>Hola</CardBody>
               </CardSimple>
             </CardContainer>
           </div>
         </div>
-
-        <CardContainer title="Control">
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Vacunación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-
-            <CardSimple>
-              <CardTitle title="Exportación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-          </div>
-
-          <div className="flex">
-            <CardSimple className="mb-1">
-              <CardTitle title="Importación > Certificado" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-
-            <CardSimple>
-              <CardTitle title="Importación > Acta Pos Entrada" />
-              <CardBody>Certificado</CardBody>
-            </CardSimple>
-          </div>
-        </CardContainer>
       </div>
     </CenteredContainer>
   );
 }
 
-export default AnimalShowPage;
+export default ConsultaShowPage;
