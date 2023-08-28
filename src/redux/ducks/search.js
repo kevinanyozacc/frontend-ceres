@@ -5,7 +5,7 @@ export const tabMethods = {
     key: "establishment",
     label: "Establecimiento",
     description: `
-        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar vegetales de la cadena agropecuaria supervisados por el SENASA.
+        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.
       `,
     hint: "Escribe lugar, nombre de predio, etc.",
     icon: "jam:store",
@@ -14,7 +14,7 @@ export const tabMethods = {
     key: "vegetal",
     label: "Vegetal",
     description: `
-        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar vegetales de la cadena agropecuaria supervisados por el SENASA.
+        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de vegetales supervisados por el SENASA.
       `,
     hint: "Escribe lugar, nombre de predio, etc.",
     icon: "mdi:location",
@@ -23,7 +23,7 @@ export const tabMethods = {
     key: "animal",
     label: "Animal",
     description: `
-        Busca introduciendo el código de aretado de animal o alguna parte de este, por ejemplo PO1403-0005042.
+        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de animales supervisados por el SENASA.
       `,
     hint: "Escribe código de aretado",
     icon: "mdi:cow",
