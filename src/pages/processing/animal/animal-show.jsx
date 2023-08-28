@@ -45,9 +45,7 @@ function AnimalShowPage() {
           options={[
             processingRoute,
             {
-              url: `${
-                processingRoute.url
-              }/animal?q=${animalSelected?.cod_arete?.substring(0, 5)}`,
+              url: `${processingRoute.url}/animal?q=a`,
               name: "Animal",
             },
           ]}

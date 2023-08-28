@@ -11,6 +11,7 @@ import { CardContainer } from "../../../shared/cards/components/card-container";
 import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
+import { productionRoute } from "../config";
 
 function VegetalShowPage() {
   const params = useParams();
@@ -39,10 +40,12 @@ function VegetalShowPage() {
       />
       <div className="container">
         <BreadcrumbSimple
-          title="San Jose"
+          title={vegetalSelected?.ESTABLECIMIENTO_PRODUCTOR}
           options={[
-            { url: "", name: "Producción Primaria" },
-            { url: "", name: "Vegetal" },
+            {
+              url: `${productionRoute.url}/vegetal?q=a`,
+              name: "Producción Primaria",
+            },
           ]}
         />
         <div className="flex">
