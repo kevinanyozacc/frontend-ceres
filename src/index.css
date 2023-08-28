@@ -19,6 +19,10 @@
   margin-bottom: 0.5em;
 }
 
+.mb-2 {
+  margin-bottom: 1em;
+}
+
 .mt-2 {
   margin-top: 1em;
 }
@@ -51,4 +55,24 @@
 
 .flex > .col-3 {
   flex: 3;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.PlaceSearchResults {
+  display: grid;
+  grid-template: 1fr / 1fr calc(45% - 1rem) 25%;
+  flex: 1;
+  gap: .75rem 1rem;
+  position: relative;
+  padding: .75rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .PlaceSearchResults {
+    grid-template: auto 1fr / 1fr;
+    gap: 0;
+  }
 }

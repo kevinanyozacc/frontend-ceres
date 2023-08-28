@@ -1,5 +1,5 @@
-import AnimalSearchResultsList from "./AnimalSearchResultsList";
 import "./AnimalSearchResults.css";
+import AnimalSearchResultsList from "./AnimalSearchResultsList";
 
 const AnimalSearchResults = () => {
   return (

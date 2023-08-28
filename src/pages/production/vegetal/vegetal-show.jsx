@@ -1,4 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import CenteredContainer from "../../../components/CenteredContainer";
+import Loader from "../../../components/Loader";
+import VegetalVigilanciaList from "../../../modules/vegetal/components/vegetal-vigilancia-list";
+import useVegetalFind from "../../../modules/vegetal/hooks/use-vegetal-find";
 import BreadcrumbSimple from "../../../shared/breadcrumb/components/breadcrumb-simple";
 import CardBody from "../../../shared/cards/components/card-body";
 import { CardContainer } from "../../../shared/cards/components/card-container";
@@ -7,17 +13,30 @@ import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
 
 function VegetalShowPage() {
+  const params = useParams();
+  const { isLoading } = useVegetalFind(params.id);
+  const { vegetalSelected } = useSelector((state) => state.vegetal);
+
+  if (isLoading) {
+    return (
+      <CenteredContainer>
+        <Loader />;
+      </CenteredContainer>
+    );
+  }
+
+  if (!vegetalSelected) {
+    return <CenteredContainer>Algo salió mal</CenteredContainer>;
+  }
+
   return (
     <CenteredContainer className="PlaceProfile__container">
       <HeaderSimple
-        title="San Jose"
-        icon="mdi:farm"
-        displayType="Display"
-        locationName="Jr sol naciente"
-        ruc="71051564"
-        padron="M1"
+        title={vegetalSelected?.ESTABLECIMIENTO_PRODUCTOR}
+        icon="ph:plant-fill"
+        displayType="Origen:"
+        displayContent={vegetalSelected?.UBICATION}
       />
-
       <div className="container">
         <BreadcrumbSimple
           title="San Jose"
@@ -30,17 +49,27 @@ function VegetalShowPage() {
           <div className="col-2">
             <CardContainer title="Datos Generales">
               <CardSimple>
-                <CardBody>Hola</CardBody>
+                <CardBody>
+                  <div className="mb-2">
+                    <b className="bold">Establecimiento:</b>{" "}
+                    {vegetalSelected?.ESTABLECIMIENTO_PRODUCTOR}
+                  </div>
+                  <div className="mb-2">
+                    <b className="bold">Procedencia:</b>{" "}
+                    {vegetalSelected?.PROCEDENCIA === "N"
+                      ? "NACIONAL"
+                      : "OTROS"}
+                  </div>
+                  <div className="mb-2">
+                    <b className="bold">Ubicación:</b>{" "}
+                    {vegetalSelected?.UBICATION}
+                  </div>
+                </CardBody>
               </CardSimple>
             </CardContainer>
           </div>
           <div className="col-3">
-            <CardContainer title="Vigilancia">
-              <CardSimple>
-                <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
-                <CardBody>Hola</CardBody>
-              </CardSimple>
-            </CardContainer>
+            <VegetalVigilanciaList />
           </div>
         </div>
 

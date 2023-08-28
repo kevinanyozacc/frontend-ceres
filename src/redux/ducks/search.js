@@ -88,7 +88,6 @@ export const searchMethods = {
       tabMethods.establishment,
       tabMethods.vegetal,
       tabMethods.animal,
-      tabMethods.predio,
       tabMethods.alimento,
       tabMethods.consulta,
     ],

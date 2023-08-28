@@ -1,23 +1,28 @@
-import { configureStore } from '@reduxjs/toolkit'
-import authReducer from './ducks/auth'
-import searchReducer from './ducks/search'
-import drawerReducer from './ducks/drawer'
-import codesReducer from './ducks/codes'
-import { authApi } from './services/auth'
-import { searchApi } from './services/search'
-import { placeApi } from './services/place'
-import { animalApi } from './services/animal'
-import { farmApi } from './services/farm'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import { statsApi } from './services/stats'
+import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { animalRtk } from "../modules/animal/features/animal.rtk";
+import { animalReducer } from "../modules/animal/features/animal.slice";
+import { vegetalRtk } from "../modules/vegetal/features/vegetal.rtk";
+import { vegetalReducer } from "../modules/vegetal/features/vegetal.slice";
+import { filterReducer } from "../shared/filters/features/filter-slice";
+import authReducer from "./ducks/auth";
+import codesReducer from "./ducks/codes";
+import drawerReducer from "./ducks/drawer";
+import searchReducer from "./ducks/search";
+import { animalApi } from "./services/animal";
+import { authApi } from "./services/auth";
+import { farmApi } from "./services/farm";
+import { placeApi } from "./services/place";
+import { searchApi } from "./services/search";
+import { statsApi } from "./services/stats";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, authReducer)
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 export const store = configureStore({
   reducer: {
@@ -27,18 +32,26 @@ export const store = configureStore({
     [animalApi.reducerPath]: animalApi.reducer,
     [statsApi.reducerPath]: statsApi.reducer,
     [farmApi.reducerPath]: farmApi.reducer,
+    [animalRtk.reducerPath]: animalRtk.reducer,
+    [vegetalRtk.reducerPath]: vegetalRtk.reducer,
     auth: persistedReducer,
     search: searchReducer,
     drawer: drawerReducer,
     codes: codesReducer,
+    filter: filterReducer,
+    animal: animalReducer,
+    vegetal: vegetalReducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware()
-    .concat(authApi.middleware)
-    .concat(searchApi.middleware)
-    .concat(placeApi.middleware)
-    .concat(animalApi.middleware)
-    .concat(farmApi.middleware)
-    .concat(statsApi.middleware),
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()
+      .concat(authApi.middleware)
+      .concat(searchApi.middleware)
+      .concat(placeApi.middleware)
+      .concat(animalApi.middleware)
+      .concat(farmApi.middleware)
+      .concat(statsApi.middleware)
+      .concat(animalRtk.middleware)
+      .concat(vegetalRtk.middleware),
+});
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

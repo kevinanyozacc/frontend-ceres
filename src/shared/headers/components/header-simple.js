@@ -7,9 +7,8 @@ export default function HeaderSimple({
   icon,
   title,
   displayType,
-  locationName,
-  ruc,
-  padron,
+  displayContent,
+  moreInfo = [],
 }) {
   return (
     <div className="PlaceProfile__header">
@@ -23,12 +22,10 @@ export default function HeaderSimple({
         <img src={defaultImage3} alt="Imagen establecimiento" />
       </div>
       <h2 className="PlaceProfile__subtitle">
-        {displayType} en{" "}
-        <span className="PlaceProfile__location">{locationName}</span>
+        {displayType}
+        <span className="PlaceProfile__location"> {displayContent}</span>
       </h2>
-      <h2 className="PlaceProfile__subtitle">
-        RUC: {ruc} • Padrón: {padron}
-      </h2>
+      <h2 className="PlaceProfile__subtitle">{moreInfo.join(" • ")}</h2>
     </div>
   );
 }

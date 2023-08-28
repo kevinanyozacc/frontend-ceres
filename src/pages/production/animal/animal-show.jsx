@@ -1,4 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import CenteredContainer from "../../../components/CenteredContainer";
+import Loader from "../../../components/Loader";
+import AnimalVigilanciaList from "../../../modules/animal/components/animal-vigilancia-list";
+import useAnimalFind from "../../../modules/animal/hooks/use-animal-find";
 import BreadcrumbSimple from "../../../shared/breadcrumb/components/breadcrumb-simple";
 import CardBody from "../../../shared/cards/components/card-body";
 import { CardContainer } from "../../../shared/cards/components/card-container";
@@ -8,44 +14,67 @@ import HeaderSimple from "../../../shared/headers/components/header-simple";
 import { productionRoute } from "../config";
 
 function AnimalShowPage() {
+  const params = useParams();
+  const { animalSelected } = useSelector((state) => state.animal);
+  const { isLoading } = useAnimalFind(params.id);
+
+  if (isLoading) {
+    return (
+      <CenteredContainer>
+        <Loader />;
+      </CenteredContainer>
+    );
+  }
+
+  if (!animalSelected) {
+    return <CenteredContainer>Algo salió mal</CenteredContainer>;
+  }
+
   return (
     <CenteredContainer className="PlaceProfile__container">
       <HeaderSimple
-        title="San Jose"
-        icon="mdi:farm"
-        displayType="Display"
-        locationName="Jr sol naciente"
-        ruc="71051564"
-        padron="M1"
+        title={animalSelected?.ESTABLECIMIENTO_PRODUCTOR}
+        icon="mdi:pig"
+        displayType="Origen:"
+        displayContent={animalSelected?.UBICATION}
       />
 
       <div className="container">
         <BreadcrumbSimple
-          title="San Jose"
+          title={animalSelected?.cod_arete}
           options={[
             productionRoute,
-            { url: `${productionRoute.url}/animal?q=a`, name: "Animal" },
+            {
+              url: `${
+                productionRoute.url
+              }/animal?q=${animalSelected?.cod_arete?.substring(0, 5)}`,
+              name: "Animal",
+            },
           ]}
         />
         <div className="flex">
           <div className="col-2">
             <CardContainer title="Datos Generales">
               <CardSimple>
-                <CardBody>Hola</CardBody>
+                <CardBody>
+                  <div className="mb-2">
+                    <b className="bold">Establecimiento:</b>{" "}
+                    {animalSelected?.ESTABLECIMIENTO_PRODUCTOR}
+                  </div>
+                  <div className="mb-2">
+                    <b className="bold">Procedencia:</b>{" "}
+                    {animalSelected?.PROCEDENCIA}
+                  </div>
+                  <div className="mb-2">
+                    <b className="bold">Ubicación:</b>{" "}
+                    {animalSelected?.UBICATION}
+                  </div>
+                </CardBody>
               </CardSimple>
             </CardContainer>
           </div>
           <div className="col-3">
-            <CardContainer title="Vigilancia">
-              <CardSimple>
-                <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
-                <CardBody>Hola</CardBody>
-              </CardSimple>
-              <CardSimple>
-                <CardTitle title="Inspección > Acta" />
-                <CardBody>Hola</CardBody>
-              </CardSimple>
-            </CardContainer>
+            <AnimalVigilanciaList />
           </div>
         </div>
 

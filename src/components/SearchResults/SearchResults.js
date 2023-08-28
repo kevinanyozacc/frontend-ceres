@@ -9,18 +9,16 @@ import {
   setSearchType,
   tabMethods,
 } from "../../redux/ducks/search";
-import { BreadcrumbSimple } from "../BreadCrumb/BreadCrumb";
 import CenteredContainer from "../CenteredContainer";
-import AnimalSearchResults from "./AnimalSearchResults";
 import FarmSearchResults from "./FarmSearchResults";
-import PlaceSearchResults from "./PlaceSearchResults";
+import PlaceSearchResults from "./PlaceSearchResults/PlaceSearchResults";
 import "./SearchResults.css";
 import SearchResultsBar from "./SearchResultsBar";
 
-const SearchResults = ({ parent, name }) => {
+const SearchResults = ({ parent, name, children }) => {
   const dispatch = useDispatch();
   const { search } = useLocation();
-  const { searchFocused, searchTerm } = useSelector((state) => state.search);
+  const { searchFocused } = useSelector((state) => state.search);
 
   const currentParent = useMemo(() => {
     return searchMethods[parent] || undefined;
@@ -41,12 +39,6 @@ const SearchResults = ({ parent, name }) => {
     }
   }, [currentBody]);
 
-  if (!currentParent) return null;
-
-  if (!currentBody) return null;
-
-  if (!searchTerm) return null;
-
   return (
     <>
       <CenteredContainer className="SearchResults__container">
@@ -58,18 +50,13 @@ const SearchResults = ({ parent, name }) => {
         />
         <div className="SearchResults">
           <SearchResultsBar />
-          <BreadcrumbSimple
-            options={[{ name: currentParent.title, url: currentParent.url }]}
-            title={currentBody.label}
-          />
+          {children || null}
+
           {tabMethods.establishment.key === currentBody?.key ? (
             <PlaceSearchResults />
           ) : null}
           {tabMethods.vegetal.key === currentBody?.key ? (
             <PlaceSearchResults />
-          ) : null}
-          {tabMethods.animal.key === currentBody?.key ? (
-            <AnimalSearchResults />
           ) : null}
           {tabMethods.predio.key === currentBody?.key ? (
             <FarmSearchResults />
