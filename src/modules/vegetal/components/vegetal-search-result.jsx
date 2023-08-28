@@ -29,8 +29,8 @@ export default function VegetalSearchResult({ onClickItem, isLoading }) {
               name={item?.ESTABLECIMIENTO_PRODUCTOR}
               listInfo={[
                 { icon: "icomoon-free:location2", text: item?.UBICATION },
+                { icon: "icon-park:id-card", text: item?.REGISTRO_MONITOREO },
               ]}
-              moreInfo={[`RUC: ${item.CNUMDOC}`]}
             />
           ))}
         </FilterList>

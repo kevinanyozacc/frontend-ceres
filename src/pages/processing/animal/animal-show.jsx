@@ -11,7 +11,7 @@ import { CardContainer } from "../../../shared/cards/components/card-container";
 import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
-import { productionRoute } from "../config";
+import { processingRoute } from "../config";
 
 function AnimalShowPage() {
   const params = useParams();
@@ -43,10 +43,10 @@ function AnimalShowPage() {
         <BreadcrumbSimple
           title={animalSelected?.cod_arete}
           options={[
-            productionRoute,
+            processingRoute,
             {
               url: `${
-                productionRoute.url
+                processingRoute.url
               }/animal?q=${animalSelected?.cod_arete?.substring(0, 5)}`,
               name: "Animal",
             },

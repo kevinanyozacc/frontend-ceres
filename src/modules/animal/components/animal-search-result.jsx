@@ -28,6 +28,7 @@ export default function AnimalSearchResult({ onClickItem, isLoading }) {
               key={`item-${index}`}
               name={item?.ESTABLECIMIENTO_PRODUCTOR}
               listInfo={[
+                { icon: "teenyicons:id-solid", text: item?.REGISTRO_MONITOREO },
                 { icon: "icomoon-free:location2", text: item?.UBICATION },
               ]}
             />
