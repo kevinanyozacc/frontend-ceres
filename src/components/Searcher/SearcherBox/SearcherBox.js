@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Icon } from "@iconify/react";
 import classNames from "classnames";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import useFocusInput from "../../../hooks/useFocusInput";
 import {
   searchMethods,
   setSearchMethod,
@@ -15,7 +14,8 @@ import "./SearcherBox.css";
 
 const SearcherBox = ({ title, name }) => {
   const navigate = useNavigate();
-  const inputSearchRef = useFocusInput();
+  const location = useLocation();
+  const inputSearchRef = useRef();
   const { searchTerm, searchMethod } = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
@@ -38,8 +38,8 @@ const SearcherBox = ({ title, name }) => {
   };
 
   useEffect(() => {
-    dispatch(setSearchMethod(""));
-  }, []);
+    dispatch(setSearchTerm(""));
+  }, [location.pathname]);
 
   useEffect(() => {
     inputSearchRef.current?.focus();
