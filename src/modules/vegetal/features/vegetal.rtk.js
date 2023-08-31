@@ -25,12 +25,12 @@ export const vegetalRtk = createApi({
     }),
     findVegetal: builder.query({
       query: (id) => ({
-        url: `search/vegetal?q=${id}`,
+        url: `search/vegetal-complete?q=${id}`,
       }),
     }),
     paginateVigilancia: builder.query({
       query: (id) => ({
-        url: `search/vegetal?q=${id}`,
+        url: `search/vegetal-complete?q=${id}`,
       }),
     }),
   }),
