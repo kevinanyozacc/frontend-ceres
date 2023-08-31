@@ -11,7 +11,7 @@ function VegetalIndexPage() {
   const navigate = useNavigate();
   const hook = useVegetalPaginate(true);
 
-  useRequestPaginateToList(hook.page, hook.lastPage, () => {
+  useRequestPaginateToList(hook.page, hook.lastPage, hook.isFetching, () => {
     hook.handle(hook.page + 1);
   });
 

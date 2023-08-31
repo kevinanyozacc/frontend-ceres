@@ -17,6 +17,12 @@ export const animalRtk = createApi({
         params,
       }),
     }),
+    metainfoAnimal: builder.query({
+      query: (params) => ({
+        url: `search/metainfo/animal`,
+        params,
+      }),
+    }),
     findAnimal: builder.query({
       query: (id) => ({
         url: `search/animal?q=${id}`,
@@ -33,6 +39,7 @@ export const animalRtk = createApi({
 
 export const {
   useLazySearchAnimalQuery,
+  useLazyMetainfoAnimalQuery,
   useLazyFindAnimalQuery,
   useLazyPaginateVigilanciaQuery,
 } = animalRtk;

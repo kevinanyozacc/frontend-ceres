@@ -17,6 +17,12 @@ export const predioRtk = createApi({
         params,
       }),
     }),
+    metainfoPredio: builder.query({
+      query: (params) => ({
+        url: `search/metainfo/predio`,
+        params,
+      }),
+    }),
     findPredio: builder.query({
       query: (id) => ({
         url: `farm/${id}`,
@@ -32,6 +38,7 @@ export const predioRtk = createApi({
 
 export const {
   useLazySearchPredioQuery,
+  useLazyMetainfoPredioQuery,
   useLazyFindPredioQuery,
   useLazyPaginateVigilanciaQuery,
 } = predioRtk;

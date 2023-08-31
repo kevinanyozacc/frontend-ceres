@@ -11,6 +11,12 @@ const predioSlice = createSlice({
     setPredioPaginate: (state, { payload }) => {
       state.predioPaginate = payload;
     },
+    setPredioPaginateAppend: (state, { payload }) => {
+      const newData = payload?.data || [];
+      const newMeta = payload?.meta || {};
+      state.predioPaginate.data?.push(...newData);
+      state.predioPaginate.meta = newMeta;
+    },
     setPredioSelected: (state, { payload }) => {
       state.predioSelected = payload;
     },

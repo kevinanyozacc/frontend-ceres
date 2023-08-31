@@ -11,6 +11,12 @@ const animalSlice = createSlice({
     setAnimalPaginate: (state, { payload }) => {
       state.animalPaginate = payload;
     },
+    setAnimalPaginateAppend: (state, { payload }) => {
+      const newData = payload?.data || [];
+      const newMeta = payload?.meta || {};
+      state.animalPaginate.data?.push(...newData);
+      state.animalPaginate.meta = newMeta;
+    },
     setAnimalSelected: (state, { payload }) => {
       state.animalSelected = payload;
     },

@@ -4,13 +4,14 @@ import { useEffect } from "react";
 export default function useRequestPaginateToList(
   page = 1,
   lastPage,
+  isLoading,
   callback = () => {}
 ) {
   useEffect(() => {
-    if (page + 1 <= lastPage) {
+    if (page + 1 <= lastPage && !isLoading) {
       setTimeout(() => {
         callback();
       }, 1000);
     }
-  }, [page, lastPage]);
+  }, [page, lastPage, isLoading]);
 }
