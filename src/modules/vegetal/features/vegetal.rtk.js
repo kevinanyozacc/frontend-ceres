@@ -17,6 +17,12 @@ export const vegetalRtk = createApi({
         params,
       }),
     }),
+    metainfoVegetal: builder.query({
+      query: (params) => ({
+        url: `search/metainfo/vegetal`,
+        params,
+      }),
+    }),
     findVegetal: builder.query({
       query: (id) => ({
         url: `search/vegetal?q=${id}`,
@@ -32,6 +38,7 @@ export const vegetalRtk = createApi({
 
 export const {
   useLazySearchVegetalQuery,
+  useLazyMetainfoVegetalQuery,
   useLazyFindVegetalQuery,
   useLazyPaginateVigilanciaQuery,
 } = vegetalRtk;

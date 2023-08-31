@@ -17,6 +17,9 @@ const filterSlice = createSlice({
     setOrderBySelected: (state, { payload }) => {
       state.orderBySelected = payload;
     },
+    setDepartaments: (state, { payload }) => {
+      state.departaments = payload;
+    },
   },
 });
 

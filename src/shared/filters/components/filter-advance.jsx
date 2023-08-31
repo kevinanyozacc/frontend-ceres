@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import Select from "react-select";
 import "../styles/filter-advance.css";
 
 export function FilterAdvance({ isLoading }) {
+  const { departaments } = useSelector((state) => state.filter);
+
   return (
     <div className="PlaceSearchResultsFilters">
       <div className="PlaceSearchResultsFilters__filters_container">
@@ -12,7 +15,11 @@ export function FilterAdvance({ isLoading }) {
         </div>
         <div className="PlaceSearchResultsFilters__field_container">
           <label htmlFor="advanced-filters-place-select">Departamento</label>
-          <Select id="advanced-filters-place-select" isDisabled={isLoading} />
+          <Select
+            id="advanced-filters-place-select"
+            isDisabled={isLoading}
+            options={departaments}
+          />
         </div>
         <div className="PlaceSearchResultsFilters__field_container">
           <label htmlFor="advanced-filters-place-select">Año</label>
