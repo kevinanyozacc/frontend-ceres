@@ -38,6 +38,10 @@ const SearcherBox = ({ title, name }) => {
   };
 
   useEffect(() => {
+    dispatch(setSearchMethod(""));
+  }, []);
+
+  useEffect(() => {
     inputSearchRef.current?.focus();
   }, [searchMethod, inputSearchRef]);
 

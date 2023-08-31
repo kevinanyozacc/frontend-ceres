@@ -39,7 +39,7 @@ export default function usePredioMetainfo() {
 
       tmpGroup.push({
         title: item.name,
-        items: [[coord.GEO_LAT, coord.GEO_LONG]],
+        items: [[coord.lat, coord.lng]],
       });
     });
     // set coords
