@@ -1,5 +1,4 @@
 import { Route } from "react-router-dom";
-import AlimentoShowPage from "../../../pages/production/alimento/alimento-show";
 import ConsultaShowPage from "../../../pages/production/consulta/consulta-show";
 import PredioIndexPage from "../../../pages/production/predio/predio-index";
 import PredioShowPage from "../../../pages/production/predio/predio-show";
@@ -42,7 +41,6 @@ const ProductionPrimariaRoute = [
     <Route path="vegetal/:id" element={<VegetalShowPage />} />
     <Route path="predio" element={<PredioIndexPage />} />
     <Route path="predio/:id" element={<PredioShowPage />} />
-    <Route path="alimento/:id" element={<AlimentoShowPage />} />
     <Route path="consulta/:id" element={<ConsultaShowPage />} />
   </Route>,
 ];

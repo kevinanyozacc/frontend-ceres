@@ -5,7 +5,7 @@ import { CardContainer } from "../../../shared/cards/components/card-container";
 import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import HeaderSimple from "../../../shared/headers/components/header-simple";
-import { productionRoute } from "../config";
+import { processingRoute } from "../config";
 
 function AlimentoShowPage() {
   return (
@@ -23,8 +23,8 @@ function AlimentoShowPage() {
         <BreadcrumbSimple
           title="San Jose"
           options={[
-            productionRoute,
-            { url: `${productionRoute.url}/alimento?q=a`, name: "Alimento" },
+            processingRoute,
+            { url: `${processingRoute.url}/alimento?q=a`, name: "Alimento" },
           ]}
         />
         <div className="flex">

@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { alimentoRtk } from "../modules/alimento/features/alimento.rtk";
+import { alimentoReducer } from "../modules/alimento/features/alimento.slice";
 import { animalRtk } from "../modules/animal/features/animal.rtk";
 import { animalReducer } from "../modules/animal/features/animal.slice";
 import { predioRtk } from "../modules/predio/features/predio.rtk";
@@ -37,6 +39,7 @@ export const store = configureStore({
     [animalRtk.reducerPath]: animalRtk.reducer,
     [vegetalRtk.reducerPath]: vegetalRtk.reducer,
     [predioRtk.reducerPath]: predioRtk.reducer,
+    [alimentoRtk.reducerPath]: alimentoRtk.reducer,
     auth: persistedReducer,
     search: searchReducer,
     drawer: drawerReducer,
@@ -45,6 +48,7 @@ export const store = configureStore({
     animal: animalReducer,
     vegetal: vegetalReducer,
     predio: predioReducer,
+    alimento: alimentoReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -56,7 +60,8 @@ export const store = configureStore({
       .concat(statsApi.middleware)
       .concat(animalRtk.middleware)
       .concat(vegetalRtk.middleware)
-      .concat(predioRtk.middleware),
+      .concat(predioRtk.middleware)
+      .concat(alimentoRtk.middleware),
 });
 
 export const persistor = persistStore(store);

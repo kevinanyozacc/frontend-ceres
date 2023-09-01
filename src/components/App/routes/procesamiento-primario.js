@@ -1,4 +1,6 @@
 import { Route } from "react-router-dom";
+import AlimentoIndexPage from "../../../pages/processing/alimento/alimento-index";
+import AlimentoShowPage from "../../../pages/processing/alimento/alimento-show";
 import AnimalIndexPage from "../../../pages/processing/animal/animal-index";
 import AnimalShowPage from "../../../pages/processing/animal/animal-show";
 import SearchResults from "../../SearchResults";
@@ -23,16 +25,6 @@ const ProcesamientoPrimarioRoute = [
       element={<SearchResults parent="procesamiento-primario" name="vegetal" />}
     />
     <Route
-      path="predio"
-      element={<SearchResults parent="procesamiento-primario" name="predio" />}
-    />
-    <Route
-      path="alimento"
-      element={
-        <SearchResults parent="procesamiento-primario" name="alimento" />
-      }
-    />
-    <Route
       path="consulta"
       element={
         <SearchResults parent="procesamiento-primario" name="consulta" />
@@ -43,6 +35,8 @@ const ProcesamientoPrimarioRoute = [
   <Route path="/procesamiento-primario">
     <Route path="animal" element={<AnimalIndexPage />} />
     <Route path="animal/:id" element={<AnimalShowPage />} />
+    <Route path="alimento" element={<AlimentoIndexPage />} />
+    <Route path="alimento/:id" element={<AlimentoShowPage />} />
   </Route>,
 ];
 
