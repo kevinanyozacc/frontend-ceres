@@ -6,11 +6,11 @@ import { CardContainer } from "../../../shared/cards/components/card-container";
 import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import FilterItem from "../../../shared/filters/components/filter-item";
-import useAnimalVigilancia from "../hooks/use-animal-vigilancia";
+import useAlimentoVigilancia from "../hooks/use-alimento-vigilancia";
 
-export default function AnimalVigilanciaList() {
-  const { animalVigilancia } = useSelector((state) => state.animal);
-  const { isLoading } = useAnimalVigilancia();
+export default function AlimentoVigilanciaList() {
+  const { alimentoVigilancia } = useSelector((state) => state.alimento);
+  const { isLoading } = useAlimentoVigilancia();
 
   if (isLoading) return <Loader />;
 
@@ -20,33 +20,29 @@ export default function AnimalVigilanciaList() {
         <Fragment>
           <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
           <CardBody>
-            {animalVigilancia?.data?.map((item, index) => (
+            {alimentoVigilancia?.data?.map((item, index) => (
               <FilterItem
                 icon="ic:baseline-monitor-heart"
                 key={`item-${index}`}
-                name={item?.COD_MUESTRA}
+                name={`${item?.MUESTRA_ID || ""}`}
                 listInfo={[
                   {
                     icon: "material-symbols:info-outline",
-                    text: item?.TIPO_MUESTRA,
+                    text: item?.DESCRIPCION_ALIMENTO,
                   },
                   {
                     icon: "ic:sharp-food-bank",
-                    text: item?.NOMBRE_ALIMENTO,
+                    text: item?.MOTIVO_ANALISIS,
                   },
                   {
                     icon: "mdi:location",
-                    text: item?.UBICATION,
+                    text: item?.DESC_SEDE_SED,
                   },
                 ]}
               />
             ))}
           </CardBody>
         </Fragment>
-      </CardSimple>
-      <CardSimple>
-        <CardTitle title="Inspección > Acta" />
-        <CardBody>Hola</CardBody>
       </CardSimple>
     </CardContainer>
   );

@@ -12,7 +12,7 @@ export default function FilterItem({
     <div className="PlaceSearchResultCard" onClick={onClick} title={name || ""}>
       <Icon className="PlaceSearchResultCard__icon" icon={icon || "mdi:farm"} />
       <h4 className="PlaceSearchResultCard__title">
-        {name?.toLowerCase() || ""}
+        {(name && name?.toLowerCase()) || ""}
       </h4>
       <div>
         {listInfo?.map((info, index) => (

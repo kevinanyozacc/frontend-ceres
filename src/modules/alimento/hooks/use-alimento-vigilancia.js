@@ -11,11 +11,11 @@ export default function useAnimalVigilancia() {
     useLazyPaginateVigilanciaQuery();
 
   const handle = () => {
-    fetch(alimentoSelected.REGISTRO_MONITOREO);
+    fetch(alimentoSelected.REGISTRO_ID);
   };
 
   useEffect(() => {
-    if (alimentoSelected?.REGISTRO_MONITOREO) handle();
+    if (alimentoSelected?.REGISTRO_ID) handle();
   }, [alimentoSelected]);
 
   useEffect(() => {

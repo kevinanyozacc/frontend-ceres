@@ -30,13 +30,13 @@ export default function AlimentoSearchResult({
         >
           {alimentoPaginate?.data?.map((item, index) => (
             <FilterItem
-              icon="mdi:pig"
+              icon="dashicons:food"
               onClick={() => onClickItem && onClickItem(item)}
               key={`item-${index}`}
-              name={item?.ESTABLECIMIENTO_PRODUCTOR}
+              name={item?.FABRICANTE_FORMULADOR}
               listInfo={[
-                { icon: "teenyicons:id-solid", text: item?.REGISTRO_MONITOREO },
-                { icon: "icomoon-free:location2", text: item?.UBICATION },
+                { icon: "teenyicons:id-solid", text: item?.REGISTRO_ID },
+                { icon: "icomoon-free:location2", text: item?.DESC_SEDE_SED },
               ]}
             />
           ))}

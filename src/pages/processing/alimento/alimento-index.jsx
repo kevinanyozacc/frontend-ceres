@@ -16,7 +16,7 @@ function AlimentoIndexPage() {
   });
 
   const toLink = (item) => {
-    navigate(`/alimento/${item.ID}`);
+    navigate(`${processingRoute.url}/alimento/${item.REGISTRO_ID}`);
   };
 
   return (

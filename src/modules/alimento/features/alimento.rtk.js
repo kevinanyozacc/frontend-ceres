@@ -31,7 +31,7 @@ export const alimentoRtk = createApi({
     }),
     paginateVigilancia: builder.query({
       query: (id) => ({
-        url: `search/alimento?q=${id}`,
+        url: `search/alimento-complete?q=${id}`,
       }),
     }),
   }),
