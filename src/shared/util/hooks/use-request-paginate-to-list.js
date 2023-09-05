@@ -11,7 +11,7 @@ export default function useRequestPaginateToList(
     if (page + 1 <= lastPage && !isLoading) {
       setTimeout(() => {
         callback();
-      }, 1000);
+      }, 2000);
     }
   }, [page, lastPage, isLoading]);
 }

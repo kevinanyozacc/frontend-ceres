@@ -24,7 +24,7 @@ export function MapboxSimple({ group = [], isLoading, onGroup, onMarker }) {
             <MarkerClusterGroup
               spiderfyOnMaxZoom={false}
               zoomToBoundsOnClick={false}
-              onClick={() => onGroup(group)}
+              onClick={() => onGroup && onGroup(group)}
               key={`marker-cluster-${i}`}
             >
               {group?.items?.map((item, j) => (
@@ -32,7 +32,7 @@ export function MapboxSimple({ group = [], isLoading, onGroup, onMarker }) {
                   key={`marker-${i}-${j}`}
                   position={item}
                   eventHandlers={{
-                    click: () => onMarker(item),
+                    click: () => onMarker && onMarker(item),
                   }}
                 />
               ))}

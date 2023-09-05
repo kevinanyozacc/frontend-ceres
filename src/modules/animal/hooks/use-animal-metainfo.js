@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import dataDepartaments from "../../../data/departamentos.json";
 import { filterActions } from "../../../shared/filters/features/filter-slice";
+import mapboxGenerateCoords from "../../../shared/mapbox/utils/mapbox-generate-coords";
 import { useLazyMetainfoAnimalQuery } from "../features/animal.rtk";
 
 export default function useAnimalMetainfo() {
@@ -17,31 +17,24 @@ export default function useAnimalMetainfo() {
 
   const formatDepartaments = () => {
     const dataFormat = [];
+    const tmpGroup = [];
+
     data?.departaments?.forEach((item) => {
       dataFormat.push({
         value: item.name,
         label: `${item.name} (${item.counter})`,
+        obj: item,
       });
-    });
-    // save
-    dispatch(filterActions.setDepartaments(dataFormat));
-    // draw map
-    const tmpGroup = [];
-    dataFormat.forEach((item) => {
-      console.log(item);
-      const coord = dataDepartaments.find(
-        (dto) =>
-          dto.name.toUpperCase().trim() === item.value?.toUpperCase()?.trim()
-      );
 
-      if (!coord) return;
-
+      // draw map
       tmpGroup.push({
         title: item.name,
-        items: [[coord.lat, coord.lng]],
+        items: mapboxGenerateCoords([item.lat, item.lng], item.counter),
       });
     });
-    // set coords
+
+    // save
+    dispatch(filterActions.setDepartaments(dataFormat));
     setGroupCoords(tmpGroup);
   };
 

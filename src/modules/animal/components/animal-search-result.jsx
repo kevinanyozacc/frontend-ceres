@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Loader from "../../../components/Loader";
 import { FilterAdvance } from "../../../shared/filters/components/filter-advance";
 import { FilterContainer } from "../../../shared/filters/components/filter-container";
 import FilterHeader from "../../../shared/filters/components/filter-header";
@@ -7,26 +8,38 @@ import FilterItem from "../../../shared/filters/components/filter-item";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { MapboxSimple } from "../../../shared/mapbox/components/mapbox-simple";
 import useAnimalMetainfo from "../hooks/use-animal-metainfo";
+import useAnimalPaginate from "../hooks/use-animal-paginate";
 
-export default function AnimalSearchResult({
-  onClickItem,
-  isLoading,
-  isFetching,
-}) {
+export default function AnimalSearchResult({ onClickItem }) {
   const { animalPaginate } = useSelector((state) => state.animal);
+  const { searchTerm } = useSelector((state) => state.search);
+
+  const hookPaginate = useAnimalPaginate(true);
   const hookMetainfo = useAnimalMetainfo();
+
+  useEffect(() => {
+    if (searchTerm) {
+      hookPaginate.clear();
+      hookPaginate.handle();
+    }
+  }, [searchTerm]);
 
   return (
     <div className="PlaceSearchResults">
-      <MapboxSimple isLoading={isLoading} group={hookMetainfo.groupCoords} />
+      <MapboxSimple
+        isLoading={hookMetainfo.isLoading}
+        group={hookMetainfo.groupCoords}
+      />
       <FilterContainer>
         <FilterHeader
-          isLoading={isLoading}
+          isLoading={hookPaginate.isLoading}
           counter={animalPaginate?.meta?.totalItems || 0}
         />
         <FilterList
-          isLoading={isLoading}
+          isLoading={hookPaginate.isLoading}
+          isFetching={hookPaginate.isFetching}
           counter={animalPaginate?.meta?.totalItems || 0}
+          onInfinityScroll={hookPaginate.nextData}
         >
           {animalPaginate?.data?.map((item, index) => (
             <FilterItem
@@ -40,10 +53,9 @@ export default function AnimalSearchResult({
               ]}
             />
           ))}
-          {isFetching ? <Loader query="Obteniendo más información" /> : null}
         </FilterList>
       </FilterContainer>
-      <FilterAdvance isLoading={isLoading} />
+      <FilterAdvance isLoading={hookMetainfo.isLoading} />
     </div>
   );
 }

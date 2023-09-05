@@ -1,46 +1,50 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLazySearchPredioQuery } from "../features/predio.rtk";
 import { predioActions } from "../features/predio.slice";
 
 export default function usePredioPaginate(autoload = false) {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(0);
-  const [lastPage, setLastPage] = useState(0);
   const { searchTerm } = useSelector((state) => state.search);
-  const [fetch, { isLoading, isFetching, data }] = useLazySearchPredioQuery();
+  const [fetch, { data, isLoading, isFetching }] = useLazySearchPredioQuery();
 
-  const handle = (page = 1) => {
-    fetch({ q: searchTerm, limit: 100, page });
-    setPage((prev) => prev + 1);
+  const currentPage = useMemo(() => {
+    return data?.meta?.currentPage || 1;
+  }, [data]);
+
+  const lastPage = useMemo(() => {
+    return data?.meta?.totalPages || 1;
+  }, [data]);
+
+  const clear = () => {
+    dispatch(predioActions.setPredioPaginate({ data: [] }));
   };
 
-  useEffect(() => {
-    if (searchTerm) {
-      dispatch(predioActions.setPredioPaginate({ data: [] }));
-      setPage(0);
-      handle(1);
-    }
-  }, [searchTerm]);
+  const handle = (page = 1) => {
+    fetch({ q: searchTerm, limit: 100, page })
+      .unwrap()
+      .then((data) => {
+        if (!autoload) {
+          dispatch(predioActions.setPredioPaginate(data));
+        } else {
+          dispatch(predioActions.setPredioPaginateAppend(data));
+        }
+      });
+  };
 
-  useEffect(() => {
-    if (data && !autoload) dispatch(predioActions.setPredioPaginate(data));
-    setLastPage(data?.meta?.totalPages || 0);
-  }, [data, autoload]);
-
-  useEffect(() => {
-    if (data && autoload) {
-      dispatch(predioActions.setPredioPaginateAppend(data));
-      setLastPage(data?.meta?.totalPages || 0);
-    }
-  }, [data, autoload, page]);
+  const nextData = () => {
+    const nexPage = currentPage + 1;
+    if (nexPage <= lastPage) handle(nexPage);
+  };
 
   return {
     isLoading,
     isFetching,
+    clear,
     handle,
-    page,
+    nextData,
+    page: currentPage,
     lastPage,
   };
 }

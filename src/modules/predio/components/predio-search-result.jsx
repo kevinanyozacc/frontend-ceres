@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Loader from "../../../components/Loader";
 import { FilterAdvance } from "../../../shared/filters/components/filter-advance";
 import { FilterContainer } from "../../../shared/filters/components/filter-container";
 import FilterHeader from "../../../shared/filters/components/filter-header";
@@ -7,14 +8,21 @@ import FilterItem from "../../../shared/filters/components/filter-item";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { MapboxSimple } from "../../../shared/mapbox/components/mapbox-simple";
 import usePredioMetainfo from "../hooks/use-predio-metainfo";
+import usePredioPaginate from "../hooks/use-predio-paginate";
 
-export default function VegetalSearchResult({
-  onClickItem,
-  isLoading,
-  isFetching,
-}) {
+export default function VegetalSearchResult({ onClickItem }) {
   const { predioPaginate } = useSelector((state) => state.predio);
+  const { searchTerm } = useSelector((state) => state.search);
+
+  const hookPaginate = usePredioPaginate(true);
   const hookMetainfo = usePredioMetainfo();
+
+  useEffect(() => {
+    if (searchTerm) {
+      hookPaginate.clear();
+      hookPaginate.handle();
+    }
+  }, [searchTerm]);
 
   return (
     <div className="PlaceSearchResults">
@@ -24,12 +32,14 @@ export default function VegetalSearchResult({
       />
       <FilterContainer>
         <FilterHeader
-          isLoading={isLoading}
+          isLoading={hookPaginate.isLoading}
           counter={predioPaginate?.meta?.totalItems || 0}
         />
         <FilterList
-          isLoading={isLoading}
+          isLoading={hookPaginate.isLoading}
+          isFetching={hookPaginate.isFetching}
           counter={predioPaginate?.meta?.totalItems || 0}
+          onInfinityScroll={hookPaginate.nextData}
         >
           {predioPaginate?.data?.map((item, index) => (
             <FilterItem
@@ -42,10 +52,9 @@ export default function VegetalSearchResult({
               ]}
             />
           ))}
-          {isFetching ? <Loader query="Obteniendo más información" /> : null}
         </FilterList>
       </FilterContainer>
-      <FilterAdvance isLoading={isLoading} />
+      <FilterAdvance isLoading={hookPaginate.isLoading} />
     </div>
   );
 }

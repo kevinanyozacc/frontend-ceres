@@ -1,48 +1,51 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLazySearchAnimalQuery } from "../features/animal.rtk";
 import { animalActions } from "../features/animal.slice";
 
-export default function useAnimalPaginate(autoload = false) {
+export default function useAlnimalPaginate(autoload = false) {
   const dispatch = useDispatch();
-  const [page, setPage] = useState(0);
-  const [lastPage, setLastPage] = useState(0);
   const { searchTerm } = useSelector((state) => state.search);
-  const [fetch, { isLoading, isFetching, data }] = useLazySearchAnimalQuery();
+  const [fetch, { data, isLoading, isFetching }] = useLazySearchAnimalQuery();
 
-  const handle = (page = 1) => {
-    fetch({ q: searchTerm, limit: 100, page });
-    setPage((prev) => prev + 1);
+  const currentPage = useMemo(() => {
+    return data?.meta?.currentPage || 1;
+  }, [data]);
+
+  const lastPage = useMemo(() => {
+    return data?.meta?.totalPages || 1;
+  }, [data]);
+
+  const clear = () => {
+    dispatch(animalActions.setAnimalPaginate({ data: [] }));
   };
 
-  useEffect(() => {
-    if (searchTerm) {
-      dispatch(animalActions.setAnimalPaginate({ data: [] }));
-      setPage(0);
-      handle(1);
-    }
-  }, [searchTerm]);
+  const handle = (page = 1) => {
+    fetch({ q: searchTerm, limit: 100, page })
+      .unwrap()
+      .then((data) => {
+        if (!autoload) {
+          dispatch(animalActions.setAnimalPaginate(data));
+        } else {
+          dispatch(animalActions.setAnimalPaginateAppend(data));
+        }
+      });
+  };
 
-  useEffect(() => {
-    if (data && !autoload) {
-      dispatch(animalActions.setAnimalPaginate(data));
-      setLastPage(data?.meta?.totalPages || 0);
-    }
-  }, [data, autoload]);
-
-  useEffect(() => {
-    if (data && autoload) {
-      dispatch(animalActions.setAnimalPaginateAppend(data));
-      setLastPage(data?.meta?.totalPages || 0);
-    }
-  }, [data, autoload, page]);
+  const nextData = () => {
+    const nexPage = currentPage + 1;
+    if (nexPage <= lastPage) handle(nexPage);
+  };
 
   return {
     isLoading,
     isFetching,
+    clear,
     handle,
-    page,
+    nextData,
+    page: currentPage,
     lastPage,
   };
 }
