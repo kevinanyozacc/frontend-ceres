@@ -24,7 +24,7 @@ export default function AlimentoVigilanciaList() {
               <FilterItem
                 icon="ic:baseline-monitor-heart"
                 key={`item-${index}`}
-                name={`${item?.MUESTRA_ID || ""}`}
+                name={`${item?.REGISTRO_MONITOREO || ""}`}
                 listInfo={[
                   {
                     icon: "material-symbols:info-outline",
@@ -32,11 +32,19 @@ export default function AlimentoVigilanciaList() {
                   },
                   {
                     icon: "ic:sharp-food-bank",
-                    text: item?.MOTIVO_ANALISIS,
+                    text: `E: ${item?.ENSAYO || ""}`,
+                  },
+                  {
+                    icon: "octicon:trash-16",
+                    text: `S: ${item?.RESIDUOS || ""}`,
+                  },
+                  {
+                    icon: "ep:list",
+                    text: `R: ${item?.RESULTADO}`,
                   },
                   {
                     icon: "mdi:location",
-                    text: item?.DESC_SEDE_SED,
+                    text: `${item?.NOMB_DPTO_DPT} / ${item?.NOMB_PROV_TPR} / ${item?.NOMB_DIST_TDI}`,
                   },
                 ]}
               />
