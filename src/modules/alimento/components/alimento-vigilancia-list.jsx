@@ -28,7 +28,7 @@ export default function AlimentoVigilanciaList() {
                 listInfo={[
                   {
                     icon: "material-symbols:info-outline",
-                    text: item?.DESCRIPCION_ALIMENTO,
+                    text: item?.DESCRIPCION_ALIMENTO || "",
                   },
                   {
                     icon: "ic:sharp-food-bank",
@@ -40,7 +40,7 @@ export default function AlimentoVigilanciaList() {
                   },
                   {
                     icon: "ep:list",
-                    text: `R: ${item?.RESULTADO}`,
+                    text: `R: ${item?.RESULTADO || ""}`,
                   },
                   {
                     icon: "mdi:location",
