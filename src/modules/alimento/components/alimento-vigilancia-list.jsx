@@ -18,7 +18,7 @@ export default function AlimentoVigilanciaList() {
     <CardContainer title="Vigilancia">
       <CardSimple>
         <Fragment>
-          <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
+          <CardTitle title="Monitoreo > Contaminantes > Inf. Ensayo" />
           <CardBody>
             {alimentoVigilancia?.data?.map((item, index) => (
               <FilterItem
