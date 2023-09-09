@@ -7,6 +7,7 @@ import CardSimple from "../../../shared/cards/components/card-simple";
 import CardTitle from "../../../shared/cards/components/card-title";
 import FilterItem from "../../../shared/filters/components/filter-item";
 import useAlimentoVigilancia from "../hooks/use-alimento-vigilancia";
+import { DateTime} from "luxon";
 
 export default function AlimentoVigilanciaList() {
   const { alimentoVigilancia } = useSelector((state) => state.alimento);
@@ -29,6 +30,28 @@ export default function AlimentoVigilanciaList() {
                   {
                     icon: "material-symbols:info-outline",
                     text: item?.DESCRIPCION_ALIMENTO || "",
+                  },
+                  {
+                    icon: "wi:time-3",
+                    text: `REGISTRO: ${item?.FECHA_REGISTRO ? 
+                      DateTime.fromISO(item?.FECHA_REGISTRO).toFormat('dd/mm/yyyy HH:mm:ss') 
+                      : null}`
+                  },
+                  {
+                    icon: "wi:time-3",
+                    text: `EVALUACIÓN TD: ${item?.FECHA_EVALUACION_DT ? 
+                      DateTime.fromISO(item?.FECHA_EVALUACION_DT).toFormat('dd/mm/yyyy HH:mm:ss') 
+                      : null}`
+                  },
+                  {
+                    icon: "wi:time-3",
+                    text: `RECEPCIÓN MUESTRA: ${item?.FECHA_RECEPCION_MUESTRA ? 
+                      DateTime.fromISO(item?.FECHA_RECEPCION_MUESTRA).toFormat('dd/mm/yyyy HH:mm:ss') 
+                      : null}`
+                  },
+                  {
+                    icon: "mingcute:question-line",
+                    text: `INCERTIDUMBRE: ${item?.INCERTIDUMBRE}`
                   },
                   {
                     icon: "ic:sharp-food-bank",
