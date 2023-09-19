@@ -33,6 +33,11 @@ export const predioRtk = createApi({
         url: `search/vegetal?q=${id}`,
       }),
     }),
+    findInfos: builder.query({
+      query: (id) => ({
+        url: `farm/ecas/${id}/infos`,
+      }),
+    }),
   }),
 });
 
@@ -41,4 +46,5 @@ export const {
   useLazyMetainfoPredioQuery,
   useLazyFindPredioQuery,
   useLazyPaginateVigilanciaQuery,
+  useLazyFindInfosQuery,
 } = predioRtk;

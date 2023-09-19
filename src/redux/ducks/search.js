@@ -77,7 +77,6 @@ export const searchMethods = {
       tabMethods.animal,
       tabMethods.predio,
       tabMethods.alimento,
-      tabMethods.consulta,
     ],
   },
   "procesamiento-primario": {

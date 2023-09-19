@@ -110,6 +110,10 @@
   padding: 1.5rem;
 }
 
+.FarmProfile__Item {
+  grid-column: span 2;
+}
+
 .FarmProfile__section_title {
   font-size: 1.1rem;
   font-weight: bold;
