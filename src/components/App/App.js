@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import bigImage from "../../assets/images/hero1-compressed.jpg";
 import heroFigure from "../../assets/images/hero_figure.svg";
@@ -33,9 +34,13 @@ const App = () => {
         <Route path="/predio/:id" element={<FarmProfile />} />
         <Route path="/" element={<Landing />} />
         {/* rutas de producción primaria */}
-        {ProductionPrimariaRoute?.map((component) => component)}
+        {ProductionPrimariaRoute?.map((component, index) => (
+          <Fragment key={`primaria-${index}`}>{component}</Fragment>
+        ))}
         {/* rutas de procesamiento primario */}
-        {ProcesamientoPrimarioRoute?.map((component) => component)}
+        {ProcesamientoPrimarioRoute?.map((component, index) => (
+          <Fragment key={`primaria-${index}`}>{component}</Fragment>
+        ))}
         <Route path="/leer-codigo" element={<ReadCode />}>
           <Route path="confirmacion/:code" />
         </Route>

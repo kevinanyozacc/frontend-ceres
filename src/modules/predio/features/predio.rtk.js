@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { translatePlaceTypeSlug } from "../../../helpers/places";
 
 export const predioRtk = createApi({
   reducerPath: "predioRtk",
@@ -36,6 +37,14 @@ export const predioRtk = createApi({
     findInfos: builder.query({
       query: (id) => ({
         url: `farm/ecas/${id}/infos`,
+      }),
+    }),
+    listCertificadosExportacion: builder.query({
+      query: ({ id, type }) => ({
+        url: `/agricultural-exporter/certificates/${translatePlaceTypeSlug(
+          type,
+          "es"
+        )}/${id}`,
       }),
     }),
   }),

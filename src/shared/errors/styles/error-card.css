@@ -1,0 +1,9 @@
+.error__card__content {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin-top: 3em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.4em;
+  opacity: 0.7;
+}

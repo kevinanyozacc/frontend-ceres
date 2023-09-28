@@ -61,6 +61,26 @@
   font-weight: bold;
 }
 
+.link {
+  color: #0d47a1;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .PlaceSearchResults {
   display: grid;
   grid-template: 1fr / 1fr calc(45% - 1rem) 25%;

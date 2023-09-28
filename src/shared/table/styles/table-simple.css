@@ -1,0 +1,86 @@
+.table__simple__content {
+  margin-top: 1em;
+  min-width: 100%;
+  min-height: auto;
+}
+
+.table__simple__content.responsive {
+  overflow: auto;
+}
+
+table.greyGridTable {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+}
+
+table.greyGridTable td, table.greyGridTable th {
+  padding: 3px 4px;
+}
+
+table.greyGridTable .row {
+  font-size: 0.87em;
+}
+
+table.greyGridTable .row.simple .cell {
+  padding: 0.2em 0.3em;
+}
+
+table.greyGridTable .row:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+table.greyGridTable .row .cell {
+  padding: 0.8em 0.3em;
+}
+
+table.greyGridTable .row .cell.center {
+  text-align: center;
+}
+
+table.greyGridTable .row .cell.right {
+  text-align: right;
+}
+
+table.greyGridTable .row .cell.nowrap {
+  white-space: nowrap;
+}
+
+table.greyGridTable thead {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+table.greyGridTable thead th {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #263238;
+  text-align: center;
+  padding: 0.7em 0.5em;
+  min-width: 100px;
+}
+
+.table__simple__content::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.table__simple__content::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.table__simple__content::-webkit-scrollbar-button:increment,.table__simple__content::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.table__simple__content::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.table__simple__content::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.table__simple__content::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
