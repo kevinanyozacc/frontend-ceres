@@ -24,12 +24,6 @@ const ProcesamientoPrimarioRoute = [
       }
     />
     <Route
-      path="vegetal"
-      element={
-        <SearchResults parent="procesamiento-primario" name="process:vegetal" />
-      }
-    />
-    <Route
       path="consulta"
       element={
         <SearchResults

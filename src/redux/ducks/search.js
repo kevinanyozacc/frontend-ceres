@@ -19,7 +19,6 @@ export const searchMethods = {
     url: "/procesamiento-primario",
     data: [
       tabs["process:establishment"],
-      tabs["process:vegetal"],
       tabs["process:animal"],
       tabs["process:alimento"],
       tabs["process:consulta"],

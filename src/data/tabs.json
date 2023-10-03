@@ -34,13 +34,6 @@
     "hint": "Escribe lugar, nombre de predio, etc.",
     "icon": "mdi:farm"
   },
-  "process:vegetal": {
-    "key": "process:vegetal",
-    "title": "Vegetal",
-    "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de vegetales supervisados por el SENASA.",
-    "hint": "Escribe lugar, nombre de predio, etc.",
-    "icon": "ph:plant-fill"
-  },
   "process:predio": {
     "key": "production:predio",
     "title": "Cultivos",
