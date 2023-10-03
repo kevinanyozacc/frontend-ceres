@@ -17,17 +17,25 @@ const ProcesamientoPrimarioRoute = [
     <Route
       path="establishment"
       element={
-        <SearchResults parent="procesamiento-primario" name="establishment" />
+        <SearchResults
+          parent="procesamiento-primario"
+          name="process:establishment"
+        />
       }
     />
     <Route
       path="vegetal"
-      element={<SearchResults parent="procesamiento-primario" name="vegetal" />}
+      element={
+        <SearchResults parent="procesamiento-primario" name="process:vegetal" />
+      }
     />
     <Route
       path="consulta"
       element={
-        <SearchResults parent="procesamiento-primario" name="consulta" />
+        <SearchResults
+          parent="procesamiento-primario"
+          name="process:consulta"
+        />
       }
     />
   </Route>,

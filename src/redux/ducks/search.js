@@ -1,70 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export const tabMethods = {
-  establishment: {
-    key: "establishment",
-    label: "Establecimiento",
-    description: `
-        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.
-      `,
-    hint: "Escribe lugar, nombre de predio, etc.",
-    icon: "jam:store",
-  },
-  vegetal: {
-    key: "vegetal",
-    label: "Vegetal",
-    description: `
-        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de vegetales supervisados por el SENASA.
-      `,
-    hint: "Escribe lugar, nombre de predio, etc.",
-    icon: "mdi:location",
-  },
-  animal: {
-    key: "animal",
-    label: "Animal",
-    description: `
-        Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de animales supervisados por el SENASA.
-      `,
-    hint: "Escribe código de aretado",
-    icon: "mdi:cow",
-  },
-  place: {
-    key: "place",
-    label: "Establecimiento",
-    description: `
-        Ingresa nombre, RUC, código de establecimiento, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.
-      `,
-    hint: "Escribe lugar, nombre de predio, etc.",
-    icon: "mdi:place",
-  },
-  predio: {
-    key: "predio",
-    label: "Predio",
-    description: `
-        Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
-      `,
-    hint: "Escribe dato del predio",
-    icon: "mdi:farm",
-  },
-  alimento: {
-    key: "alimento",
-    label: "Alimento",
-    description: `
-        Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
-      `,
-    hint: "Escribe dato del predio",
-    icon: "fluent:food-24-filled",
-  },
-  consulta: {
-    key: "consulta",
-    label: "Consulta",
-    description: `
-        Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.
-      `,
-    hint: "Escribe dato del predio",
-    icon: "streamline:programming-browser-search-search-window-glass-app-code-programming-query-find-magnifying-apps",
-  },
-};
+import tabs from "../../data/tabs.json";
 
 export const searchMethods = {
   "produccion-primaria": {
@@ -72,11 +7,10 @@ export const searchMethods = {
     type: "production",
     url: "/produccion-primaria",
     data: [
-      tabMethods.establishment,
-      tabMethods.vegetal,
-      tabMethods.animal,
-      tabMethods.predio,
-      tabMethods.alimento,
+      tabs["production:establishment"],
+      tabs["production:vegetal"],
+      tabs["production:predio"],
+      tabs["production:alimento"],
     ],
   },
   "procesamiento-primario": {
@@ -84,11 +18,11 @@ export const searchMethods = {
     type: "processing",
     url: "/procesamiento-primario",
     data: [
-      tabMethods.establishment,
-      tabMethods.vegetal,
-      tabMethods.animal,
-      tabMethods.alimento,
-      tabMethods.consulta,
+      tabs["process:establishment"],
+      tabs["process:vegetal"],
+      tabs["process:animal"],
+      tabs["process:alimento"],
+      tabs["process:consulta"],
     ],
   },
 };

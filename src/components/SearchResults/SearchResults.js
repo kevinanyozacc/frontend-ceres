@@ -3,11 +3,11 @@ import classNames from "classnames";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import tabs from "../../data/tabs.json";
 import {
   searchMethods,
   setSearchTerm,
   setSearchType,
-  tabMethods,
 } from "../../redux/ducks/search";
 import CenteredContainer from "../CenteredContainer";
 import FarmSearchResults from "./FarmSearchResults";
@@ -52,13 +52,27 @@ const SearchResults = ({ parent, name, children }) => {
           <SearchResultsBar />
           {children || null}
 
-          {tabMethods.establishment.key === currentBody?.key ? (
+          {currentBody &&
+          tabs["production:establishment"]?.key === currentBody?.key ? (
             <PlaceSearchResults />
           ) : null}
-          {tabMethods.vegetal.key === currentBody?.key ? (
+          {currentBody &&
+          tabs["production:vegetal"]?.key === currentBody?.key ? (
             <PlaceSearchResults />
           ) : null}
-          {tabMethods.predio.key === currentBody?.key ? (
+          {currentBody &&
+          tabs["production:predio"]?.key === currentBody?.key ? (
+            <FarmSearchResults />
+          ) : null}
+          {/* process */}
+          {currentBody &&
+          tabs["process:establishment"]?.key === currentBody?.key ? (
+            <PlaceSearchResults />
+          ) : null}
+          {currentBody && tabs["process:vegetal"]?.key === currentBody?.key ? (
+            <PlaceSearchResults />
+          ) : null}
+          {currentBody && tabs["process:predio"]?.key === currentBody?.key ? (
             <FarmSearchResults />
           ) : null}
         </div>

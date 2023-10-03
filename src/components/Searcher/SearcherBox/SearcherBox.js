@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Icon } from "@iconify/react";
 import classNames from "classnames";
-import { useEffect, useMemo, useRef } from "react";
+import { Fragment, useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
@@ -26,7 +26,8 @@ const SearcherBox = ({ title, name }) => {
   const search = (e) => {
     e.preventDefault();
     if (searchTerm) {
-      navigate(`/${name}/${searchMethod.key}?q=${searchTerm}`);
+      const link = `${searchMethod.key}`.split(":").pop();
+      navigate(`/${name}/${link}?q=${searchTerm}`);
     } else {
       inputSearchRef.current.focus();
     }
@@ -63,19 +64,20 @@ const SearcherBox = ({ title, name }) => {
         </label>
         <div className="LandingSearchBox__search_options_container">
           <div className="LandingSearchBox__tabs_container">
-            {options?.map((method) => (
-              <button
-                key={`tab-${method.key}`}
-                className={classNames({
-                  LandingSearchBox__search_option_tab: true,
-                  "LandingSearchBox__search_option_tab--selected":
-                    searchMethod?.key === method.key,
-                })}
-                onClick={() => dispatch(setSearchMethod(method))}
-              >
-                <Icon icon={method.icon} />
-                {method.label}
-              </button>
+            {options?.map((method, index) => (
+              <Fragment key={`tab-${index}`}>
+                <button
+                  className={classNames({
+                    LandingSearchBox__search_option_tab: true,
+                    "LandingSearchBox__search_option_tab--selected":
+                      searchMethod?.key === method?.key,
+                  })}
+                  onClick={() => dispatch(setSearchMethod(method))}
+                >
+                  <Icon icon={method?.icon} />
+                  {method?.title}
+                </button>
+              </Fragment>
             ))}
           </div>
           <form onSubmit={search} className="LandingSearchBox__search_form">

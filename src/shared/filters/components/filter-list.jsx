@@ -28,7 +28,7 @@ export default function FilterList({
       {/* listar datos */}
       {children || null}
       {/* mostrar mensaje cuando no hay registros */}
-      {!counter ? (
+      {!isFetching && !counter ? (
         <div className="PlaceSearchResultsListEmpty">
           No hay registros disponibles
         </div>

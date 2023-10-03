@@ -19,20 +19,26 @@ const ProductionPrimariaRoute = [
     <Route
       path="establishment"
       element={
-        <SearchResults parent="produccion-primaria" name="establishment" />
+        <SearchResults
+          parent="produccion-primaria"
+          name="production:establishment"
+        />
       }
     />
     <Route
       path="predio2"
-      element={<SearchResults parent="produccion-primaria" name="predio" />}
+      element={
+        <SearchResults parent="produccion-primaria" name="production:predio" />
+      }
     />
     <Route
       path="alimento"
-      element={<SearchResults parent="produccion-primaria" name="alimento" />}
-    />
-    <Route
-      path="consulta"
-      element={<SearchResults parent="produccion-primaria" name="consulta" />}
+      element={
+        <SearchResults
+          parent="produccion-primaria"
+          name="production:alimento"
+        />
+      }
     />
   </Route>,
   // info
