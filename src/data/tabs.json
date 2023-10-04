@@ -6,27 +6,6 @@
     "hint": "Escribe lugar, nombre de predio, etc.",
     "icon": "mdi:farm"
   },
-  "production:vegetal": {
-    "key": "production:vegetal",
-    "title": "Vegetal",
-    "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de vegetales supervisados por el SENASA.",
-    "hint": "Escribe lugar, nombre de predio, etc.",
-    "icon": "ph:plant-fill"
-  },
-  "production:predio": {
-    "key": "production:predio",
-    "title": "Cultivos",
-    "description": "Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.",
-    "hint": "Escribe dato del predio",
-    "icon": "game-icons:herbs-bundle"
-  },
-  "production:alimento": {
-    "key": "production:alimento",
-    "title": "Alimento",
-    "description": "Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.",
-    "hint": "Escribe dato del predio",
-    "icon": "fluent:food-24-filled"
-  },
   "process:establishment": {
     "key": "process:establishment",
     "title": "Establecimiento",

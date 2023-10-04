@@ -6,12 +6,7 @@ export const searchMethods = {
     title: "Producción Primaria",
     type: "production",
     url: "/produccion-primaria",
-    data: [
-      tabs["production:establishment"],
-      tabs["production:vegetal"],
-      tabs["production:predio"],
-      tabs["production:alimento"],
-    ],
+    data: [tabs["production:establishment"]],
   },
   "procesamiento-primario": {
     title: "Procesamiento Primario",

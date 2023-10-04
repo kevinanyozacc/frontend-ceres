@@ -56,14 +56,6 @@ const SearchResults = ({ parent, name, children }) => {
           tabs["production:establishment"]?.key === currentBody?.key ? (
             <PlaceSearchResults />
           ) : null}
-          {currentBody &&
-          tabs["production:vegetal"]?.key === currentBody?.key ? (
-            <PlaceSearchResults />
-          ) : null}
-          {currentBody &&
-          tabs["production:predio"]?.key === currentBody?.key ? (
-            <FarmSearchResults />
-          ) : null}
           {/* process */}
           {currentBody &&
           tabs["process:establishment"]?.key === currentBody?.key ? (
