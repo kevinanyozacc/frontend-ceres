@@ -1,10 +1,17 @@
 {
-  "production:establishment": {
-    "key": "production:establishment",
+  "production:crianza": {
+    "key": "production:crianza",
     "title": "Centro de Crianza",
     "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.",
     "hint": "Escribe lugar, nombre de predio, etc.",
     "icon": "mdi:farm"
+  },
+  "production:predio": {
+    "key": "production:predio",
+    "title": "Cultivos",
+    "description": "Busca introduciendo el código o nombre del cultivo. También puedes buscar según los datos del productor o responsable del predio.",
+    "hint": "Escribe dato del predio",
+    "icon": "game-icons:herbs-bundle"
   },
   "process:establishment": {
     "key": "process:establishment",

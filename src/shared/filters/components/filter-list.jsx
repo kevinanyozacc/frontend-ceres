@@ -18,7 +18,7 @@ export default function FilterList({
     }
   };
 
-  if (isLoading) return <Loader query="Buscando" />;
+  if (isLoading) return <Loader />;
 
   return (
     <div
@@ -29,12 +29,12 @@ export default function FilterList({
       {children || null}
       {/* mostrar mensaje cuando no hay registros */}
       {!isFetching && !counter ? (
-        <div className="PlaceSearchResultsListEmpty">
+        <div className="PlaceSearchResultsListEmpty" style={{ height: "100%" }}>
           No hay registros disponibles
         </div>
       ) : null}
       {/* loading */}
-      {isFetching ? <Loader query="Obtener más información" /> : null}
+      {isFetching ? <Loader /> : null}
     </div>
   );
 }

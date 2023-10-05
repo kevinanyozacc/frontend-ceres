@@ -1,7 +1,5 @@
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
-import bigImage from "../../assets/images/hero1-compressed.jpg";
-import heroFigure from "../../assets/images/hero_figure.svg";
 import AnimalProfile from "../AnimalProfile";
 import BreadCrumb from "../BreadCrumb";
 import CenteredContainer from "../CenteredContainer";
@@ -54,12 +52,6 @@ const App = () => {
         />
       </Routes>
       <Footer />
-      <img src={bigImage} alt="preload bigImage" style={{ display: "none" }} />
-      <img
-        src={heroFigure}
-        alt="preload bigImage"
-        style={{ display: "none" }}
-      />
     </div>
   );
 };

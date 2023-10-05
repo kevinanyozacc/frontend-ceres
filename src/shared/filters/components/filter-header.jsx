@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterOrderbyData } from "../data/filter-orderby.data";
 import { filterActions } from "../features/filter-slice";
 
-export default function FilterHeader({ counter, isLoading }) {
+export function FilterHeader({ counter, isLoading }) {
   const { orderBySelected } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 

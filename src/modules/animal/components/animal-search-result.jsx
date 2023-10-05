@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FilterAdvance } from "../../../shared/filters/components/filter-advance";
 import { FilterContainer } from "../../../shared/filters/components/filter-container";
-import FilterHeader from "../../../shared/filters/components/filter-header";
+import { FilterHeader } from "../../../shared/filters/components/filter-header";
 import FilterItem from "../../../shared/filters/components/filter-item";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { MapboxSimple } from "../../../shared/mapbox/components/mapbox-simple";

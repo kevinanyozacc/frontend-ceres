@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom";
 import ConsultaShowPage from "../../../pages/production/consulta/consulta-show";
+import CrianzaIndexPage from "../../../pages/production/crianza/crianza-index";
 import PredioIndexPage from "../../../pages/production/predio/predio-index";
 import PredioShowPage from "../../../pages/production/predio/predio-show";
 import SearchResults from "../../SearchResults";
@@ -12,7 +13,7 @@ const ProductionPrimariaRoute = [
       <Searcher title="Producción Primaria" name="produccion-primaria" />
     }
   />,
-  // filter
+  // info
   <Route path="/produccion-primaria">
     <Route
       path="establishment"
@@ -23,15 +24,7 @@ const ProductionPrimariaRoute = [
         />
       }
     />
-    <Route
-      path="predio2"
-      element={
-        <SearchResults parent="produccion-primaria" name="production:predio" />
-      }
-    />
-  </Route>,
-  // info
-  <Route path="/produccion-primaria">
+    <Route path="crianza" element={<CrianzaIndexPage />} />
     <Route path="predio" element={<PredioIndexPage />} />
     <Route path="predio/:id" element={<PredioShowPage />} />
     <Route path="consulta/:id" element={<ConsultaShowPage />} />

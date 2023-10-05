@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  /* max-height: calc(100vh - 16rem); */
   height: 100%;
+  max-height: calc(100vh - 16rem);
   overflow: hidden;
 }
 
@@ -145,7 +145,7 @@
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  max-height: calc(100vh - 16rem);
+  height: 100%;
   overflow: auto;
   padding-right: .5rem;
 }
@@ -189,4 +189,30 @@
   .PlaceSearchResultsList__sort_by_field_container {
     display: none;
   }
+}
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar-button:increment,.PlaceSearchResultsList__cards_container::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.PlaceSearchResultsList__cards_container::-webkit-scrollbar-track {
+  border-radius: 10px;  
 }

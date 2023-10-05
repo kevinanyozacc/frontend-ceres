@@ -5,11 +5,16 @@ export default function FilterItem({
   name,
   icon,
   onClick,
+  active,
   listInfo = [],
   moreInfo = [],
 }) {
   return (
-    <div className="PlaceSearchResultCard" onClick={onClick} title={name || ""}>
+    <div
+      className={`PlaceSearchResultCard ${active ? "active" : ""}`}
+      onClick={onClick}
+      title={name || ""}
+    >
       <Icon className="PlaceSearchResultCard__icon" icon={icon || "mdi:farm"} />
       <h4 className="PlaceSearchResultCard__title">
         {(name && name?.toLowerCase()) || ""}

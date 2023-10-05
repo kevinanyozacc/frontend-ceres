@@ -5,6 +5,8 @@ import { alimentoRtk } from "../modules/alimento/features/alimento.rtk";
 import { alimentoReducer } from "../modules/alimento/features/alimento.slice";
 import { animalRtk } from "../modules/animal/features/animal.rtk";
 import { animalReducer } from "../modules/animal/features/animal.slice";
+import { crianzaRtk } from "../modules/crianza/features/crianza.rtk";
+import { crianzaReducer } from "../modules/crianza/features/crianza.slice";
 import { predioRtk } from "../modules/predio/features/predio.rtk";
 import { predioReducer } from "../modules/predio/features/predio.slice";
 import { vegetalRtk } from "../modules/vegetal/features/vegetal.rtk";
@@ -40,6 +42,7 @@ export const store = configureStore({
     [vegetalRtk.reducerPath]: vegetalRtk.reducer,
     [predioRtk.reducerPath]: predioRtk.reducer,
     [alimentoRtk.reducerPath]: alimentoRtk.reducer,
+    [crianzaRtk.reducerPath]: crianzaRtk.reducer,
     auth: persistedReducer,
     search: searchReducer,
     drawer: drawerReducer,
@@ -49,6 +52,7 @@ export const store = configureStore({
     vegetal: vegetalReducer,
     predio: predioReducer,
     alimento: alimentoReducer,
+    crianza: crianzaReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -61,7 +65,8 @@ export const store = configureStore({
       .concat(animalRtk.middleware)
       .concat(vegetalRtk.middleware)
       .concat(predioRtk.middleware)
-      .concat(alimentoRtk.middleware),
+      .concat(alimentoRtk.middleware)
+      .concat(crianzaRtk.middleware),
 });
 
 export const persistor = persistStore(store);
