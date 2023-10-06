@@ -5,16 +5,17 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilterContainer } from "../../../shared/filters/components/filter-container";
 import { FilterHeader } from "../../../shared/filters/components/filter-header";
-import FilterItem from "../../../shared/filters/components/filter-item";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { crianzaActions } from "../features/crianza.slice";
 import { useCrianzaPaginate } from "../hooks/use-crianza-paginate";
 import "../styles/crianza-search-result.css";
 import { CrianzaCstiResult } from "./crianza-csti-result";
+import { CrianzaItem } from "./crianza-item";
 import { CrianzaPredioResult } from "./crianza-predio-result";
+import { CrianzaSelected } from "./crianza-selected";
 import { CrianzaVacunaResult } from "./crianza-vacuna-result";
 
-export function CrianzaSearchResult({ onClickItem }) {
+export function CrianzaSearchResult() {
   const dispatch = useDispatch();
   const { crianzaPaginate, crianzaSelected } = useSelector(
     (state) => state.crianza
@@ -25,6 +26,7 @@ export function CrianzaSearchResult({ onClickItem }) {
 
   const selected = (item) => {
     dispatch(crianzaActions.setCrianzaSelected(item));
+    dispatch(crianzaActions.setCrianzaPredioSelected(undefined));
   };
 
   useEffect(() => {
@@ -32,6 +34,7 @@ export function CrianzaSearchResult({ onClickItem }) {
       hookPaginate.clear();
       hookPaginate.handle();
       dispatch(crianzaActions.setCrianzaSelected(undefined));
+      dispatch(crianzaActions.setCrianzaPredioSelected(undefined));
     }
   }, [searchTerm]);
 
@@ -45,38 +48,37 @@ export function CrianzaSearchResult({ onClickItem }) {
       </div>
       <div className="PlaceSearchResults CrianzaSearchResults">
         <FilterContainer>
-          <h4>
-            <Icon icon="ic:baseline-info" /> <b>Lista de Productores</b>
+          <h4 className="card-title">
+            <Icon icon="mdi:farm" /> <b>Lista de Productores</b>
           </h4>
+          {/* mostrar info del productor selecionado */}
+          <CrianzaSelected />
+          {/* listar productores */}
           <FilterList
             isLoading={hookPaginate.isLoading}
             isFetching={hookPaginate.isFetching}
             counter={crianzaPaginate?.meta?.totalItems || 0}
             onInfinityScroll={hookPaginate.nextData}
           >
-            {crianzaPaginate?.data?.map((item, index) => (
-              <FilterItem
-                onClick={() => selected(item)}
-                key={`item-${index}`}
-                name={item?.RAZO_SOCI_PRO}
-                active={item.CODI_PROD_PRO === crianzaSelected?.CODI_PROD_PRO}
-                listInfo={[
-                  {
-                    icon: "icon-park:id-card",
-                    text: item?.RUC_PROD_PRO || item?.NUME_DOCU_PRO,
-                  },
-                  { icon: "gridicons:location", text: item?.LOCACION },
-                ]}
-              />
-            ))}
+            {crianzaPaginate?.data
+              ?.filter(
+                (item) => item.CODI_PROD_PRO !== crianzaSelected?.CODI_PROD_PRO
+              )
+              .map((item, index) => (
+                <CrianzaItem
+                  key={`item-crianza-${index}`}
+                  data={item}
+                  onClick={() => selected(item)}
+                />
+              ))}
           </FilterList>
+        </FilterContainer>
+        <FilterContainer>
+          <CrianzaPredioResult />
         </FilterContainer>
         <FilterContainer>
           <CrianzaVacunaResult />
           <CrianzaCstiResult />
-        </FilterContainer>
-        <FilterContainer>
-          <CrianzaPredioResult />
         </FilterContainer>
       </div>
     </div>

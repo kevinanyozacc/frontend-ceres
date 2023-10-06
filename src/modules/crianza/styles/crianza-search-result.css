@@ -1,3 +1,7 @@
 .CrianzaSearchResults {
-  grid-template: 600px / 30% 35% 30%!important;
+  grid-template: 600px / 30% 30% 35%!important;
+}
+
+.CrianzaVigilanciaContainer {
+  grid-template: 600px / 50% 50%!important;
 }

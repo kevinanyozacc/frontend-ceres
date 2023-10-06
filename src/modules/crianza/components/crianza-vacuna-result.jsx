@@ -24,8 +24,8 @@ export function CrianzaVacunaResult() {
 
   return (
     <Fragment>
-      <h4>
-        <Icon icon="tabler:vaccine" /> <b>Lista de Vacunas</b>
+      <h4 className="card-title">
+        <Icon icon="tabler:vaccine" /> Lista de Vacunas
       </h4>
 
       {crianzaSelected ? (
@@ -90,7 +90,7 @@ export function CrianzaVacunaResult() {
           <FilterEmpty title="No hay registros de vacunas" />
         )
       ) : (
-        <FilterEmpty title="Selecionar productor" />
+        <FilterEmpty title="Seleccionar productor" />
       )}
     </Fragment>
   );

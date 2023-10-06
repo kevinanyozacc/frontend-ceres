@@ -24,8 +24,8 @@ export function CrianzaCstiResult() {
 
   return (
     <Fragment>
-      <h4>
-        <Icon icon="dashicons:schedule" /> <b>Lista de CSTI</b>
+      <h4 className="card-title">
+        <Icon icon="dashicons:schedule" /> Lista de CSTI
       </h4>
 
       {crianzaSelected ? (
@@ -70,7 +70,7 @@ export function CrianzaCstiResult() {
           <FilterEmpty title="No hay registros de CSTI" />
         )
       ) : (
-        <FilterEmpty title="Selecionar productor" />
+        <FilterEmpty title="Seleccionar productor" />
       )}
     </Fragment>
   );

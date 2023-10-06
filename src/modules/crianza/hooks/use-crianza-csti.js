@@ -9,7 +9,7 @@ export function useCrianzaCsti() {
   const { crianzaSelected } = useSelector((state) => state.crianza);
 
   const handle = () => {
-    fetch(crianzaSelected.NUME_DOCU_PRO);
+    fetch(crianzaSelected.RUC_PROD_PRO || crianzaSelected.NUME_DOCU_PRO);
   };
 
   useEffect(() => {
