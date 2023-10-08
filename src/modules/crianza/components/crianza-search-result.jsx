@@ -14,6 +14,9 @@ import { CrianzaItem } from "./crianza-item";
 import { CrianzaPredioResult } from "./crianza-predio-result";
 import { CrianzaSelected } from "./crianza-selected";
 import { CrianzaVacunaResult } from "./crianza-vacuna-result";
+import { CrianzaVigilanciaActivo } from "./crianza-vigilancia-activo";
+import { CrianzaVigilanciaPasiva } from "./crianza-vigilancia-pasiva";
+import { CrianzaAretadoResult } from "./crianza-aretado-result";
 
 export function CrianzaSearchResult() {
   const dispatch = useDispatch();
@@ -77,8 +80,17 @@ export function CrianzaSearchResult() {
           <CrianzaPredioResult />
         </FilterContainer>
         <FilterContainer>
-          <CrianzaVacunaResult />
-          <CrianzaCstiResult />
+          <CrianzaVigilanciaActivo />
+          <CrianzaVigilanciaPasiva />
+        </FilterContainer>
+      </div>
+      <div className="PlaceSearchResults CrianzaVigilanciaContainer">
+        <FilterContainer>
+          <CrianzaVacunaResult/>
+          <CrianzaAretadoResult/>
+        </FilterContainer>
+        <FilterContainer>
+          <CrianzaCstiResult/>
         </FilterContainer>
       </div>
     </div>

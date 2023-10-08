@@ -32,6 +32,11 @@ export const crianzaRtk = createApi({
         url: `search/crianza/${productorId}/csti`,
       }),
     }),
+    listAretadoToCrianza: builder.query({
+      query: (productorId) => ({
+        url: `search/crianza/${productorId}/aretado`,
+      }),
+    }),
     listVigilanciaActivaToPredio: builder.query({
       query: (predioId) => ({
         url: `farm/${predioId}/vigilancia-activo`,
@@ -50,6 +55,7 @@ export const {
   useLazyListPrediosToCrianzaQuery,
   useLazyListVacunasToCrianzaQuery,
   useLazyListCstiToCrianzaQuery,
+  useLazyListAretadoToCrianzaQuery,
   useLazyListVigilanciaActivaToPredioQuery,
   useLazyListVigilanciaPasivoToPredioQuery,
 } = crianzaRtk;
