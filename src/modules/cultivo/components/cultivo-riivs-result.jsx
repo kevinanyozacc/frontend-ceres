@@ -25,7 +25,7 @@ export function CultivoRIIVSResult() {
     <Fragment>
       <h4 className="card-title">
         <Icon icon="mdi:file-export-outline" />
-        RRIVS CERTIFICADO DE INSPECCION Y EXPORTACIÓN
+        RIIVS CERTIFICADO DE INSPECCION Y EXPORTACIÓN
       </h4>
 
       {cultivoSelected ? (

@@ -10,7 +10,7 @@ export function useCultivoEcas() {
   const { cultivoSelected } = useSelector((state) => state.cultivo);
 
   const handle = () => {
-    fetch(cultivoSelected.ID)
+    fetch(cultivoSelected.DNI)
       .unwrap()
       .then((data) => {
         const collections = new Collection(data);

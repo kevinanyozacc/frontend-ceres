@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import { Icon } from "@iconify/react";
+import { DateTime } from "luxon";
 
 export function CultivoEcasItem({ data }) {
   return (
@@ -15,7 +16,9 @@ export function CultivoEcasItem({ data }) {
             target="_blank"
             className="Item">
             <Icon icon="fa-regular:file-pdf" className="Icon" />{" "}
-            {b?.FECHA_REGISTRO}
+            {b?.FECHA_REGISTRO
+              ? DateTime.fromISO(b.FECHA_REGISTRO).toFormat("dd/MM/yyyy")
+              : ""}
           </a>
         ))}
       </div>

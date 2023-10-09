@@ -2,6 +2,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  min-height: 50%;
+  background-color: var(--light-gray-background-color);
+  padding-left: 1em;
+  padding-top: 1em;
 }
 
 .Predio__Ecas__Infos__List > .Item {
