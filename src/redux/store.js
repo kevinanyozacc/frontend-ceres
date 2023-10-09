@@ -22,6 +22,8 @@ import { farmApi } from "./services/farm";
 import { placeApi } from "./services/place";
 import { searchApi } from "./services/search";
 import { statsApi } from "./services/stats";
+import { cultivoRtk } from "../modules/cultivo/features/cultivo.rtk";
+import { cultivoReducer } from "../modules/cultivo/features/cultivo.slice";
 
 const persistConfig = {
   key: "root",
@@ -43,6 +45,7 @@ export const store = configureStore({
     [predioRtk.reducerPath]: predioRtk.reducer,
     [alimentoRtk.reducerPath]: alimentoRtk.reducer,
     [crianzaRtk.reducerPath]: crianzaRtk.reducer,
+    [cultivoRtk.reducerPath]: cultivoRtk.reducer,
     auth: persistedReducer,
     search: searchReducer,
     drawer: drawerReducer,
@@ -53,6 +56,7 @@ export const store = configureStore({
     predio: predioReducer,
     alimento: alimentoReducer,
     crianza: crianzaReducer,
+    cultivo: cultivoReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -66,7 +70,8 @@ export const store = configureStore({
       .concat(vegetalRtk.middleware)
       .concat(predioRtk.middleware)
       .concat(alimentoRtk.middleware)
-      .concat(crianzaRtk.middleware),
+      .concat(crianzaRtk.middleware)
+      .concat(cultivoRtk.middleware),
 });
 
 export const persistor = persistStore(store);

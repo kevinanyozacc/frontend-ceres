@@ -6,8 +6,8 @@
     "hint": "Escribe lugar, nombre de predio, etc.",
     "icon": "mdi:farm"
   },
-  "production:predio": {
-    "key": "production:predio",
+  "production:cultivo": {
+    "key": "production:cultivo",
     "title": "Cultivos",
     "description": "Busca introduciendo el código o nombre del cultivo. También puedes buscar según los datos del productor o responsable del predio.",
     "hint": "Escribe dato del predio",

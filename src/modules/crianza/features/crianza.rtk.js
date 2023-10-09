@@ -37,6 +37,11 @@ export const crianzaRtk = createApi({
         url: `search/crianza/${productorId}/aretado`,
       }),
     }),
+    listZoosanitarioToCrianza: builder.query({
+      query: (predioId) => ({
+        url: `search/crianza/${predioId}/zoosanitario`,
+      }),
+    }),
     listVigilanciaActivaToPredio: builder.query({
       query: (predioId) => ({
         url: `farm/${predioId}/vigilancia-activo`,
@@ -58,4 +63,5 @@ export const {
   useLazyListAretadoToCrianzaQuery,
   useLazyListVigilanciaActivaToPredioQuery,
   useLazyListVigilanciaPasivoToPredioQuery,
+  useLazyListZoosanitarioToCrianzaQuery,
 } = crianzaRtk;

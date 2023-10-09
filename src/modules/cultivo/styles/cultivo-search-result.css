@@ -1,0 +1,7 @@
+.CultivoSearchResults {
+  grid-template: 600px / 30% 30% 35%!important;
+}
+
+.CultivoVigilanciaContainer {
+  grid-template: 600px / 50% 50%!important;
+}

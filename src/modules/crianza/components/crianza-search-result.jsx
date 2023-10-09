@@ -17,6 +17,7 @@ import { CrianzaVacunaResult } from "./crianza-vacuna-result";
 import { CrianzaVigilanciaActivo } from "./crianza-vigilancia-activo";
 import { CrianzaVigilanciaPasiva } from "./crianza-vigilancia-pasiva";
 import { CrianzaAretadoResult } from "./crianza-aretado-result";
+import { CrianzaZoosanitarioResult } from "./crianza-zoosanitario-result";
 
 export function CrianzaSearchResult() {
   const dispatch = useDispatch();
@@ -61,8 +62,7 @@ export function CrianzaSearchResult() {
             isLoading={hookPaginate.isLoading}
             isFetching={hookPaginate.isFetching}
             counter={crianzaPaginate?.meta?.totalItems || 0}
-            onInfinityScroll={hookPaginate.nextData}
-          >
+            onInfinityScroll={hookPaginate.nextData}>
             {crianzaPaginate?.data
               ?.filter(
                 (item) => item.CODI_PROD_PRO !== crianzaSelected?.CODI_PROD_PRO
@@ -86,11 +86,12 @@ export function CrianzaSearchResult() {
       </div>
       <div className="PlaceSearchResults CrianzaVigilanciaContainer">
         <FilterContainer>
-          <CrianzaVacunaResult/>
-          <CrianzaAretadoResult/>
+          <CrianzaVacunaResult />
+          <CrianzaAretadoResult />
         </FilterContainer>
         <FilterContainer>
-          <CrianzaCstiResult/>
+          <CrianzaCstiResult />
+          <CrianzaZoosanitarioResult />
         </FilterContainer>
       </div>
     </div>
