@@ -11,7 +11,6 @@ import { CrianzaVigilanciaItem } from "./crianza-vigilancia-item";
 export function CrianzaVigilanciaPasiva() {
   const predio = useCrianzaVigilanciaPasivo();
   const { crianzaPredioSelected } = useSelector((state) => state.crianza);
-
   const isPending = useMemo(() => {
     return predio.isLoading || predio.isFetching;
   }, [predio.isLoading, predio.isFetching]);
@@ -37,23 +36,23 @@ export function CrianzaVigilanciaPasiva() {
           >
             <TableSimpleHead
               data={[
-                { title: "CODI_PRED_PRE", align: "left" },
-                { title: "N_SOLICITUD_LAB" },
-                { title: "F_GENERACION" },
-                { title: "F_RECEP_SOL" },
-                { title: "FICHA_VIGILANCIA" },
-                { title: "NOMB_PRED_PRE" },
-                { title: "FICHA_VIGILANCIA_1" },
-                { title: "POBL_AVES_SIT" },
-                { title: "POBL_BOVI_SIT" },
-                { title: "POBL_CAME_SIT" },
-                { title: "POBL_ALP_SIT" },
-                { title: "POBL_LLA_SIT" },
-                { title: "POBL_CAPR_SIT" },
-                { title: "POBL_EQUI_SIT" },
-                { title: "POBL_OTRO_SIT" },
-                { title: "POBL_OVIN_SIT" },
-                { title: "POBL_PORC_SIT" },
+                { title: "CODIGO PREDIO", align: "left" },
+                { title: "N° SOLICITUD" },
+                { title: "FECHA GENERACION" },
+                { title: "FECHA RECEPCION" },
+                { title: "N° FICHA" },
+                { title: "NOMBRE PREDIO" },
+                { title: "FICHA VIGILANCIA" },
+                { title: "AVES" },
+                { title: "BOVINO" },
+                { title: "CAME" },
+                { title: "ALP" },
+                { title: "LLA" },
+                { title: "CAPRINO" },
+                { title: "EQUINO" },
+                { title: "OTROS" },
+                { title: "OVINO" },
+                { title: "PORCINA" },
               ]}
             />
             {predio.data?.map((item, index) => (
