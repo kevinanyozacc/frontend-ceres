@@ -99,12 +99,12 @@ const SearcherBox = ({ title, name }) => {
                 Buscar
               </button>
             </div>
-            <label
+            <h3
               htmlFor="LandingSearchBox__search_input_id"
               className="LandingSearchBox__extra_text"
             >
               {searchMethod?.description}
-            </label>
+            </h3>
           </form>
         </div>
       </div>
