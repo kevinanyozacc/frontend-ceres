@@ -13,7 +13,7 @@ export const establecimientoRtk = createApi({
   endpoints: (builder) => ({
     searchEstablecimiento: builder.query({
       query: (params) => ({
-        url: `search/company`,
+        url: `search/establecimiento`,
         params,
       }),
     }),
