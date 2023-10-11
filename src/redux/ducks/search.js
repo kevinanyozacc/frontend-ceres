@@ -12,12 +12,7 @@ export const searchMethods = {
     title: "Procesamiento Primario",
     type: "processing",
     url: "/procesamiento-primario",
-    data: [
-      tabs["process:establishment"],
-      tabs["process:animal"],
-      tabs["process:alimento"],
-      tabs["process:consulta"],
-    ],
+    data: [tabs["process:establecimiento"]],
   },
 };
 

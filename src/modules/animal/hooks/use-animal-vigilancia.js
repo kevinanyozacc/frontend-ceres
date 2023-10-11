@@ -6,17 +6,19 @@ import { animalActions } from "../features/animal.slice";
 
 export default function useAnimalVigilancia() {
   const dispatch = useDispatch();
-  const { animalSelected } = useSelector((state) => state.animal);
+  const { establecimientoSelected } = useSelector(
+    (state) => state.establecimiento
+  );
   const [fetch, { isLoading, isFetching, data }] =
     useLazyPaginateVigilanciaQuery();
 
   const handle = () => {
-    fetch(animalSelected.REGISTRO_MONITOREO);
+    fetch(establecimientoSelected.id);
   };
 
   useEffect(() => {
-    if (animalSelected?.REGISTRO_MONITOREO) handle();
-  }, [animalSelected]);
+    if (establecimientoSelected?.id) handle();
+  }, [establecimientoSelected]);
 
   useEffect(() => {
     if (data) dispatch(animalActions.setAnimalVigilancia(data));

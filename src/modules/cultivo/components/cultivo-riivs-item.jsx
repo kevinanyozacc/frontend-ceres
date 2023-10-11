@@ -2,10 +2,10 @@ import { DateTime } from "luxon";
 import { TableSimpleCell } from "../../../shared/table/components/table-simple-cell";
 import { TableSimpleRow } from "../../../shared/table/components/table-simple-row";
 import { Fragment } from "react";
-import { useUcmFile } from "../../../shared/ucmid/hooks/use-ucm-file";
+import { useFileUcm } from "../../../shared/files/hooks/use-file-ucm";
 
 export function CultivoRIIVSItem({ data }) {
-  const ucmFile = useUcmFile();
+  const fileUcm = useFileUcm();
 
   return (
     <Fragment>
@@ -29,7 +29,7 @@ export function CultivoRIIVSItem({ data }) {
           {data.body?.map((b) => (
             <li
               key={`item-riivs-${b.CODIGO_EXPEDIENTE}`}
-              onClick={() => ucmFile.linkFile(b.UCM_ID)}>
+              onClick={() => fileUcm.linkFile(b.UCM_ID)}>
               {b.UCM_ID}
             </li>
           ))}

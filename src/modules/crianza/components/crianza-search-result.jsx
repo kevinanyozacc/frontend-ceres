@@ -7,7 +7,6 @@ import { FilterContainer } from "../../../shared/filters/components/filter-conta
 import { FilterHeader } from "../../../shared/filters/components/filter-header";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { crianzaActions } from "../features/crianza.slice";
-import { useCrianzaPaginate } from "../hooks/use-crianza-paginate";
 import "../styles/crianza-search-result.css";
 import { CrianzaCstiResult } from "./crianza-csti-result";
 import { CrianzaItem } from "./crianza-item";
@@ -18,6 +17,8 @@ import { CrianzaVigilanciaActivo } from "./crianza-vigilancia-activo";
 import { CrianzaVigilanciaPasiva } from "./crianza-vigilancia-pasiva";
 import { CrianzaAretadoResult } from "./crianza-aretado-result";
 import { CrianzaZoosanitarioResult } from "./crianza-zoosanitario-result";
+import { useCrianzaData } from "../hooks/use-crianza-data";
+import { useCrianzaMeta } from "../hooks/use-crianza-meta";
 
 export function CrianzaSearchResult() {
   const dispatch = useDispatch();
@@ -26,7 +27,8 @@ export function CrianzaSearchResult() {
   );
   const { searchTerm } = useSelector((state) => state.search);
 
-  const hookPaginate = useCrianzaPaginate(true);
+  const hookData = useCrianzaData(true);
+  const hookMeta = useCrianzaMeta();
 
   const selected = (item) => {
     dispatch(crianzaActions.setCrianzaSelected(item));
@@ -35,8 +37,9 @@ export function CrianzaSearchResult() {
 
   useEffect(() => {
     if (searchTerm) {
-      hookPaginate.clear();
-      hookPaginate.handle();
+      hookData.clear();
+      hookData.handle();
+      hookMeta.handle();
       dispatch(crianzaActions.setCrianzaSelected(undefined));
       dispatch(crianzaActions.setCrianzaPredioSelected(undefined));
     }
@@ -46,7 +49,7 @@ export function CrianzaSearchResult() {
     <div>
       <div style={{ paddingLeft: "1em", paddingRight: "4em" }}>
         <FilterHeader
-          isLoading={hookPaginate.isLoading}
+          isLoading={hookMeta.isLoading}
           counter={crianzaPaginate?.meta?.totalItems || 0}
         />
       </div>
@@ -59,10 +62,11 @@ export function CrianzaSearchResult() {
           <CrianzaSelected />
           {/* listar productores */}
           <FilterList
-            isLoading={hookPaginate.isLoading}
-            isFetching={hookPaginate.isFetching}
+            isLoading={hookData.isLoading}
+            isFetching={hookData.isFetching}
+            isLoadingCounter={hookMeta.isPending}
             counter={crianzaPaginate?.meta?.totalItems || 0}
-            onInfinityScroll={hookPaginate.nextData}>
+            onInfinityScroll={hookData.nextData}>
             {crianzaPaginate?.data
               ?.filter(
                 (item) => item.CODI_PROD_PRO !== crianzaSelected?.CODI_PROD_PRO

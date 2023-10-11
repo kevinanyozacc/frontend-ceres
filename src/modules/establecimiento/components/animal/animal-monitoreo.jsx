@@ -8,7 +8,7 @@ import CardTitle from "../../../shared/cards/components/card-title";
 import FilterItem from "../../../shared/filters/components/filter-item";
 import useAnimalVigilancia from "../hooks/use-animal-vigilancia";
 
-export default function AnimalVigilanciaList() {
+export function AnimalMonitereo() {
   const { animalVigilancia } = useSelector((state) => state.animal);
   const { isLoading } = useAnimalVigilancia();
 
@@ -18,7 +18,7 @@ export default function AnimalVigilanciaList() {
     <CardContainer title="Vigilancia">
       <CardSimple>
         <Fragment>
-          <CardTitle title="Monitoreo" />
+          <CardTitle title="Monitoreo > Enfermedades > Inf. Ensayo" />
           <CardBody>
             {animalVigilancia?.data?.map((item, index) => (
               <FilterItem
