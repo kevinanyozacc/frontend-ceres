@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
 import ImageProcessamiento from "../../assets/images/procesamiento.png";
 import ImageProduccion from "../../assets/images/produccion.png";
+import ImageMovilizacion from "../../assets/images/movilizacion.png";
 import { useStatsQuery } from "../../redux/services/stats";
 import LandingContainer from "../CenteredContainer";
 import "./Landing.css";
@@ -25,6 +26,11 @@ const Landing = () => {
             onClick={() => navigate("/procesamiento-primario")}
             image={ImageProcessamiento}
             title="Procesamiento Primario"
+          />
+           <LandingSelection
+            onClick={() => navigate("/")}
+            image={ImageMovilizacion}
+            title="Movilización"
           />
         </div>
       </LandingContainer>
