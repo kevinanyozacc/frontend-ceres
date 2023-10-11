@@ -11,7 +11,6 @@ import { CrianzaVigilanciaItem } from "./crianza-vigilancia-item";
 export function CrianzaVigilanciaPasiva() {
   const predio = useCrianzaVigilanciaPasivo();
   const { crianzaPredioSelected } = useSelector((state) => state.crianza);
-
   const isPending = useMemo(() => {
     return predio.isLoading || predio.isFetching;
   }, [predio.isLoading, predio.isFetching]);
@@ -53,7 +52,7 @@ export function CrianzaVigilanciaPasiva() {
                 { title: "EQUINO" },
                 { title: "OTROS" },
                 { title: "OVINO" },
-                { title: "PORCINO" },
+                { title: "PORCINA" },
               ]}
             />
             {predio.data?.map((item, index) => (

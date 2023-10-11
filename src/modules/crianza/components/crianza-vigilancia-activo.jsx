@@ -37,7 +37,7 @@ export function CrianzaVigilanciaActivo() {
           >
             <TableSimpleHead
               data={[
-                { title: "CODIGO_PREDIO", align: "left" },
+                { title: "CODIGO PREDIO", align: "left" },
                 { title: "N° SOLICITUD" },
                 { title: "FECHA GENERACION" },
                 { title: "FECHA RECEPCION" },
