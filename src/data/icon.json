@@ -1,0 +1,18 @@
+{
+  "agricultural-supplies": "mdi:spray",
+  "livestock-supplies": "mdi:pill",
+  "feed-processing": "mdi:silo",
+  "slaughterhouse": "mdi:food-steak",
+  "pig-farm": "mdi:pig-variant-outline",
+  "poultry-farm": "mdi:turkey",
+  "primary-processing": "mdi:cogs",
+  "agricultural-exporter": "mdi:sprout",
+  "livestock-exporter": "mdi:world",
+  "other": "mdi:home-map-marker",
+  "cold_meat_stores": "mdi:snowflake",
+  "poultry_slaughter_center": "mdi:turkey",
+  "rendering": "mdi:factory",
+  "organic-certifier": "mdi:water-check",
+  "export-processing-plant": "mdi:package-variant-closed",
+  "crops": "mdi:farm"
+}

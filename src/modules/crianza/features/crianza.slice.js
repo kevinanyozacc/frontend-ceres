@@ -3,20 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const crianzaSlice = createSlice({
   name: "crianzaSlice",
   initialState: {
-    crianzaPaginate: { data: [] },
+    crianzaPaginate: { data: [], meta: {} },
     crianzaSelected: undefined,
     crianzaPredioSelected: undefined,
-    crianzaVigilancia: { data: [] },
+    crianzaVigilancia: { data: [], meta: {} },
   },
   reducers: {
-    setCrianzaPaginate: (state, { payload }) => {
-      state.crianzaPaginate = payload;
+    setCrianzaData: (state, { payload }) => {
+      state.crianzaPaginate.data = payload;
     },
-    setCrianzaPaginateAppend: (state, { payload }) => {
-      const newData = payload?.data || [];
-      const newMeta = payload?.meta || {};
+    setCrianzaMeta: (state, { payload }) => {
+      console.log(payload);
+      state.crianzaPaginate.meta = payload;
+    },
+    setCrianzaDataAppend: (state, { payload }) => {
+      const newData = payload || [];
       state.crianzaPaginate.data?.push(...newData);
-      state.crianzaPaginate.meta = newMeta;
     },
     setCrianzaSelected: (state, { payload }) => {
       state.crianzaSelected = payload;

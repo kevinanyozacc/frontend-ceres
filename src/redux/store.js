@@ -24,6 +24,8 @@ import { searchApi } from "./services/search";
 import { statsApi } from "./services/stats";
 import { cultivoRtk } from "../modules/cultivo/features/cultivo.rtk";
 import { cultivoReducer } from "../modules/cultivo/features/cultivo.slice";
+import { establecimientoReducer } from "../modules/establecimiento/features/establecimiento.slice";
+import { establecimientoRtk } from "../modules/establecimiento/features/establecimiento.rtk";
 
 const persistConfig = {
   key: "root",
@@ -46,6 +48,7 @@ export const store = configureStore({
     [alimentoRtk.reducerPath]: alimentoRtk.reducer,
     [crianzaRtk.reducerPath]: crianzaRtk.reducer,
     [cultivoRtk.reducerPath]: cultivoRtk.reducer,
+    [establecimientoRtk.reducerPath]: establecimientoRtk.reducer,
     auth: persistedReducer,
     search: searchReducer,
     drawer: drawerReducer,
@@ -57,6 +60,7 @@ export const store = configureStore({
     alimento: alimentoReducer,
     crianza: crianzaReducer,
     cultivo: cultivoReducer,
+    establecimiento: establecimientoReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -71,7 +75,8 @@ export const store = configureStore({
       .concat(predioRtk.middleware)
       .concat(alimentoRtk.middleware)
       .concat(crianzaRtk.middleware)
-      .concat(cultivoRtk.middleware),
+      .concat(cultivoRtk.middleware)
+      .concat(establecimientoRtk.middleware),
 });
 
 export const persistor = persistStore(store);

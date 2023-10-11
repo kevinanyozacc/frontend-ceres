@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLazySearchCrianzaQuery } from "../features/crianza.rtk";
-import { crianzaActions } from "../features/crianza.slice";
+import { useLazySearchEstablecimientoQuery } from "../features/establecimiento.rtk";
+import { establecimientoActions } from "../features/establecimiento.slice";
 
-export function useCrianzaPaginate(autoload = false) {
+export function useEstablecimientoPaginate(autoload = false) {
   const dispatch = useDispatch();
   const { searchTerm } = useSelector((state) => state.search);
-  const [fetch, { data, isLoading, isFetching }] = useLazySearchCrianzaQuery();
+  const [fetch, { data, isLoading, isFetching }] =
+    useLazySearchEstablecimientoQuery();
 
   const currentPage = useMemo(() => {
     return data?.meta?.currentPage || 1;
@@ -18,7 +19,7 @@ export function useCrianzaPaginate(autoload = false) {
   }, [data]);
 
   const clear = () => {
-    dispatch(crianzaActions.setCrianzaPaginate({ data: [] }));
+    dispatch(establecimientoActions.setEstablecimientoPaginate({ data: [] }));
   };
 
   const handle = (page = 1) => {
@@ -26,9 +27,11 @@ export function useCrianzaPaginate(autoload = false) {
       .unwrap()
       .then((data) => {
         if (!autoload) {
-          dispatch(crianzaActions.setCrianzaPaginate(data));
+          dispatch(establecimientoActions.setEstablecimientoPaginate(data));
         } else {
-          dispatch(crianzaActions.setCrianzaPaginateAppend(data));
+          dispatch(
+            establecimientoActions.setEstablecimientoPaginateAppend(data)
+          );
         }
       });
   };

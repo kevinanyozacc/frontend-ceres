@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterOrderbyData } from "../data/filter-orderby.data";
 import { filterActions } from "../features/filter-slice";
+import { Fragment } from "react";
 
 export function FilterHeader({ counter, isLoading }) {
   const { orderBySelected } = useSelector((state) => state.filter);
@@ -16,14 +17,19 @@ export function FilterHeader({ counter, isLoading }) {
   return (
     <div className="PlaceSearchResultsList__top">
       <h2 className="PlaceSearchResultsList__title">
-        {counter || 0}
-        {counter <= 1 ? " resultado" : " resultados"}
+        {isLoading ? (
+          "Cargando..."
+        ) : (
+          <Fragment>
+            {counter || 0}
+            {counter <= 1 ? " resultado" : " resultados"}
+          </Fragment>
+        )}
       </h2>
       <div className="PlaceSearchResultsList__sort_by_field_container">
         <label
           htmlFor="PlaceSearchResultsList__se lect_id"
-          className="PlaceSearchResultsList__select_label"
-        >
+          className="PlaceSearchResultsList__select_label">
           Ordenar:
         </label>
         <select
@@ -31,8 +37,7 @@ export function FilterHeader({ counter, isLoading }) {
           className="PlaceSearchResultsList__select"
           onChange={({ target }) => onSelected(target.value)}
           value={orderBySelected?.value}
-          disabled={isLoading}
-        >
+          disabled={isLoading}>
           {filterOrderbyData?.map((opt) => (
             <option value={opt.value} key={`option-filter-header-${opt.value}`}>
               {opt.text}

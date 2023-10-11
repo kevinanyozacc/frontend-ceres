@@ -13,39 +13,11 @@
     "hint": "Escribe dato del predio",
     "icon": "game-icons:herbs-bundle"
   },
-  "process:establishment": {
-    "key": "process:establishment",
+  "process:establecimiento": {
+    "key": "process:establecimiento",
     "title": "Establecimiento",
     "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.",
     "hint": "Escribe lugar, nombre de predio, etc.",
     "icon": "mdi:farm"
-  },
-  "process:predio": {
-    "key": "production:predio",
-    "title": "Cultivos",
-    "description": "Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.",
-    "hint": "Escribe dato del predio",
-    "icon": "game-icons:herbs-bundle"
-  },
-  "process:alimento": {
-    "key": "production:alimento",
-    "title": "Alimento",
-    "description": "Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.",
-    "hint": "Escribe dato del predio",
-    "icon": "fluent:food-24-filled"
-  },
-  "process:animal": {
-    "key": "process:animal",
-    "title": "Animal",
-    "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar informacion de animales supervisados por el SENASA.",
-    "hint": "Escribe código de aretado",
-    "icon": "mdi:cow"
-  },
-  "process:consulta": {
-    "key": "process:consulta",
-    "title": "Consulta",
-    "description": "Busca introduciendo el código o nombre del predio. También puedes buscar según los datos del productor o responsable del predio.",
-    "hint": "Escribe dato del predio",
-    "icon": "streamline:programming-browser-search-search-window-glass-app-code-programming-query-find-magnifying-apps"
   }
 }

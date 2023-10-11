@@ -17,6 +17,12 @@ export const crianzaRtk = createApi({
         params,
       }),
     }),
+    searchCrianzaMeta: builder.query({
+      query: (params) => ({
+        url: `search/crianza-meta`,
+        params,
+      }),
+    }),
     listPrediosToCrianza: builder.query({
       query: (productorId) => ({
         url: `search/crianza/${productorId}/predios`,
@@ -57,6 +63,7 @@ export const crianzaRtk = createApi({
 
 export const {
   useLazySearchCrianzaQuery,
+  useLazySearchCrianzaMetaQuery,
   useLazyListPrediosToCrianzaQuery,
   useLazyListVacunasToCrianzaQuery,
   useLazyListCstiToCrianzaQuery,

@@ -4,6 +4,7 @@ import "../styles/filter-list.css";
 export default function FilterList({
   isLoading = false,
   isFetching = false,
+  isLoadingCounter = false,
   counter,
   children,
   onInfinityScroll,
@@ -23,12 +24,11 @@ export default function FilterList({
   return (
     <div
       className="PlaceSearchResultsList__cards_container"
-      onScroll={onScroll}
-    >
+      onScroll={onScroll}>
       {/* listar datos */}
       {children || null}
       {/* mostrar mensaje cuando no hay registros */}
-      {!isFetching && !counter ? (
+      {!isLoadingCounter && !counter ? (
         <div className="PlaceSearchResultsListEmpty" style={{ height: "100%" }}>
           No hay registros disponibles
         </div>
