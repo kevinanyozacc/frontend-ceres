@@ -23,7 +23,8 @@ export function CultivoExportacionResult() {
   return (
     <Fragment>
       <h4 className="card-title">
-        <Icon icon="humbleicons:certificate" /> Certificados de Exportación
+        <Icon icon="humbleicons:certificate" />
+        Certificados de Lugar de Producción
       </h4>
 
       {cultivoPredioSelected ? (
