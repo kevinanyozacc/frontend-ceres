@@ -7,13 +7,13 @@ const crianzaSlice = createSlice({
     crianzaSelected: undefined,
     crianzaPredioSelected: undefined,
     crianzaVigilancia: { data: [], meta: {} },
+    crianzaZoosanitario: { data: [], meta: {} },
   },
   reducers: {
     setCrianzaData: (state, { payload }) => {
       state.crianzaPaginate.data = payload;
     },
     setCrianzaMeta: (state, { payload }) => {
-      console.log(payload);
       state.crianzaPaginate.meta = payload;
     },
     setCrianzaDataAppend: (state, { payload }) => {
@@ -28,6 +28,14 @@ const crianzaSlice = createSlice({
     },
     setPredioVigilancia: (state, { payload }) => {
       state.crianzaVigilancia = payload;
+    },
+    setCrianzaZoosanitario: (state, { payload }) => {
+      state.crianzaZoosanitario = payload;
+    },
+    setCrianzaZoosanitarioAppend: (state, { payload }) => {
+      const newData = payload?.data || [];
+      state.crianzaZoosanitario.meta = payload.meta;
+      state.crianzaZoosanitario.data?.push(...newData);
     },
   },
 });

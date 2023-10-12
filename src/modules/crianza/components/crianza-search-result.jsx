@@ -88,7 +88,7 @@ export function CrianzaSearchResult() {
           <CrianzaVigilanciaPasiva />
         </FilterContainer>
       </div>
-      <div className="PlaceSearchResults CrianzaVigilanciaContainer">
+      <div className="PlaceSearchResults CrianzaBodyContainer">
         <FilterContainer>
           <CrianzaVacunaResult />
           <CrianzaAretadoResult />

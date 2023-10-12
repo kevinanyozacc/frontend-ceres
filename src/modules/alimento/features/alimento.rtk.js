@@ -34,6 +34,11 @@ export const alimentoRtk = createApi({
         url: `search/alimento-complete?q=${id}`,
       }),
     }),
+    listEtiquetaByEstablecimiento: builder.query({
+      query: (dni) => ({
+        url: `search/establecimiento/${dni}/alimento-etiquetas`,
+      }),
+    }),
   }),
 });
 
@@ -42,4 +47,5 @@ export const {
   useLazyMetainfoAlimentoQuery,
   useLazyFindAlimentoQuery,
   useLazyPaginateVigilanciaQuery,
+  useLazyListEtiquetaByEstablecimientoQuery,
 } = alimentoRtk;

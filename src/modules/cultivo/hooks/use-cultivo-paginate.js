@@ -17,6 +17,10 @@ export function useCultivoPaginate(autoload = false) {
     return data?.meta?.totalPages || 1;
   }, [data]);
 
+  const isPending = useMemo(() => {
+    return isLoading || isFetching;
+  }, [isLoading, isFetching]);
+
   const clear = () => {
     dispatch(cultivoActions.setCultivoPaginate({ data: [] }));
   };
@@ -46,5 +50,6 @@ export function useCultivoPaginate(autoload = false) {
     nextData,
     page: currentPage,
     lastPage,
+    isPending,
   };
 }

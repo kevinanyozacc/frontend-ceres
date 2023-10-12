@@ -44,8 +44,9 @@ export const crianzaRtk = createApi({
       }),
     }),
     listZoosanitarioToCrianza: builder.query({
-      query: (predioId) => ({
+      query: ({ predioId, params }) => ({
         url: `search/crianza/${predioId}/zoosanitario`,
+        params,
       }),
     }),
     listVigilanciaActivaToPredio: builder.query({

@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import { DateTime } from "luxon";
-import { Fragment, useMemo } from "react";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import Loader from "../../../components/Loader";
 import { FilterEmpty } from "../../../shared/filters/components/filter-empty";
@@ -9,18 +9,16 @@ import { TableSimpleCell } from "../../../shared/table/components/table-simple-c
 import { TableSimpleHead } from "../../../shared/table/components/table-simple-head";
 import { TableSimpleRow } from "../../../shared/table/components/table-simple-row";
 import { useCrianzaZoosanitario } from "../hooks/use-crianza-zoosanitario";
+import { useFilterScrollInfinity } from "../../../shared/filters/hooks/use-filter-scroll-infinity";
+import { useFileBlob } from "../../../shared/files/hooks/use-file-blob";
 
 export function CrianzaZoosanitarioResult() {
-  const zoosanitario = useCrianzaZoosanitario();
-  const { crianzaSelected } = useSelector((state) => state.crianza);
-
-  const isPending = useMemo(() => {
-    return zoosanitario.isLoading || zoosanitario.isFetching;
-  }, [zoosanitario.isLoading, zoosanitario.isFetching]);
-
-  const count = useMemo(() => {
-    return zoosanitario.data?.length || 0;
-  }, [zoosanitario.data]);
+  const zoosanitario = useCrianzaZoosanitario(true);
+  const fileBlob = useFileBlob();
+  const scroll = useFilterScrollInfinity(zoosanitario.isFetching);
+  const { crianzaSelected, crianzaZoosanitario } = useSelector(
+    (state) => state.crianza
+  );
 
   return (
     <Fragment>
@@ -29,41 +27,64 @@ export function CrianzaZoosanitarioResult() {
       </h4>
 
       {crianzaSelected ? (
-        isPending ? (
-          <Loader />
-        ) : count ? (
-          <TableSimple
-            responsive
-            contentStyle={{ height: "100%" }}
-            contentClassName="bg-light">
-            <TableSimpleHead
-              data={[
-                { title: "CODIGO_IIV", align: "left" },
-                { title: "ESTADO" },
-                { title: "FECHA_REGISTRO" },
-                { title: "CODIGO_EXPEDIENTE", align: "left" },
-                { title: "DESCRIPCION_SERVICIO" },
-              ]}
-            />
-            {zoosanitario.data?.map((item, index) => (
-              <TableSimpleRow key={`item-vacuna-${index}`}>
-                <TableSimpleCell noWrap>{item.CODIGO_IIV}</TableSimpleCell>
-                <TableSimpleCell noWrap>{item.ESTADO}</TableSimpleCell>
-                <TableSimpleCell>
-                  {DateTime.fromISO(item.FECHA_REGISTRO).toFormat("dd/MM/yyyy")}
-                </TableSimpleCell>
-                <TableSimpleCell noWrap>
-                  {item.CODIGO_EXPEDIENTE}
-                </TableSimpleCell>
-                <TableSimpleCell noWrap>
-                  {item.DESCRIPCION_SERVICIO}
-                </TableSimpleCell>
-              </TableSimpleRow>
-            ))}
-          </TableSimple>
-        ) : (
-          <FilterEmpty title="No hay registros de zoosanitario" />
-        )
+        <TableSimple
+          onScroll={(evt) => scroll.onScroll(evt, zoosanitario.nextData)}
+          responsive
+          contentStyle={{ height: "100%" }}
+          contentClassName="bg-light">
+          <TableSimpleHead
+            data={[
+              { title: "CODIGO_IIV", align: "left" },
+              { title: "ESTADO" },
+              { title: "FECHA_REGISTRO" },
+              { title: "CODIGO_EXPEDIENTE", align: "left" },
+              { title: "DESCRIPCION_SERVICIO" },
+              { title: "ARCHIVOS" },
+            ]}
+          />
+          {crianzaZoosanitario.data?.map((item, index) => (
+            <TableSimpleRow key={`item-vacuna-${index}`}>
+              <TableSimpleCell noWrap>{item.CODIGO_IIV}</TableSimpleCell>
+              <TableSimpleCell noWrap>{item.ESTADO}</TableSimpleCell>
+              <TableSimpleCell>
+                {DateTime.fromISO(item.FECHA_REGISTRO).toFormat("dd/MM/yyyy")}
+              </TableSimpleCell>
+              <TableSimpleCell noWrap>{item.CODIGO_EXPEDIENTE}</TableSimpleCell>
+              <TableSimpleCell noWrap>
+                {item.DESCRIPCION_SERVICIO}
+              </TableSimpleCell>
+              <TableSimpleCell noWrap>
+                <ul>
+                  {item.documents?.map((doc) => (
+                    <li
+                      onClick={() =>
+                        fileBlob.linkFile(doc.BLOB_ID, { type: "adjunto" })
+                      }
+                      className="cursor-pointer">
+                      <Icon icon="ph:file-fill" /> <span>{doc.NOMBRE}</span>
+                    </li>
+                  ))}
+                </ul>
+              </TableSimpleCell>
+            </TableSimpleRow>
+          ))}
+          {/* loading */}
+          {zoosanitario.isPending ? (
+            <TableSimpleRow>
+              <TableSimpleCell colSpan={6}>
+                <Loader />
+              </TableSimpleCell>
+            </TableSimpleRow>
+          ) : null}
+          {/* no record */}
+          {!zoosanitario.isPending && !crianzaZoosanitario?.meta?.totalItems ? (
+            <TableSimpleRow>
+              <TableSimpleCell colSpan={6}>
+                <FilterEmpty title="No hay registros disponibles" />
+              </TableSimpleCell>
+            </TableSimpleRow>
+          ) : null}
+        </TableSimple>
       ) : (
         <FilterEmpty title="Seleccionar productor" />
       )}
