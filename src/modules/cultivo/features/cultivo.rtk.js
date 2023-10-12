@@ -28,8 +28,9 @@ export const cultivoRtk = createApi({
       }),
     }),
     listZoosanitarioToCultivo: builder.query({
-      query: (cultivoId) => ({
+      query: ({ cultivoId, params }) => ({
         url: `search/crianza/${cultivoId}/zoosanitario`,
+        params,
       }),
     }),
     listCertificadoExportacion: builder.query({

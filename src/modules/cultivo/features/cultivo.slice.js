@@ -3,10 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const cultivoSlice = createSlice({
   name: "crianzaSlice",
   initialState: {
-    cultivoPaginate: { data: [] },
+    cultivoPaginate: { data: [], meta: {} },
     cultivoSelected: undefined,
     cultivoPredioSelected: undefined,
-    cultivoVigilancia: { data: [] },
+    cultivoVigilancia: { data: [], meta: {} },
+    cultivoZoosanitario: { data: [], meta: {} },
   },
   reducers: {
     setCultivoPaginate: (state, { payload }) => {
@@ -26,6 +27,14 @@ const cultivoSlice = createSlice({
     },
     setCultivoVigilancia: (state, { payload }) => {
       state.cultivoVigilancia = payload;
+    },
+    setCultivoZoosanitario: (state, { payload }) => {
+      state.crianzaZoosanitario = payload;
+    },
+    setCultivoZoosanitarioAppend: (state, { payload }) => {
+      const newData = payload?.data || [];
+      state.cultivoZoosanitario.meta = payload.meta;
+      state.cultivoZoosanitario.data?.push(...newData);
     },
   },
 });
