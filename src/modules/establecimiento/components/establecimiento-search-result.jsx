@@ -14,6 +14,7 @@ import "../styles/establecimiento-search-result.css";
 import { EstablecimientoMonitoreoResult } from "./establecimiento-monitoreo-result";
 import { EstablecimientoRIIVSResult } from "./establecimiento-riivs-result";
 import { EstablecimientoExportacionResult } from "./establecimiento-exportacion-result";
+import { EstablecimientoEtiquetaResult } from "./establecimiento-etiqueta-result";
 
 export function EstablecimientoSearchResult() {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ export function EstablecimientoSearchResult() {
           <FilterList
             isLoading={hookPaginate.isLoading}
             isFetching={hookPaginate.isFetching}
-            isLoadingCounter={hookPaginate.isP}
+            isLoadingCounter={hookPaginate.isPending}
             counter={establecimientoPaginate?.meta?.totalItems || 0}
             onInfinityScroll={hookPaginate.nextData}>
             {establecimientoPaginate?.data?.map((item, index) => (
@@ -71,6 +72,7 @@ export function EstablecimientoSearchResult() {
           <EstablecimientoMonitoreoResult />
           <EstablecimientoExportacionResult />
           <EstablecimientoRIIVSResult />
+          <EstablecimientoEtiquetaResult />
         </FilterContainer>
       </div>
     </div>

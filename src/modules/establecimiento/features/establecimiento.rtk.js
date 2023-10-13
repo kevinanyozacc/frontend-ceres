@@ -38,6 +38,11 @@ export const establecimientoRtk = createApi({
         url: `/agricultural-exporter/origin-certificates/${id}`,
       }),
     }),
+    listEtiquetaToEstablecimiento: builder.query({
+      query: (dni) => ({
+        url: `search/establecimiento/${dni}/alimento-etiquetas`,
+      }),
+    }),
   }),
 });
 
@@ -46,5 +51,6 @@ export const {
   useLazyListMonitoreoByEstablecimientoQuery,
   useLazyListMonitoreoResultadoByEstablecimientoQuery,
   useLazyListRIIVSToEstablecimientoQuery,
+  useLazyListEtiquetaToEstablecimientoQuery,
   useLazyListCertificadoExportacionToEstablecimientoQuery,
 } = establecimientoRtk;

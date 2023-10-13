@@ -5,28 +5,27 @@ import Loader from "../../../components/Loader";
 import { FilterEmpty } from "../../../shared/filters/components/filter-empty";
 import { TableSimple } from "../../../shared/table/components/table-simple";
 import { TableSimpleHead } from "../../../shared/table/components/table-simple-head";
-import { useEstablecimientoExportacion } from "../hooks/use-establecimiento-exportacion";
-import { EstablecimientoExportacionItem } from "./establecimiento-exportacion-item";
+import { useEstablecimientoEtiqueta } from "../hooks/use-establecimiento-etiqueta";
+import { EstablecimientoEtiquetaItem } from "./establecimiento-etiqueta-item";
 
-export function EstablecimientoExportacionResult() {
-  const exportacion = useEstablecimientoExportacion();
+export function EstablecimientoEtiquetaResult() {
+  const etiqueta = useEstablecimientoEtiqueta();
   const { establecimientoSelected } = useSelector(
     (state) => state.establecimiento
   );
 
   const count = useMemo(() => {
-    return exportacion.data?.length || 0;
-  }, [exportacion.data]);
+    return etiqueta.data?.length || 0;
+  }, [etiqueta.data]);
 
   return (
     <Fragment>
       <h4 className="card-title">
-        <Icon icon="humbleicons:certificate" />
-        Certificados de Lugar de Producción
+        <Icon icon="icomoon-free:price-tags" /> Etiquetas
       </h4>
 
       {establecimientoSelected ? (
-        exportacion.isPending ? (
+        etiqueta.isPending ? (
           <Loader />
         ) : count ? (
           <TableSimple
@@ -35,22 +34,27 @@ export function EstablecimientoExportacionResult() {
             contentClassName="bg-light">
             <TableSimpleHead
               data={[
-                { title: "Cód. certificado" },
-                { title: "Cód. solicitud" },
-                { title: "Campaña" },
-                { title: "Fecha de cosecha" },
-                { title: "Area" },
+                { title: "NOMB_COME_PRO" },
+                { title: "RAZO_SOCI_VET" },
+                { title: "NUME_REGI_PRO" },
+                { title: "NOMB_TIPO_BIO" },
+                { title: "NOMB_ORGA_BIO" },
+                { title: "REGI_SOLI_PRO" },
+                { title: "FECH_VENC_PRO" },
+                { title: "ANNO_REGI_PRO" },
+                { title: "VIDA_UTIL" },
+                { title: "ARCHIVOS" },
               ]}
             />
-            {exportacion.data?.map((item, index) => (
-              <EstablecimientoExportacionItem
-                key={`item-exportacion-${index}`}
+            {etiqueta.data?.map((item, index) => (
+              <EstablecimientoEtiquetaItem
+                key={`item-etiqueta-${index}`}
                 data={item}
               />
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de certificado de exportación" />
+          <FilterEmpty title="No hay registros de etiquetas" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

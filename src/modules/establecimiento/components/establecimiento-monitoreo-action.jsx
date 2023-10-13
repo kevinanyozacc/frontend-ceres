@@ -18,7 +18,7 @@ export function EstablecimientoMonitoreoAction({ data }) {
           icon="bxs:file"
           className="cursor-pointer"
           onClick={() =>
-            fileBlob.linkFile(data.NUME_REGI_ARC, { type: "fisico" })
+            fileBlob.linkFile(data.SOLICITUD_LAB_UCCIRT, { type: "fisico" })
           }
         />
       </div>

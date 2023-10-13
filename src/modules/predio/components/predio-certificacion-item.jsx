@@ -38,8 +38,7 @@ export function PredioCertificacionItem({ data }) {
         <TableSimpleCell noWrap align="center">
           <Link
             to={`/establecimiento/planta-exportacion/${data.plant_id}`}
-            className="link"
-          >
+            className="link">
             <Icon icon="mdi:link" /> {data.code_plant}
           </Link>
         </TableSimpleCell>
@@ -65,8 +64,7 @@ export function PredioCertificacionItem({ data }) {
               <li
                 key={`item-file-${file.UCM_ID}`}
                 className="link"
-                onClick={() => onFile(file.UCM_ID)}
-              >
+                onClick={() => onFile(file.UCM_ID)}>
                 <Icon icon="bx:file" /> {file.NAME || ""}
               </li>
             ))}
@@ -79,8 +77,7 @@ export function PredioCertificacionItem({ data }) {
           {/* productos */}
           {data.products?.map((product, index) => (
             <TableSimpleRow
-              key={`item-product-${data.codigo_expediente}-${index}`}
-            >
+              key={`item-product-${data.codigo_expediente}-${index}`}>
               <TableSimpleCell></TableSimpleCell>
               <TableSimpleCell colSpan={2}>
                 <Icon icon="fluent-mdl2:product" /> {product.name}
