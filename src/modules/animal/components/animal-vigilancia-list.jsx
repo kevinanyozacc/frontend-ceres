@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import Loader from "../../../components/Loader";
 import CardBody from "../../../shared/cards/components/card-body";
@@ -17,32 +16,30 @@ export default function AnimalVigilanciaList() {
   return (
     <CardContainer title="Vigilancia">
       <CardSimple>
-        <Fragment>
-          <CardTitle title="Monitoreo" />
-          <CardBody>
-            {animalVigilancia?.data?.map((item, index) => (
-              <FilterItem
-                icon="ic:baseline-monitor-heart"
-                key={`item-${index}`}
-                name={item?.COD_MUESTRA}
-                listInfo={[
-                  {
-                    icon: "material-symbols:info-outline",
-                    text: item?.TIPO_MUESTRA,
-                  },
-                  {
-                    icon: "ic:sharp-food-bank",
-                    text: item?.NOMBRE_ALIMENTO,
-                  },
-                  {
-                    icon: "mdi:location",
-                    text: item?.UBICATION,
-                  },
-                ]}
-              />
-            ))}
-          </CardBody>
-        </Fragment>
+        <CardTitle title="Monitoreo" />
+        <CardBody>
+          {animalVigilancia?.data?.map((item, index) => (
+            <FilterItem
+              icon="ic:baseline-monitor-heart"
+              key={`item-${index}`}
+              name={item?.COD_MUESTRA}
+              listInfo={[
+                {
+                  icon: "material-symbols:info-outline",
+                  text: item?.TIPO_MUESTRA,
+                },
+                {
+                  icon: "ic:sharp-food-bank",
+                  text: item?.NOMBRE_ALIMENTO,
+                },
+                {
+                  icon: "mdi:location",
+                  text: item?.UBICATION,
+                },
+              ]}
+            />
+          ))}
+        </CardBody>
       </CardSimple>
     </CardContainer>
   );

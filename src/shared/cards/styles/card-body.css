@@ -1,4 +1,11 @@
 .AnimalProfile__extra_data_list_Card {
-  display: block;
+  display: block!important;
   padding-top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.AnimalProfile__place_data {
+  height: 100%;
+  margin-bottom: 0.3em;
 }

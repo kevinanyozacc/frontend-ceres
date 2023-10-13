@@ -17,7 +17,27 @@ export const establecimientoRtk = createApi({
         params,
       }),
     }),
+    listMonitoreoByEstablecimiento: builder.query({
+      query: (dni) => ({
+        url: `search/establecimiento/${dni}/monitoreos`,
+      }),
+    }),
+    listRIIVSToEstablecimiento: builder.query({
+      query: (cultivoId) => ({
+        url: `search/cultivo/${cultivoId}/RIIVS`,
+      }),
+    }),
+    listCertificadoExportacionToEstablecimiento: builder.query({
+      query: (id) => ({
+        url: `/agricultural-exporter/origin-certificates/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useLazySearchEstablecimientoQuery } = establecimientoRtk;
+export const {
+  useLazySearchEstablecimientoQuery,
+  useLazyListMonitoreoByEstablecimientoQuery,
+  useLazyListRIIVSToEstablecimientoQuery,
+  useLazyListCertificadoExportacionToEstablecimientoQuery,
+} = establecimientoRtk;

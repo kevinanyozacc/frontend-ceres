@@ -10,10 +10,10 @@ import { FilterHeader } from "../../../shared/filters/components/filter-header";
 import FilterList from "../../../shared/filters/components/filter-list";
 import { EstablecimientoSelected } from "./establecimiento-selected";
 import { EstablecimientoItem } from "./establecimiento-item";
-import { EstablecimientoAnimalResult } from "./establecimiento-animal-result";
 import "../styles/establecimiento-search-result.css";
-import { EstablecimientoVegetalResult } from "./establecimiento-vegetal-result";
-import { EstablecimientoAlimentoResult } from "./establecimiento-alimento-result";
+import { EstablecimientoMonitoreoResult } from "./establecimiento-monitoreo-result";
+import { EstablecimientoRIIVSResult } from "./establecimiento-riivs-result";
+import { EstablecimientoExportacionResult } from "./establecimiento-exportacion-result";
 
 export function EstablecimientoSearchResult() {
   const dispatch = useDispatch();
@@ -69,9 +69,9 @@ export function EstablecimientoSearchResult() {
           </FilterList>
         </FilterContainer>
         <FilterContainer>
-          <EstablecimientoAnimalResult />
-          <EstablecimientoVegetalResult />
-          <EstablecimientoAlimentoResult />
+          <EstablecimientoMonitoreoResult />
+          <EstablecimientoExportacionResult />
+          <EstablecimientoRIIVSResult />
         </FilterContainer>
       </div>
     </div>

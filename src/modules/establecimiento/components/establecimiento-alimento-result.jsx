@@ -12,7 +12,7 @@ export function EstablecimientoAlimentoResult() {
   return (
     <Fragment>
       <h4 className="card-title">
-        <Icon icon="fluent:food-24-filled" /> <b>Alimento</b>
+        <Icon icon="material-symbols:monitor-heart" /> <b>Monitoreos</b>
       </h4>
 
       {establecimientoSelected ? (

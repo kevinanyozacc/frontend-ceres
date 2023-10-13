@@ -125,7 +125,7 @@
   align-items: center;
   font-size: .8rem;
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: auto;
   white-space: nowrap;
   background-color: var(--alert-color);
   color: var(--white-color);
