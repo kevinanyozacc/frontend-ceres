@@ -5,6 +5,7 @@ const establecimientoSlice = createSlice({
   initialState: {
     establecimientoPaginate: { data: [] },
     establecimientoSelected: undefined,
+    monitoreoSelected: undefined,
   },
   reducers: {
     setEstablecimientoPaginate: (state, { payload }) => {
@@ -18,6 +19,9 @@ const establecimientoSlice = createSlice({
     },
     setEstablecimientoSelected: (state, { payload }) => {
       state.establecimientoSelected = payload;
+    },
+    setMonitoreoSelected: (state, { payload }) => {
+      state.monitoreoSelected = payload;
     },
   },
 });

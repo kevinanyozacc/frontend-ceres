@@ -4,6 +4,7 @@ const defaultProps = {
   align: "left",
   colSpan: 1,
   simple: false,
+  className: undefined,
   onClick: () => null,
 };
 
@@ -16,8 +17,8 @@ export function TableSimpleCell(props = defaultProps) {
         cell 
         ${props.noWrap ? "nowrap" : ""} 
         ${props.simple ? "simple" : ""} 
-        ${props.align}`}
-    >
+        ${props.align || ""}
+        ${props.className || ""}`}>
       {props.children || null}
     </td>
   );

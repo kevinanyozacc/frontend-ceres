@@ -22,9 +22,7 @@ export default function FilterList({
   if (isLoading) return <Loader />;
 
   return (
-    <div
-      className="PlaceSearchResultsList__cards_container"
-      onScroll={onScroll}>
+    <div className="Filter__Container__Card" onScroll={onScroll}>
       {/* listar datos */}
       {children || null}
       {/* mostrar mensaje cuando no hay registros */}

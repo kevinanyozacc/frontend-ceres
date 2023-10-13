@@ -18,6 +18,10 @@ export function useEstablecimientoPaginate(autoload = false) {
     return data?.meta?.totalPages || 1;
   }, [data]);
 
+  const isPending = useMemo(() => {
+    return isLoading || isFetching;
+  }, [isLoading, isFetching]);
+
   const clear = () => {
     dispatch(establecimientoActions.setEstablecimientoPaginate({ data: [] }));
   };
@@ -44,6 +48,7 @@ export function useEstablecimientoPaginate(autoload = false) {
   return {
     isLoading,
     isFetching,
+    isPending,
     clear,
     handle,
     nextData,

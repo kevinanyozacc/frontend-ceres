@@ -191,28 +191,28 @@
   }
 }
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar {
+.Filter__Container__Card::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar:vertical {
+.Filter__Container__Card::-webkit-scrollbar:vertical {
   width:10px;
 }
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar-button:increment,.PlaceSearchResultsList__cards_container::-webkit-scrollbar-button {
+.Filter__Container__Card::-webkit-scrollbar-button:increment,.Filter__Container__Card::-webkit-scrollbar-button {
   display: none;
 } 
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar:horizontal {
+.Filter__Container__Card::-webkit-scrollbar:horizontal {
   height: 10px;
 }
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar-thumb {
+.Filter__Container__Card::-webkit-scrollbar-thumb {
   border-radius: 20px;
   border: 5px solid rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
-.PlaceSearchResultsList__cards_container::-webkit-scrollbar-track {
+.Filter__Container__Card::-webkit-scrollbar-track {
   border-radius: 10px;  
 }

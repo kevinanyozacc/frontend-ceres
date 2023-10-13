@@ -55,17 +55,16 @@ export function EstablecimientoSearchResult() {
           <FilterList
             isLoading={hookPaginate.isLoading}
             isFetching={hookPaginate.isFetching}
+            isLoadingCounter={hookPaginate.isP}
             counter={establecimientoPaginate?.meta?.totalItems || 0}
             onInfinityScroll={hookPaginate.nextData}>
-            {establecimientoPaginate?.data
-              ?.filter((item) => item.id !== establecimientoPaginate?.id)
-              .map((item, index) => (
-                <EstablecimientoItem
-                  key={`item-cultivo-${index}`}
-                  data={item}
-                  onClick={() => selected(item)}
-                />
-              ))}
+            {establecimientoPaginate?.data?.map((item, index) => (
+              <EstablecimientoItem
+                key={`item-cultivo-${index}`}
+                data={item}
+                onClick={() => selected(item)}
+              />
+            ))}
           </FilterList>
         </FilterContainer>
         <FilterContainer>

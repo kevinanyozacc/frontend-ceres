@@ -22,6 +22,12 @@ export const establecimientoRtk = createApi({
         url: `search/establecimiento/${dni}/monitoreos`,
       }),
     }),
+    listMonitoreoResultadoByEstablecimiento: builder.query({
+      query: ({ numeroRegistro, type }) => ({
+        url: `search/establecimiento/${numeroRegistro}/monitoreo-resultado`,
+        params: { type },
+      }),
+    }),
     listRIIVSToEstablecimiento: builder.query({
       query: (cultivoId) => ({
         url: `search/cultivo/${cultivoId}/RIIVS`,
@@ -38,6 +44,7 @@ export const establecimientoRtk = createApi({
 export const {
   useLazySearchEstablecimientoQuery,
   useLazyListMonitoreoByEstablecimientoQuery,
+  useLazyListMonitoreoResultadoByEstablecimientoQuery,
   useLazyListRIIVSToEstablecimientoQuery,
   useLazyListCertificadoExportacionToEstablecimientoQuery,
 } = establecimientoRtk;

@@ -1,7 +1,8 @@
-.PlaceSearchResultsList {
+.Filter__Container {
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  height: 100%;
 }
 
 .PlaceSearchResultsList__top {
@@ -138,12 +139,12 @@
   color: var(--white-color);
 }
 
-.PlaceSearchResultsList__cards_container {
+.Filter__Container__Card {
   display: flex;
   flex-direction: column;
   gap: .5rem;
   height: 100%;
-  overflow: auto;
+overflow: auto;
   padding-right: .5rem;
 }
 

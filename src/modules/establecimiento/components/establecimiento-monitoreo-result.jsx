@@ -7,6 +7,7 @@ import { TableSimple } from "../../../shared/table/components/table-simple";
 import { TableSimpleHead } from "../../../shared/table/components/table-simple-head";
 import { useEstablecimientoMonitoreo } from "../hooks/use-establecimiento-monitoreo";
 import { EstablecimientoMonitoreoItem } from "./establecimiento-monitoreo-item";
+import { EstablecimientoResultadoModal } from "./establecimiento-resultado-modal";
 
 export function EstablecimientoMonitoreoResult() {
   const monitoreo = useEstablecimientoMonitoreo();
@@ -36,11 +37,12 @@ export function EstablecimientoMonitoreoResult() {
               data={[
                 { title: "Tipo" },
                 { title: "N° Solicitud" },
-                { title: "Resp", align: "left" },
+                { title: "Resp", align: "left", colSpan: 2 },
                 { title: "Fec. Regístro" },
                 { title: "Componente" },
                 { title: "Producto" },
                 { title: "Meta" },
+                { title: "Más" },
               ]}
             />
             {monitoreo.data?.map((item, index) => (
@@ -56,6 +58,8 @@ export function EstablecimientoMonitoreoResult() {
       ) : (
         <FilterEmpty title="Seleccionar productor" />
       )}
+      {/* monitoreo result */}
+      <EstablecimientoResultadoModal />
     </Fragment>
   );
 }
