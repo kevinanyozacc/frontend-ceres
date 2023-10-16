@@ -7,7 +7,7 @@ export default function LandingSelection({ image, title, onClick }) {
       <div
         className="LandingSelection__item__Image"
         style={{ background: `url(${image})` }}
-      />
+      ></div>
       <div className="LandingSelection__item__title active">{title}</div>
     </div>
   );

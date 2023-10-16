@@ -1,14 +1,14 @@
 {
   "production:crianza": {
     "key": "production:crianza",
-    "title": "Crianza",
+    "title": "Producción pecuario",
     "description": "Ingresa nombre, RUC u otro atributo para buscar predios de la cadena agropecuaria supervisados por el SENASA.",
     "hint": "RUC | DNI | RAZON SOCIAL",
     "icon": "mdi:farm"
   },
   "production:cultivo": {
     "key": "production:cultivo",
-    "title": "Cultivos",
+    "title": "Producción agrícola",
     "description": "Ingresa nombre, RUC u otro atributo para buscar un cultivo. También puedes buscar según los datos del productor",
     "hint": "RUC | DNI | RAZON SOCIAL",
     "icon": "game-icons:herbs-bundle"
@@ -17,7 +17,7 @@
     "key": "process:establecimiento",
     "title": "Establecimiento",
     "description": "Ingresa nombre, RUC, código vegetal, u otro atributo para buscar establecimientos de la cadena agropecuaria supervisados por el SENASA.",
-    "hint": "Escribe lugar, nombre de predio, etc.",
+    "hint": "RUC | DNI | RAZON SOCIAL",
     "icon": "mdi:farm"
   }
 }

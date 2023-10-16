@@ -1,8 +1,9 @@
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router";
-import ImageProcessamiento from "../../assets/images/procesamiento.png";
-import ImageProduccion from "../../assets/images/produccion.png";
-import ImageMovilizacion from "../../assets/images/movilizacion.png";
+import ImageProcessamiento from "../../assets/images/PROCESAMIENTO_PRIMARIO_2.jpg";
+import ImageProduccion from "../../assets/images/PRODUCCION_PRIMARIA_2.jpg";
+import ImageTransporte from "../../assets/images/TRANSPORTE_2.jpg";
+import ImageComercio from "../../assets/images/COMERCIO_2.jpg";
 import { useStatsQuery } from "../../redux/services/stats";
 import LandingContainer from "../CenteredContainer";
 import "./Landing.css";
@@ -29,8 +30,13 @@ const Landing = () => {
           />
            <LandingSelection
             onClick={() => navigate("/")}
-            image={ImageMovilizacion}
-            title="Movilización"
+            image={ImageTransporte}
+            title="Transporte"
+          />
+          <LandingSelection
+            onClick={() => navigate("/")}
+            image={ImageComercio}
+            title="Comercio"
           />
         </div>
       </LandingContainer>
