@@ -1,10 +1,12 @@
 import { Icon, InlineIcon } from "@iconify/react";
 import "../styles/filter-item.css";
+import { Show } from "../../show/components/show";
 
 export default function FilterItem({
   name,
   icon,
   onClick,
+  onClose,
   active,
   listInfo = [],
   moreInfo = [],
@@ -15,6 +17,11 @@ export default function FilterItem({
       onClick={onClick}
       title={name || ""}>
       <Icon className="PlaceSearchResultCard__icon" icon={icon || "mdi:farm"} />
+      <Show tagIf={typeof onClose == "function"}>
+        <span className="Icon__Close" onClick={onClose}>
+          <Icon icon="tabler:x" />
+        </span>
+      </Show>
       <h4 className="PlaceSearchResultCard__title">
         {name?.toLowerCase() || ""}
       </h4>

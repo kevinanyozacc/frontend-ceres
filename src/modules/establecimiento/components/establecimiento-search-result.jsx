@@ -18,7 +18,7 @@ import { EstablecimientoEtiquetaResult } from "./establecimiento-etiqueta-result
 
 export function EstablecimientoSearchResult() {
   const dispatch = useDispatch();
-  const { establecimientoPaginate } = useSelector(
+  const { establecimientoPaginate, establecimientoSelected } = useSelector(
     (state) => state.establecimiento
   );
   const { searchTerm } = useSelector((state) => state.search);
@@ -59,13 +59,15 @@ export function EstablecimientoSearchResult() {
             isLoadingCounter={hookPaginate.isPending}
             counter={establecimientoPaginate?.meta?.totalItems || 0}
             onInfinityScroll={hookPaginate.nextData}>
-            {establecimientoPaginate?.data?.map((item, index) => (
-              <EstablecimientoItem
-                key={`item-cultivo-${index}`}
-                data={item}
-                onClick={() => selected(item)}
-              />
-            ))}
+            {establecimientoPaginate?.data
+              ?.filter((item) => item.id !== establecimientoSelected?.id)
+              ?.map((item, index) => (
+                <EstablecimientoItem
+                  key={`item-cultivo-${index}`}
+                  data={item}
+                  onClick={() => selected(item)}
+                />
+              ))}
           </FilterList>
         </FilterContainer>
         <FilterContainer>

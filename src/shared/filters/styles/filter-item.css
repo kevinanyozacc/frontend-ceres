@@ -7,6 +7,7 @@
   display: grid;
   grid-template: repeat(3, auto) / auto 1fr;
   gap: .35rem 2rem;
+  position: relative;
 }
 
 .PlaceSearchResultCard:hover {
@@ -39,4 +40,16 @@
 .PlaceSearchResultCard.active {
   border: 2px solid var(--primary-color);
   background-color: var(--light-gray-focus-background-color);
+}
+
+.Icon__Close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.Icon__Close:hover {
+  color: red;
 }

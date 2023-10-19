@@ -73,6 +73,10 @@
   font-weight: bold;
 }
 
+.text-primary {
+  color: #0d47a1;
+}
+
 .link {
   color: #0d47a1;
 }

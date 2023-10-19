@@ -63,29 +63,31 @@ export function EstablecimientoMonitoreoItem({ data }) {
         data?.body?.map((item) => (
           <TableSimpleRow>
             <TableSimpleCell></TableSimpleCell>
-            <TableSimpleCell colSpan={2} nowrap>
+            <TableSimpleCell colSpan={2} nowrap className="text-primary">
               {item.IDENTIFICACION_MUESTRA}
             </TableSimpleCell>
-            <TableSimpleCell noWrap align="center">
+            <TableSimpleCell noWrap align="center" className="text-primary">
               {item.NUMERO_LOTE || "-"}
             </TableSimpleCell>
-            <TableSimpleCell noWrap align="center">
+            <TableSimpleCell noWrap align="center" className="text-primary">
               {item.CONDICION_SEGURIDAD || "-"}
             </TableSimpleCell>
-            <TableSimpleCell noWrap align="center">
+            <TableSimpleCell noWrap align="center" className="text-primary">
               {item.ESPECIFICACION || "-"}
             </TableSimpleCell>
-            <TableSimpleCell>
+            <TableSimpleCell noWrap className="text-primary">
               {item.FECHA_MUESTREO
                 ? DateTime.fromISO(item.FECHA_MUESTREO).toFormat("dd/MM/yyyy")
                 : ""}
             </TableSimpleCell>
-            <TableSimpleCell>
+            <TableSimpleCell noWrap className="text-primary">
               {item.HORA_MUESTREO
                 ? DateTime.fromISO(item.HORA_MUESTREO).toFormat("HH:mm a")
                 : ""}
             </TableSimpleCell>
-            <TableSimpleCell>{item.DESCRIPCION_LUGAR || ""}</TableSimpleCell>
+            <TableSimpleCell className="text-primary">
+              {item.DESCRIPCION_LUGAR || ""}
+            </TableSimpleCell>
           </TableSimpleRow>
         ))}
     </Fragment>

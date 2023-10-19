@@ -28,9 +28,10 @@ export function EstablecimientoRIIVSItem({ data }) {
         <TableSimpleCell noWrap align="center">
           {data.body?.map((b) => (
             <li
+              className="link cursor-pointer"
               key={`item-riivs-${b.CODIGO_EXPEDIENTE}`}
               onClick={() => fileUcm.linkFile(b.UCM_ID)}>
-              {b.UCM_ID}
+              {b.NAME}
             </li>
           ))}
         </TableSimpleCell>

@@ -60,6 +60,7 @@ export function CultivoSearchResult() {
             isLoading={hookPaginate.isLoading}
             isFetching={hookPaginate.isFetching}
             counter={cultivoPaginate?.meta?.totalItems || 0}
+            isLoadingCounter={hookPaginate.isPending}
             onInfinityScroll={hookPaginate.nextData}>
             {cultivoPaginate?.data
               ?.filter((item) => item.ID !== cultivoSelected?.ID)
