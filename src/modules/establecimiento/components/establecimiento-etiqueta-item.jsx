@@ -52,7 +52,7 @@ export function EstablecimientoEtiquetaItem({ data }) {
               <li
                 key={`file-tag-${file?.ID}-${indexF}`}
                 className="link cursor-pointer"
-                onClick={() => fileBlob.linkFile(file?.ID)}>
+                onClick={() => fileBlob.linkFile(file?.ID, { type: "fisico" })}>
                 {file?.FILENAME || "-"}
               </li>
             ))}
