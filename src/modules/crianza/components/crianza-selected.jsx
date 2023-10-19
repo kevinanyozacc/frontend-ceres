@@ -17,8 +17,8 @@ export function CrianzaSelected() {
         },
         { icon: "gridicons:location", text: crianzaSelected.LOCACION },
         {
-          icon: "",
-          text: `#Productor ID: ${crianzaSelected.CODI_PROD_PRO}`,
+          icon: "ph:dot-fill",
+          text: `Productor ID: ${crianzaSelected.CODI_PROD_PRO}`,
         },
       ]}
     />

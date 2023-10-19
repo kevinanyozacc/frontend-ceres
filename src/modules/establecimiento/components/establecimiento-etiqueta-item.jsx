@@ -1,8 +1,6 @@
-import { DateTime } from "luxon";
 import { TableSimpleCell } from "../../../shared/table/components/table-simple-cell";
 import { TableSimpleRow } from "../../../shared/table/components/table-simple-row";
 import { Fragment } from "react";
-import { Icon } from "leaflet";
 import { useFileBlob } from "../../../shared/files/hooks/use-file-blob.js";
 
 export function EstablecimientoEtiquetaItem({ data }) {
@@ -11,42 +9,51 @@ export function EstablecimientoEtiquetaItem({ data }) {
   return (
     <Fragment>
       <TableSimpleRow>
-        <TableSimpleCell noWrap>{data.certificate_id}</TableSimpleCell>
         <TableSimpleCell nowrap align="center">
-          {data.NOMB_COME_PRO}
+          {data?.NUME_REGI_PRO}
+        </TableSimpleCell>
+        <TableSimpleCell align="left">
+          {data?.NOMB_COME_PRO || "-"}
+        </TableSimpleCell>
+        <TableSimpleCell noWrap align="left">
+          {data?.RUC_EMPR_VET || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.RAZO_SOCI_VET || "-"}
+          {data?.RAZO_SOCI_VET || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.NUME_REGI_PRO || "-"}
+          {data?.TIPO_PRODUCTO || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.NOMB_TIPO_BIO || "-"}
+          {data?.TIPO_PROD_PRO || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.NOMB_ORGA_BIO || "-"}
+          {data?.REGI_SOLI_PRO || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.REGI_SOLI_PRO || "-"}
+          {data?.FECH_VENC_PRO || "-"}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.FECH_VENC_PRO
-            ? DateTime.fromISO(data.FECH_VENC_PRO).toFormat("dd/MM/yyyy")
-            : ""}
+          {data?.ANNO_REGI_PRO}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
-          {data.ANNO_REGI_PRO}
+          {data?.NUME_REGI_ARC}
         </TableSimpleCell>
-        <TableSimpleCell align="center">{data.VIDA_UTIL}</TableSimpleCell>
-        <TableSimpleCell noWrap align="center">
+        <TableSimpleCell align="center">{data?.CANT_ETIQUETA}</TableSimpleCell>
+        <TableSimpleCell align="center">{data?.VIDA_UTIL}</TableSimpleCell>
+        <TableSimpleCell align="center">
+          <a href={data?.RUTA_QR} className="link">
+            RUTA QR
+          </a>
+        </TableSimpleCell>
+        <TableSimpleCell noWrap align="left">
           <ul>
-            {data?.files?.map((file) => (
+            {data?.files?.map((file, indexF) => (
               <li
-                key={`item-file-${file.UCM_ID}`}
-                className="link"
-                onClick={() => fileBlob.linkFile(file.ID)}>
-                <Icon icon="bx:file" /> {file.FILENAME || ""}
+                key={`file-tag-${file?.ID}-${indexF}`}
+                className="link cursor-pointer"
+                onClick={() => fileBlob.linkFile(file?.ID)}>
+                {file?.FILENAME || "-"}
               </li>
             ))}
           </ul>

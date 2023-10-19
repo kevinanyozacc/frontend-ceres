@@ -34,19 +34,23 @@ export function EstablecimientoEtiquetaResult() {
             contentClassName="bg-light">
             <TableSimpleHead
               data={[
-                { title: "NOMB_COME_PRO" },
-                { title: "RAZO_SOCI_VET" },
                 { title: "NUME_REGI_PRO" },
-                { title: "NOMB_TIPO_BIO" },
-                { title: "NOMB_ORGA_BIO" },
+                { title: "NOMB_COME_PRO" },
+                { title: "RUC_EMPR_VET" },
+                { title: "RAZO_SOCI_VET" },
+                { title: "TIPO_PRODUCTO" },
+                { title: "TIPO_PROD_PRO" },
                 { title: "REGI_SOLI_PRO" },
                 { title: "FECH_VENC_PRO" },
                 { title: "ANNO_REGI_PRO" },
+                { title: "NUME_REGI_ARC" },
+                { title: "CANT_ETIQUETA" },
                 { title: "VIDA_UTIL" },
+                { title: "RUTA_QR" },
                 { title: "ARCHIVOS" },
               ]}
             />
-            {etiqueta.data?.map((item, index) => (
+            {etiqueta?.data?.map((item, index) => (
               <EstablecimientoEtiquetaItem
                 key={`item-etiqueta-${index}`}
                 data={item}
