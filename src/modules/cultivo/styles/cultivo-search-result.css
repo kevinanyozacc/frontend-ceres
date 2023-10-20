@@ -5,3 +5,7 @@
 .CultivoVigilanciaContainer {
   grid-template: 600px / 50% 50%!important;
 }
+
+.CultivoBodyOcurrencias {
+  grid-template: 400px / 100% !important;
+}

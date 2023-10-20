@@ -5,3 +5,7 @@
 .CrianzaBodyContainer {
   grid-template: 700px / 50% 50%!important;
 }
+
+.CrianzaBodyOcurrencias {
+  grid-template: 400px / 100% !important;
+}

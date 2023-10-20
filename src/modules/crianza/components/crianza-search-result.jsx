@@ -19,6 +19,7 @@ import { CrianzaAretadoResult } from "./crianza-aretado-result";
 import { CrianzaZoosanitarioResult } from "./crianza-zoosanitario-result";
 import { useCrianzaData } from "../hooks/use-crianza-data";
 import { useCrianzaMeta } from "../hooks/use-crianza-meta";
+import { CrianzaOcurrenciaResult } from "./crianza-ocurrencia-result";
 
 export function CrianzaSearchResult() {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export function CrianzaSearchResult() {
     <div>
       <div style={{ paddingLeft: "1em", paddingRight: "4em" }}>
         <FilterHeader
-          isLoading={hookMeta.isLoading}
+          isLoading={hookMeta.isPending}
           counter={crianzaPaginate?.meta?.totalItems || 0}
         />
       </div>
@@ -96,6 +97,11 @@ export function CrianzaSearchResult() {
         <FilterContainer>
           <CrianzaCstiResult />
           <CrianzaZoosanitarioResult />
+        </FilterContainer>
+      </div>
+      <div className="PlaceSearchResults CrianzaBodyOcurrencias">
+        <FilterContainer>
+          <CrianzaOcurrenciaResult />
         </FilterContainer>
       </div>
     </div>

@@ -16,6 +16,7 @@ import { CultivoExportacionResult } from "./cultivo-exportacion-result";
 import { CultivoEcasResult } from "./cultivo-ecas-result";
 import { CultivoZoosanitarioResult } from "./cultivo-zoosanitario-result";
 import { CultivoRIIVSResult } from "./cultivo-riivs-result";
+import { CultivoOcurrenciaResult } from "./cultivo-ocurrencia-result";
 
 export function CultivoSearchResult() {
   const dispatch = useDispatch();
@@ -87,6 +88,11 @@ export function CultivoSearchResult() {
         <FilterContainer>
           <CultivoEcasResult />
           <CultivoZoosanitarioResult />
+        </FilterContainer>
+      </div>
+      <div className="PlaceSearchResults CrianzaBodyOcurrencias">
+        <FilterContainer>
+          <CultivoOcurrenciaResult />
         </FilterContainer>
       </div>
     </div>

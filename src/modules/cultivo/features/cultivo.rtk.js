@@ -43,6 +43,11 @@ export const cultivoRtk = createApi({
         url: `search/cultivo/${id}/ecas`,
       }),
     }),
+    listOcurrenciaByDni: builder.query({
+      query: (ruc) => ({
+        url: `search/ocurrencias/${ruc}`,
+      }),
+    }),
   }),
 });
 
@@ -53,4 +58,5 @@ export const {
   useLazyListEcasToCultivoQuery,
   useLazyListZoosanitarioToCultivoQuery,
   useLazyListRIIVSToCultivoQuery,
+  useLazyListOcurrenciaByDniQuery,
 } = cultivoRtk;

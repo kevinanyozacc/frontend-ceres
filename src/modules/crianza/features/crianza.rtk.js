@@ -59,6 +59,11 @@ export const crianzaRtk = createApi({
         url: `farm/${predioId}/vigilancia-pasivo`,
       }),
     }),
+    listOcurrenciaByDni: builder.query({
+      query: (ruc) => ({
+        url: `search/ocurrencias/${ruc}`,
+      }),
+    }),
   }),
 });
 
@@ -72,4 +77,5 @@ export const {
   useLazyListVigilanciaActivaToPredioQuery,
   useLazyListVigilanciaPasivoToPredioQuery,
   useLazyListZoosanitarioToCrianzaQuery,
+  useLazyListOcurrenciaByDniQuery,
 } = crianzaRtk;

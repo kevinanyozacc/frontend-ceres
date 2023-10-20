@@ -32,7 +32,7 @@ export default function FilterList({
         </div>
       ) : null}
       {/* loading */}
-      {isFetching ? <Loader /> : null}
+      {isLoadingCounter ? <Loader /> : null}
     </div>
   );
 }
