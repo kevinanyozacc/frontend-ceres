@@ -22,7 +22,7 @@ export function CultivoPredioResult() {
   return (
     <Fragment>
       <h4 className="card-title">
-        <Icon icon="fluent:plant-grass-28-filled" /> <b>Lista de Predios</b>
+        <Icon icon="fluent:plant-grass-28-filled" /> <b>Lista de Cultivos</b>
       </h4>
       {/* mostrar predio selecionado */}
       <CultivoPredioSelected />
@@ -31,7 +31,8 @@ export function CultivoPredioResult() {
         <FilterList
           isLoading={predio.isLoading || predio.isFetching}
           isFetching={predio.isFetching}
-          counter={predio.data?.length || 0}>
+          counter={predio.data?.length || 0}
+        >
           {predio?.data
             ?.filter((item) => cultivoPredioSelected?.ID !== item.ID)
             ?.map((item, index) => (

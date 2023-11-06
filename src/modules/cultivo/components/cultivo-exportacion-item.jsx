@@ -29,11 +29,18 @@ export function CultivoExportacionItem({ data }) {
       {isOpen &&
         data?.products?.map((item, index) => (
           <TableSimpleRow>
-            <TableSimpleCell>Producto {index + 1}:</TableSimpleCell>
-            <TableSimpleCell colSpan={2} nowrap align="center">
+            <TableSimpleCell className="text-primary">
+              Producto {index + 1}:
+            </TableSimpleCell>
+            <TableSimpleCell
+              colSpan={2}
+              className="text-primary"
+              nowrap
+              align="center"
+            >
               {item.name}
             </TableSimpleCell>
-            <TableSimpleCell noWrap align="center">
+            <TableSimpleCell className="text-primary" noWrap align="center">
               {data.scientific_name || "-"}
             </TableSimpleCell>
           </TableSimpleRow>

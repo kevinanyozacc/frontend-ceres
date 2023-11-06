@@ -9,7 +9,7 @@ export function useCultivoOcurrencia() {
   const { cultivoSelected } = useSelector((state) => state.cultivo);
 
   const handle = () => {
-    fetch(cultivoSelected.DNI);
+    fetch(cultivoSelected.IDEN_PROD_MOS);
   };
 
   useEffect(() => {

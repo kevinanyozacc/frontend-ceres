@@ -15,7 +15,8 @@ export default function FilterItem({
     <div
       className={`PlaceSearchResultCard ${active ? "active" : ""}`}
       onClick={onClick}
-      title={name || ""}>
+      title={name || ""}
+    >
       <Icon className="PlaceSearchResultCard__icon" icon={icon || "mdi:farm"} />
       <Show tagIf={typeof onClose == "function"}>
         <span className="Icon__Close" onClick={onClose}>
@@ -29,7 +30,10 @@ export default function FilterItem({
         {listInfo?.map((info, index) => (
           <p
             key={`info-option-${index}`}
-            className="PlaceSearchResultCard__location mb-1">
+            className={`PlaceSearchResultCard__location mb-1 ${
+              info.className || ""
+            }`}
+          >
             <InlineIcon icon={info.icon} /> {info.text || ""}
           </p>
         ))}

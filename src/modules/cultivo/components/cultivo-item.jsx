@@ -8,9 +8,14 @@ export function CultivoItem({ data, active, onClick }) {
       name={data?.RAZO_PROD_MOS}
       listInfo={[
         {
-          icon: "icon-park:id-card",
+          icon: "teenyicons:id-outline",
           text: data.ID,
         },
+        {
+          icon: "ic:outline-factory",
+          text: data.RUC_PROD_MOS,
+        },
+        { icon: "material-symbols:person", text: data.IDEN_PROD_MOS },
         { icon: "gridicons:location", text: data.LOCACION },
       ]}
     />

@@ -17,7 +17,7 @@ export function CultivoExportacionResult() {
   }, [exportacion.isLoading, exportacion.isFetching]);
 
   const count = useMemo(() => {
-    return exportacion.data?.length || 0;
+    return exportacion.data?.data?.length || 0;
   }, [exportacion.data]);
 
   return (
@@ -34,7 +34,8 @@ export function CultivoExportacionResult() {
           <TableSimple
             responsive
             contentStyle={{ height: "100%" }}
-            contentClassName="bg-light">
+            contentClassName="bg-light"
+          >
             <TableSimpleHead
               data={[
                 { title: "Cód. certificado" },
@@ -44,7 +45,7 @@ export function CultivoExportacionResult() {
                 { title: "Area" },
               ]}
             />
-            {exportacion.data?.map((item, index) => (
+            {exportacion.data.data?.map((item, index) => (
               <CultivoExportacionItem
                 key={`item-exportacion-${index}`}
                 data={item}
