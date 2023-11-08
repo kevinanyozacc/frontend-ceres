@@ -15,14 +15,16 @@ export function EstablecimientoMonitoreoItem({ data }) {
         <TableSimpleCell
           align="center"
           onClick={toggle}
-          className="cursor-pointer">
+          className="cursor-pointer"
+        >
           {data.TIPO_ALIMENTO}
         </TableSimpleCell>
         <TableSimpleCell
           noWrap
           align="center"
           onClick={toggle}
-          className="cursor-pointer">
+          className="cursor-pointer"
+        >
           {data.REGISTRO_ID}
         </TableSimpleCell>
         <TableSimpleCell
@@ -30,14 +32,16 @@ export function EstablecimientoMonitoreoItem({ data }) {
           colSpan={2}
           align="left"
           onClick={toggle}
-          className="cursor-pointer">
+          className="cursor-pointer"
+        >
           {data.NOMB_CORT_PER}
         </TableSimpleCell>
         <TableSimpleCell
           noWrap
           align="center"
           onClick={toggle}
-          className="cursor-pointer">
+          className="cursor-pointer"
+        >
           {data.FECHA_REGISTRO
             ? DateTime.fromISO(data.FECHA_REGISTRO).toFormat("dd/MM/yyyy")
             : ""}
@@ -45,7 +49,8 @@ export function EstablecimientoMonitoreoItem({ data }) {
         <TableSimpleCell
           align="center"
           onClick={toggle}
-          className="cursor-pointer">
+          className="cursor-pointer"
+        >
           {data.DESC_PROY_PRY}
         </TableSimpleCell>
         <TableSimpleCell onClick={toggle} className="cursor-pointer">
@@ -54,7 +59,7 @@ export function EstablecimientoMonitoreoItem({ data }) {
         <TableSimpleCell onClick={toggle} className="cursor-pointer">
           {data.DESC_META_MET}
         </TableSimpleCell>
-        <TableSimpleCell>
+        <TableSimpleCell noWrap>
           <EstablecimientoMonitoreoAction data={data} />
         </TableSimpleCell>
       </TableSimpleRow>

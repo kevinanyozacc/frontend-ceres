@@ -22,7 +22,7 @@ export function EstablecimientoExportacionResult() {
     <Fragment>
       <h4 className="card-title">
         <Icon icon="humbleicons:certificate" />
-        Certificados de Lugar de Producción
+        Certificados de exportación relacionados
       </h4>
 
       {establecimientoSelected ? (
@@ -32,7 +32,8 @@ export function EstablecimientoExportacionResult() {
           <TableSimple
             responsive
             contentStyle={{ height: "100%" }}
-            contentClassName="bg-light">
+            contentClassName="bg-light"
+          >
             <TableSimpleHead
               data={[
                 { title: "Cód. certificado" },

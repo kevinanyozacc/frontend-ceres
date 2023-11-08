@@ -11,14 +11,21 @@ export function EstablecimientoMonitoreoAction({ data }) {
     dispatch(establecimientoActions.setMonitoreoSelected(data));
   };
 
-  if (data.FLAG_UCCIRT === "1" && data.NUMERODOCUMENTO_UCM) {
+  if (data.FLAG_UCCIRT === "1") {
     return (
       <div className="d-flex justify-center">
-        <Icon
-          icon="bxs:file"
-          className="cursor-pointer"
-          onClick={() => fileUcm.linkFile(data.NUMERODOCUMENTO_UCM)}
-        />
+        <ul>
+          {data?.files?.map((file) => (
+            <li
+              key={`item-file-${file.FILENAME}`}
+              className="link cursor-pointer"
+              onClick={() => fileUcm.linkFile(file.NUMERODOCUMENTO_UCM)}
+            >
+              <Icon icon="bxs:file" className="cursor-pointer" />
+              {`${file.FILENAME}`.substring(0, 50)}
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

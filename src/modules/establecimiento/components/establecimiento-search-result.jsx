@@ -14,6 +14,7 @@ import "../styles/establecimiento-search-result.css";
 import { EstablecimientoMonitoreoResult } from "./establecimiento-monitoreo-result";
 import { EstablecimientoRIIVSResult } from "./establecimiento-riivs-result";
 import { EstablecimientoExportacionResult } from "./establecimiento-exportacion-result";
+import PredioCertificacion from "../../predio/components/predio-certificacion";
 import { EstablecimientoEtiquetaResult } from "./establecimiento-etiqueta-result";
 
 export function EstablecimientoSearchResult() {
@@ -58,7 +59,8 @@ export function EstablecimientoSearchResult() {
             isFetching={hookPaginate.isFetching}
             isLoadingCounter={hookPaginate.isPending}
             counter={establecimientoPaginate?.meta?.totalItems || 0}
-            onInfinityScroll={hookPaginate.nextData}>
+            onInfinityScroll={hookPaginate.nextData}
+          >
             {establecimientoPaginate?.data
               ?.filter((item) => item.id !== establecimientoSelected?.id)
               ?.map((item, index) => (
@@ -72,7 +74,8 @@ export function EstablecimientoSearchResult() {
         </FilterContainer>
         <FilterContainer>
           <EstablecimientoMonitoreoResult />
-          <EstablecimientoExportacionResult />
+          {/* <EstablecimientoExportacionResult /> */}
+          <PredioCertificacion />
           <EstablecimientoRIIVSResult />
           <EstablecimientoEtiquetaResult />
         </FilterContainer>
