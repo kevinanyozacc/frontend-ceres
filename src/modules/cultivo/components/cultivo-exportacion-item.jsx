@@ -29,7 +29,7 @@ export function CultivoExportacionItem({ data }) {
       {isOpen &&
         data?.products?.map((item, index) => (
           <TableSimpleRow>
-            <TableSimpleCell className="text-primary">
+            <TableSimpleCell className="text-primary" align="right">
               Producto {index + 1}:
             </TableSimpleCell>
             <TableSimpleCell
@@ -41,7 +41,7 @@ export function CultivoExportacionItem({ data }) {
               {item.name}
             </TableSimpleCell>
             <TableSimpleCell className="text-primary" noWrap align="center">
-              {data.scientific_name || "-"}
+              <span className="text-italic">{item.scientific_name || "-"}</span>
             </TableSimpleCell>
           </TableSimpleRow>
         ))}

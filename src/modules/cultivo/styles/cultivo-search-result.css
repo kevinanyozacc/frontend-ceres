@@ -1,9 +1,9 @@
 .CultivoSearchResults {
-  grid-template: 600px / 30% 30% 35%!important;
+  grid-template: 700px / 30% 30% 35% !important;
 }
 
 .CultivoVigilanciaContainer {
-  grid-template: 600px / 50% 50%!important;
+  grid-template: 600px / 50% 50% !important;
 }
 
 .CultivoBodyOcurrencias {

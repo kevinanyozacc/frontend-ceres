@@ -17,6 +17,7 @@ import { CultivoEcasResult } from "./cultivo-ecas-result";
 import { CultivoZoosanitarioResult } from "./cultivo-zoosanitario-result";
 import { CultivoRIIVSResult } from "./cultivo-riivs-result";
 import { CultivoOcurrenciaResult } from "./cultivo-ocurrencia-result";
+import { CultivoExportacionRelacionResult } from "./cultivo-exportacion-relacion-result";
 
 export function CultivoSearchResult() {
   const dispatch = useDispatch();
@@ -62,7 +63,8 @@ export function CultivoSearchResult() {
             isFetching={hookPaginate.isFetching}
             counter={cultivoPaginate?.meta?.totalItems || 0}
             isLoadingCounter={hookPaginate.isPending}
-            onInfinityScroll={hookPaginate.nextData}>
+            onInfinityScroll={hookPaginate.nextData}
+          >
             {cultivoPaginate?.data
               ?.filter((item) => item.ID !== cultivoSelected?.ID)
               .map((item, index) => (
@@ -79,6 +81,7 @@ export function CultivoSearchResult() {
         </FilterContainer>
         <FilterContainer>
           <CultivoExportacionResult />
+          <CultivoExportacionRelacionResult />
         </FilterContainer>
       </div>
       <div className="PlaceSearchResults CultivoVigilanciaContainer">
