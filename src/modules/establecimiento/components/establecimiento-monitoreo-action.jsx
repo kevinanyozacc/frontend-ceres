@@ -1,25 +1,23 @@
 import { Icon } from "@iconify/react";
-import { useFileBlob } from "../../../shared/files/hooks/use-file-blob";
+import { useFileUcm } from "../../../shared/files/hooks/use-file-ucm";
 import { useDispatch } from "react-redux";
 import { establecimientoActions } from "../features/establecimiento.slice";
 
 export function EstablecimientoMonitoreoAction({ data }) {
   const dispatch = useDispatch();
-  const fileBlob = useFileBlob();
+  const fileUcm = useFileUcm();
 
   const selected = () => {
     dispatch(establecimientoActions.setMonitoreoSelected(data));
   };
 
-  if (data.FLAG_UCCIRT === "1") {
+  if (data.FLAG_UCCIRT === "1" && data.NUMERODOCUMENTO_UCM) {
     return (
       <div className="d-flex justify-center">
         <Icon
           icon="bxs:file"
           className="cursor-pointer"
-          onClick={() =>
-            fileBlob.linkFile(data.SOLICITUD_LAB_UCCIRT, { type: "fisico" })
-          }
+          onClick={() => fileUcm.linkFile(data.NUMERODOCUMENTO_UCM)}
         />
       </div>
     );
