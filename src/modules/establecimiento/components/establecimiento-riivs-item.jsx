@@ -10,7 +10,9 @@ export function EstablecimientoRIIVSItem({ data }) {
   return (
     <Fragment>
       <TableSimpleRow>
-        <TableSimpleCell noWrap>{data.CODIGO_IIV}</TableSimpleCell>
+        <TableSimpleCell noWrap align="center">
+          {data.CODIGO_IIV}
+        </TableSimpleCell>
         <TableSimpleCell nowrap align="center">
           {data.ESTADO}
         </TableSimpleCell>
@@ -30,7 +32,8 @@ export function EstablecimientoRIIVSItem({ data }) {
             <li
               className="link cursor-pointer"
               key={`item-riivs-${b.CODIGO_EXPEDIENTE}`}
-              onClick={() => fileUcm.linkFile(b.UCM_ID)}>
+              onClick={() => fileUcm.linkFile(b.UCM_ID)}
+            >
               {b.NAME}
             </li>
           ))}

@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Icon } from "@iconify/react";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FilterEmpty } from "../../../shared/filters/components/filter-empty";
 import FilterList from "../../../shared/filters/components/filter-list";
@@ -7,17 +8,28 @@ import { cultivoActions } from "../features/cultivo.slice";
 import { useCultivoPredios } from "../hooks/use-cultivo-predios";
 import { CultivoPredioItem } from "./cultivo-predio-item";
 import { CultivoPredioSelected } from "./cultivo-predio-selected";
+import { useCultivoPredioAutoselect } from "../hooks/use-cultivo-predio-autoselect";
 
-export function CultivoPredioResult() {
+export function CultivoPredioResult({ predioId }) {
   const dispatch = useDispatch();
   const predio = useCultivoPredios();
+
   const { cultivoSelected, cultivoPredioSelected } = useSelector(
     (state) => state.cultivo
+  );
+
+  const cultivoPredioAutoselect = useCultivoPredioAutoselect(
+    predioId,
+    predio.data
   );
 
   const selected = (item) => {
     dispatch(cultivoActions.setCultivoPredioSelected(item));
   };
+
+  useEffect(() => {
+    if (predioId) cultivoPredioAutoselect.selected();
+  }, [cultivoSelected, cultivoPredioAutoselect.isChange]);
 
   return (
     <Fragment>

@@ -18,8 +18,13 @@ import { CultivoZoosanitarioResult } from "./cultivo-zoosanitario-result";
 import { CultivoRIIVSResult } from "./cultivo-riivs-result";
 import { CultivoOcurrenciaResult } from "./cultivo-ocurrencia-result";
 import { CultivoExportacionRelacionResult } from "./cultivo-exportacion-relacion-result";
+import { useCultivoAutoselect } from "../hooks/use-cultivo-autoselect";
 
-export function CultivoSearchResult() {
+export function CultivoSearchResult({
+  autoselect = false,
+  productorId,
+  predioId,
+}) {
   const dispatch = useDispatch();
   const { cultivoPaginate, cultivoSelected } = useSelector(
     (state) => state.cultivo
@@ -27,6 +32,10 @@ export function CultivoSearchResult() {
   const { searchTerm } = useSelector((state) => state.search);
 
   const hookPaginate = useCultivoPaginate(true);
+  const cultivoAutoselect = useCultivoAutoselect(
+    productorId,
+    cultivoPaginate?.data
+  );
 
   const selected = (item) => {
     dispatch(cultivoActions.setCultivoSelected(item));
@@ -41,6 +50,10 @@ export function CultivoSearchResult() {
       dispatch(cultivoActions.setCultivoPredioSelected(undefined));
     }
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (autoselect) cultivoAutoselect.selected();
+  }, [autoselect, cultivoAutoselect.isChange]);
 
   return (
     <div>
@@ -77,7 +90,7 @@ export function CultivoSearchResult() {
           </FilterList>
         </FilterContainer>
         <FilterContainer>
-          <CultivoPredioResult />
+          <CultivoPredioResult predioId={predioId} />
         </FilterContainer>
         <FilterContainer>
           <CultivoExportacionResult />

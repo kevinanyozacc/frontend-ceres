@@ -38,7 +38,7 @@ export const cultivoRtk = createApi({
         url: `/agricultural-exporter/origin-certificates/${id}`,
       }),
     }),
-    lsitCertificadoExportacionRelacionado: builder.query({
+    listCertificadoExportacionRelacionado: builder.query({
       query: (id) => ({
         url: `/agricultural-exporter/certificates/farm/${id}`,
       }),
@@ -60,7 +60,7 @@ export const {
   useLazySearchCultivoQuery,
   useLazyListPrediosToCultivoQuery,
   useLazyListCertificadoExportacionQuery,
-  useLazyLsitCertificadoExportacionRelacionadoQuery,
+  useLazyListCertificadoExportacionRelacionadoQuery,
   useLazyListEcasToCultivoQuery,
   useLazyListZoosanitarioToCultivoQuery,
   useLazyListRIIVSToCultivoQuery,

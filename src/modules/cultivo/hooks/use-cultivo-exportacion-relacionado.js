@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useLazyLsitCertificadoExportacionRelacionadoQuery } from "../features/cultivo.rtk";
+import { useLazyListCertificadoExportacionRelacionadoQuery } from "../features/cultivo.rtk";
 
 export function useCultivoExportacionRelacionado() {
   const [fetch, { data, isLoading, isFetching }] =
-    useLazyLsitCertificadoExportacionRelacionadoQuery();
+    useLazyListCertificadoExportacionRelacionadoQuery();
   const { cultivoPredioSelected } = useSelector((state) => state.cultivo);
 
   const handle = () => {

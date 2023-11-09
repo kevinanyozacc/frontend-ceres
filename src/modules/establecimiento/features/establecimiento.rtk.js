@@ -35,12 +35,17 @@ export const establecimientoRtk = createApi({
     }),
     listCertificadoExportacionToEstablecimiento: builder.query({
       query: (id) => ({
-        url: `/agricultural-exporter/origin-certificates/${id}`,
+        url: `/agricultural-exporter/certificates/agricultural-exporter/${id}`,
       }),
     }),
     listEtiquetaToEstablecimiento: builder.query({
       query: (dni) => ({
         url: `search/establecimiento/${dni}/alimento-etiquetas`,
+      }),
+    }),
+    listPredioById: builder.query({
+      query: (id) => ({
+        url: `farm/${id}`,
       }),
     }),
   }),
@@ -53,4 +58,5 @@ export const {
   useLazyListRIIVSToEstablecimientoQuery,
   useLazyListEtiquetaToEstablecimientoQuery,
   useLazyListCertificadoExportacionToEstablecimientoQuery,
+  useLazyListPredioByIdQuery,
 } = establecimientoRtk;

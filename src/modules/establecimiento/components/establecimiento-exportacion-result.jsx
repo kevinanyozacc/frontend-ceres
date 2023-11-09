@@ -15,14 +15,14 @@ export function EstablecimientoExportacionResult() {
   );
 
   const count = useMemo(() => {
-    return exportacion.data?.length || 0;
+    return exportacion.data?.data?.length || 0;
   }, [exportacion.data]);
 
   return (
     <Fragment>
       <h4 className="card-title">
         <Icon icon="humbleicons:certificate" />
-        Certificados de exportación relacionados
+        Certificados de exportación
       </h4>
 
       {establecimientoSelected ? (
@@ -37,13 +37,18 @@ export function EstablecimientoExportacionResult() {
             <TableSimpleHead
               data={[
                 { title: "Cód. certificado" },
-                { title: "Cód. solicitud" },
-                { title: "Campaña" },
-                { title: "Fecha de cosecha" },
-                { title: "Area" },
+                { title: "Estado" },
+                { title: "Fecha inspección" },
+                { title: "Planta" },
+                { title: "Punto de inspección" },
+                { title: "Fecha exportación" },
+                { title: "Punto de salida" },
+                { title: "Modo de envío" },
+                { title: "Cod. país destino" },
+                { title: "Importador" },
               ]}
             />
-            {exportacion.data?.map((item, index) => (
+            {exportacion.data?.data?.map((item, index) => (
               <EstablecimientoExportacionItem
                 key={`item-exportacion-${index}`}
                 data={item}

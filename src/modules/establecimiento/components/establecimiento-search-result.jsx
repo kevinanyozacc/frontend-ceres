@@ -14,7 +14,6 @@ import "../styles/establecimiento-search-result.css";
 import { EstablecimientoMonitoreoResult } from "./establecimiento-monitoreo-result";
 import { EstablecimientoRIIVSResult } from "./establecimiento-riivs-result";
 import { EstablecimientoExportacionResult } from "./establecimiento-exportacion-result";
-import PredioCertificacion from "../../predio/components/predio-certificacion";
 import { EstablecimientoEtiquetaResult } from "./establecimiento-etiqueta-result";
 
 export function EstablecimientoSearchResult() {
@@ -74,8 +73,7 @@ export function EstablecimientoSearchResult() {
         </FilterContainer>
         <FilterContainer>
           <EstablecimientoMonitoreoResult />
-          {/* <EstablecimientoExportacionResult /> */}
-          <PredioCertificacion />
+          <EstablecimientoExportacionResult />
           <EstablecimientoRIIVSResult />
           <EstablecimientoEtiquetaResult />
         </FilterContainer>

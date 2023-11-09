@@ -21,7 +21,11 @@ import { useCrianzaData } from "../hooks/use-crianza-data";
 import { useCrianzaMeta } from "../hooks/use-crianza-meta";
 import { CrianzaOcurrenciaResult } from "./crianza-ocurrencia-result";
 
-export function CrianzaSearchResult() {
+export function CrianzaSearchResult({
+  autoselect = false,
+  productorId,
+  predioId,
+}) {
   const dispatch = useDispatch();
   const { crianzaPaginate, crianzaSelected } = useSelector(
     (state) => state.crianza
@@ -36,6 +40,11 @@ export function CrianzaSearchResult() {
     dispatch(crianzaActions.setCrianzaPredioSelected(undefined));
   };
 
+  const selecteProductor = () => {
+    console.log(productorId);
+    console.log(crianzaPaginate);
+  };
+
   useEffect(() => {
     if (searchTerm) {
       hookData.clear();
@@ -45,6 +54,10 @@ export function CrianzaSearchResult() {
       dispatch(crianzaActions.setCrianzaPredioSelected(undefined));
     }
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (autoselect && crianzaPaginate?.data?.length) selecteProductor();
+  }, [autoselect, productorId, predioId, crianzaPaginate?.data]);
 
   return (
     <div>
@@ -67,7 +80,8 @@ export function CrianzaSearchResult() {
             isFetching={hookData.isFetching}
             isLoadingCounter={hookMeta.isPending}
             counter={crianzaPaginate?.meta?.totalItems || 0}
-            onInfinityScroll={hookData.nextData}>
+            onInfinityScroll={hookData.nextData}
+          >
             {crianzaPaginate?.data
               ?.filter(
                 (item) => item.CODI_PROD_PRO !== crianzaSelected?.CODI_PROD_PRO

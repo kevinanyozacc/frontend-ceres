@@ -14,6 +14,7 @@ const crianzaSlice = createSlice({
       state.crianzaPaginate.data = payload;
     },
     setCrianzaMeta: (state, { payload }) => {
+      console.log(payload);
       state.crianzaPaginate.meta = payload;
     },
     setCrianzaDataAppend: (state, { payload }) => {
