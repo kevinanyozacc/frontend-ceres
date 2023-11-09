@@ -3,27 +3,49 @@ import { TableSimpleCell } from "../../../shared/table/components/table-simple-c
 import { TableSimpleRow } from "../../../shared/table/components/table-simple-row";
 import { Fragment, useState } from "react";
 import { Icon } from "@iconify/react";
+import { useCultivoToProcesamiento } from "../hooks/use-cultivo-to-procesamiento";
+import { LoadingGlobal } from "../../../shared/loading/components/loading-global";
+import { useCultivoToPlanta } from "../hooks/use-cultivo-to-planta";
 
 export function CultivoExportacionRelacionItem({ data }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const toPlanta = useCultivoToPlanta();
+  const toEstablecimiento = useCultivoToProcesamiento();
+
+  if (toEstablecimiento.isLoading) {
+    return <LoadingGlobal title="Redirigiendo al establecimiento..." />;
+  }
+
+  if (toPlanta.isLoading) {
+    return <LoadingGlobal title="Redirigiendo a la planta..." />;
+  }
+
   return (
     <Fragment>
       <TableSimpleRow onClick={() => setIsOpen((prev) => !prev)}>
-        <TableSimpleCell noWrap>
+        <TableSimpleCell
+          align="center"
+          noWrap
+          onClick={() => toEstablecimiento.relationLink(data.exporter_id)}
+        >
           <span className="link cursor-pointer">
             <Icon icon="material-symbols:link" /> {data.plant_id}
           </span>
         </TableSimpleCell>
         <TableSimpleCell nowrap align="center">
-          {data.exporter_id}
+          {data.certificate_state}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
           {data.inspection_date
             ? DateTime.fromISO(data.inspection_date).toFormat("dd/MM/yyyy")
             : ""}
         </TableSimpleCell>
-        <TableSimpleCell noWrap align="center">
+        <TableSimpleCell
+          noWrap
+          align="center"
+          onClick={() => toPlanta.relationLink(data.plant_id)}
+        >
           <span className="link cursor-pointer">
             <Icon icon="material-symbols:link" />
             <span> {data.code_plant}</span>

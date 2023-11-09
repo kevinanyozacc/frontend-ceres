@@ -5,14 +5,25 @@ import { Fragment, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useEstablecimientoToPredio } from "../hooks/use-establecimiento-to-predio";
 import { LoadingGlobal } from "../../../shared/loading/components/loading-global";
+import { useEstablecimientoToPlanta } from "../hooks/use-establecimiento-to-planta";
+import { useSelector } from "react-redux";
 
 export function EstablecimientoExportacionItem({ data }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { establecimientoSelected } = useSelector(
+    (state) => state.establecimiento
+  );
+
   const toPredio = useEstablecimientoToPredio();
+  const toPlanta = useEstablecimientoToPlanta();
 
   if (toPredio.isLoading) {
     return <LoadingGlobal title="Redirigiendo al predio..." />;
+  }
+
+  if (toPlanta.isLoading) {
+    return <LoadingGlobal title="Redirigiendo a la planta..." />;
   }
 
   return (
@@ -29,7 +40,15 @@ export function EstablecimientoExportacionItem({ data }) {
             ? DateTime.fromISO(data.inspection_date).toFormat("dd/MM/yyyy")
             : ""}
         </TableSimpleCell>
-        <TableSimpleCell noWrap align="center">
+        <TableSimpleCell
+          noWrap
+          align="center"
+          onClick={() =>
+            data.plant_id === establecimientoSelected.id
+              ? undefined
+              : toPlanta.relationLink(data.plant_id)
+          }
+        >
           <span className="link cursor-pointer">
             <Icon icon="material-symbols:link" />
             <span> {data.code_plant}</span>

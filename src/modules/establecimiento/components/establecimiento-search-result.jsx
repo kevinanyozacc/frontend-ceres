@@ -15,8 +15,13 @@ import { EstablecimientoMonitoreoResult } from "./establecimiento-monitoreo-resu
 import { EstablecimientoRIIVSResult } from "./establecimiento-riivs-result";
 import { EstablecimientoExportacionResult } from "./establecimiento-exportacion-result";
 import { EstablecimientoEtiquetaResult } from "./establecimiento-etiqueta-result";
+import { useEstablecimientoAutoselect } from "../hooks/use-establecimiento-autoselect";
 
-export function EstablecimientoSearchResult() {
+export function EstablecimientoSearchResult({
+  autoselect = false,
+  productorId,
+  type,
+}) {
   const dispatch = useDispatch();
   const { establecimientoPaginate, establecimientoSelected } = useSelector(
     (state) => state.establecimiento
@@ -29,6 +34,12 @@ export function EstablecimientoSearchResult() {
     dispatch(establecimientoActions.setEstablecimientoSelected(item));
   };
 
+  const establecimientoAutoselect = useEstablecimientoAutoselect(
+    productorId,
+    type,
+    establecimientoPaginate.data
+  );
+
   useEffect(() => {
     if (searchTerm) {
       hookPaginate.clear();
@@ -36,6 +47,10 @@ export function EstablecimientoSearchResult() {
       dispatch(establecimientoActions.setEstablecimientoSelected(undefined));
     }
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (autoselect) establecimientoAutoselect.selected();
+  }, [establecimientoAutoselect.isChange, autoselect]);
 
   return (
     <div>

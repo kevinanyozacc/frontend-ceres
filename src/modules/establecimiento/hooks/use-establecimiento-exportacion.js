@@ -15,7 +15,10 @@ export function useEstablecimientoExportacion() {
   }, [isLoading, isFetching]);
 
   const handle = () => {
-    fetch(establecimientoSelected.id);
+    fetch({
+      type: establecimientoSelected.type,
+      id: establecimientoSelected.id,
+    });
   };
 
   useEffect(() => {

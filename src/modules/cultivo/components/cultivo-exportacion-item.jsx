@@ -9,7 +9,9 @@ export function CultivoExportacionItem({ data }) {
   return (
     <Fragment>
       <TableSimpleRow onClick={() => setIsOpen((prev) => !prev)}>
-        <TableSimpleCell noWrap>{data.certificate_id}</TableSimpleCell>
+        <TableSimpleCell noWrap align="center">
+          {data.certificate_id}
+        </TableSimpleCell>
         <TableSimpleCell nowrap align="center">
           {data.application_id}
         </TableSimpleCell>
