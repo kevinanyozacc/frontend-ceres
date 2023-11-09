@@ -8,8 +8,8 @@ export function useCultivoAutoselect(productorId, data = []) {
 
   const selected = () => {
     const current = data?.find((prod) => {
-      if (prod.IDEN_PROD_MOS.trim() === productorId.trim()) return true;
-      else if (prod.RUC_PROD_MOS.trim() === productorId.trim()) return true;
+      if (prod.IDEN_PROD_MOS?.trim() === productorId.trim()) return true;
+      else if (prod.RUC_PROD_MOS?.trim() === productorId.trim()) return true;
       return false;
     });
 
