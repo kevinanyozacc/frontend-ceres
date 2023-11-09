@@ -18,6 +18,7 @@ function EstablecimientoIndexPage() {
       <EstablecimientoSearchResult
         autoselect={!!searchParams.get("selected")}
         productorId={searchParams.get("q")}
+        predioId={searchParams.get("predioId")}
         type={searchParams.get("selected")}
       />
     </SearchResults>

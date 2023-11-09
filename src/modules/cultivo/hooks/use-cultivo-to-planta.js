@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm } from "../../../redux/ducks/search";
 import { useLazyListProcesamientoByIdQuery } from "../features/cultivo.rtk";
 
@@ -9,10 +9,12 @@ export function useCultivoToPlanta() {
   const [fetch, { isLoading, isFetching }] =
     useLazyListProcesamientoByIdQuery();
 
-  const relationLink = (predioId) => {
+  const { cultivoPredioSelected } = useSelector((state) => state.cultivo);
+
+  const relationLink = (plataId) => {
     fetch({
       type: "export-processing-plant",
-      id: predioId,
+      id: plataId,
     })
       .unwrap()
       .then(({ data }) => {
@@ -20,7 +22,8 @@ export function useCultivoToPlanta() {
         if (!planta) throw new Error("No se encontró el establecimiento");
         const id = planta.id?.trim();
         const selected = planta.type;
-        const link = `/procesamiento-primario/establecimiento?q=${id}&selected=${selected}`;
+        const predioId = cultivoPredioSelected?.ID;
+        const link = `/procesamiento-primario/establecimiento?q=${id}&selected=${selected}&predioId=${predioId}`;
         dispatch(setSearchTerm(""));
         navigate(link);
       })

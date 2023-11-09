@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Icon } from "@iconify/react";
-import { Fragment, useMemo } from "react";
+import { Fragment, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import Loader from "../../../components/Loader";
 import { FilterEmpty } from "../../../shared/filters/components/filter-empty";
@@ -7,8 +8,9 @@ import { TableSimple } from "../../../shared/table/components/table-simple";
 import { TableSimpleHead } from "../../../shared/table/components/table-simple-head";
 import { useEstablecimientoExportacion } from "../hooks/use-establecimiento-exportacion";
 import { EstablecimientoExportacionItem } from "./establecimiento-exportacion-item";
+import { useEstablecimientoExportacionOpen } from "../hooks/use-establecimiento-exportacion-open";
 
-export function EstablecimientoExportacionResult() {
+export function EstablecimientoExportacionResult({ predioId }) {
   const exportacion = useEstablecimientoExportacion();
   const { establecimientoSelected } = useSelector(
     (state) => state.establecimiento
@@ -18,11 +20,20 @@ export function EstablecimientoExportacionResult() {
     return exportacion.data?.data?.length || 0;
   }, [exportacion.data]);
 
+  const exportacionOpen = useEstablecimientoExportacionOpen(
+    predioId,
+    exportacion.data?.data
+  );
+
+  useEffect(() => {
+    if (exportacion.data?.data && predioId) exportacionOpen.handle();
+  }, [exportacion.data?.data, predioId]);
+
   return (
     <Fragment>
       <h4 className="card-title">
         <Icon icon="humbleicons:certificate" />
-        Certificados de exportación
+        Certificados de exportación {exportacionOpen.index}
       </h4>
 
       {establecimientoSelected ? (
@@ -52,6 +63,8 @@ export function EstablecimientoExportacionResult() {
               <EstablecimientoExportacionItem
                 key={`item-exportacion-${index}`}
                 data={item}
+                autoOpen={index === exportacionOpen.index}
+                predioId={predioId}
               />
             ))}
           </TableSimple>

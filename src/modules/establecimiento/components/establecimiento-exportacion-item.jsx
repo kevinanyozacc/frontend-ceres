@@ -1,14 +1,18 @@
 import { DateTime } from "luxon";
 import { TableSimpleCell } from "../../../shared/table/components/table-simple-cell";
 import { TableSimpleRow } from "../../../shared/table/components/table-simple-row";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { useEstablecimientoToPredio } from "../hooks/use-establecimiento-to-predio";
 import { LoadingGlobal } from "../../../shared/loading/components/loading-global";
 import { useEstablecimientoToPlanta } from "../hooks/use-establecimiento-to-planta";
 import { useSelector } from "react-redux";
 
-export function EstablecimientoExportacionItem({ data }) {
+export function EstablecimientoExportacionItem({
+  data,
+  predioId,
+  autoOpen = false,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { establecimientoSelected } = useSelector(
@@ -17,6 +21,10 @@ export function EstablecimientoExportacionItem({ data }) {
 
   const toPredio = useEstablecimientoToPredio();
   const toPlanta = useEstablecimientoToPlanta();
+
+  useEffect(() => {
+    if (autoOpen) setIsOpen(true);
+  }, [autoOpen]);
 
   if (toPredio.isLoading) {
     return <LoadingGlobal title="Redirigiendo al predio..." />;
@@ -33,7 +41,7 @@ export function EstablecimientoExportacionItem({ data }) {
           {data.plant_id}
         </TableSimpleCell>
         <TableSimpleCell nowrap align="center">
-          {data.exporter_id}
+          {data.certificate_state}
         </TableSimpleCell>
         <TableSimpleCell noWrap align="center">
           {data.inspection_date
@@ -80,7 +88,7 @@ export function EstablecimientoExportacionItem({ data }) {
         data?.products?.map((item, index) => (
           <TableSimpleRow key={`item-exportacion-${item.farm_id}-${index}`}>
             <TableSimpleCell className="text-primary" align="right">
-              Producto {index + 1}:
+              Producto {index + 1}
             </TableSimpleCell>
             <TableSimpleCell
               colSpan={2}
@@ -100,7 +108,9 @@ export function EstablecimientoExportacionItem({ data }) {
             </TableSimpleCell>
             <TableSimpleCell
               colSpan={2}
-              className="text-primary link cursor-pointer"
+              className={`text-primary link cursor-pointer ${
+                predioId === item.farm_id ? "subrayado" : ""
+              }`}
               align="center"
               noWrap
               onClick={() => toPredio.relationLink(item.farm_id)}

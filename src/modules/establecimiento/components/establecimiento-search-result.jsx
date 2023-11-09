@@ -20,6 +20,7 @@ import { useEstablecimientoAutoselect } from "../hooks/use-establecimiento-autos
 export function EstablecimientoSearchResult({
   autoselect = false,
   productorId,
+  predioId,
   type,
 }) {
   const dispatch = useDispatch();
@@ -88,7 +89,7 @@ export function EstablecimientoSearchResult({
         </FilterContainer>
         <FilterContainer>
           <EstablecimientoMonitoreoResult />
-          <EstablecimientoExportacionResult />
+          <EstablecimientoExportacionResult predioId={predioId} />
           <EstablecimientoRIIVSResult />
           <EstablecimientoEtiquetaResult />
         </FilterContainer>

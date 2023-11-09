@@ -93,6 +93,10 @@
   text-decoration: underline;
 }
 
+.subrayado {
+  text-decoration: underline;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
