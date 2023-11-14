@@ -15,11 +15,15 @@ export function CrianzaSelected() {
           icon: "icon-park:id-card",
           text: crianzaSelected.RUC_PROD_PRO || crianzaSelected.NUME_DOCU_PRO,
         },
-        { icon: "gridicons:location", text: crianzaSelected.LOCACION },
         {
           icon: "ph:dot-fill",
           text: `Productor ID: ${crianzaSelected.CODI_PROD_PRO}`,
         },
+        {
+          icon: "ic:baseline-business",
+          text: crianzaSelected?.DESC_SEDE_SED,
+        },
+        { icon: "gridicons:location", text: crianzaSelected.LOCACION },
       ]}
     />
   );
