@@ -11,6 +11,10 @@ export function CrianzaItem({ data, active, onClick }) {
           icon: "icon-park:id-card",
           text: data.RUC_PROD_PRO || data.NUME_DOCU_PRO,
         },
+        {
+          icon: "ic:baseline-business",
+          text: data?.DESC_SEDE_SED,
+        },
         { icon: "gridicons:location", text: data.LOCACION },
       ]}
     />
