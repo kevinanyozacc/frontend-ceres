@@ -7,7 +7,10 @@ export function CrianzaPredioItem({ data, active, onClick }) {
       active={active}
       icon="fluent:plant-grass-28-filled"
       onClick={onClick}
-      listInfo={[{ icon: "teenyicons:id-solid", text: data?.CODI_PRED_PRE }]}
+      listInfo={[
+        { icon: "teenyicons:id-solid", text: data?.CODI_PRED_PRE },
+        { icon: "icon-park-outline:user-business", text: data?.RAZON_SOCIAL },
+      ]}
     />
   );
 }
