@@ -33,7 +33,7 @@ export function useCultivoZoosanitario(autoload = false) {
 
   const handle = (page = 1) => {
     fetch({
-      cultivo: cultivoSelected.PRO_RUC,
+      cultivo: cultivoSelected?.RUC_PROD_MOS || cultivoSelected?.IDEN_PROD_MOS,
       params: { page, limit: 100 },
     })
       .unwrap()
