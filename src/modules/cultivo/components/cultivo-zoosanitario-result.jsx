@@ -36,9 +36,9 @@ export function CultivoZoosanitarioResult() {
             data={[
               { title: "CODIGO IIV", align: "left" },
               { title: "ESTADO" },
-              { title: "FECHA_REGISTRO" },
-              { title: "CODIGO_EXPEDIENTE", align: "left" },
-              { title: "DESCRIPCION_SERVICIO" },
+              { title: "FECHA REGISTRO" },
+              { title: "CODIGO EXPEDIENTE", align: "left" },
+              { title: "DESCRIPCION SERVICIO" },
               { title: "ARCHIVOS" },
             ]}
           />

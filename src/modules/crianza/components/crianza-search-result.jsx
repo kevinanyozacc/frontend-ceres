@@ -113,11 +113,11 @@ export function CrianzaSearchResult({
           <CrianzaZoosanitarioResult />
         </FilterContainer>
       </div>
-      <div className="PlaceSearchResults CrianzaBodyOcurrencias">
+      {/* <div className="PlaceSearchResults CrianzaBodyOcurrencias">
         <FilterContainer>
           <CrianzaOcurrenciaResult />
         </FilterContainer>
-      </div>
+      </div> */}
     </div>
   );
 }
