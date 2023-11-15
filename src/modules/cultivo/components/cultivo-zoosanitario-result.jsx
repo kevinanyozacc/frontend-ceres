@@ -34,7 +34,7 @@ export function CultivoZoosanitarioResult() {
           contentClassName="bg-light">
           <TableSimpleHead
             data={[
-              { title: "CODIGO_IIV", align: "left" },
+              { title: "CODIGO IIV", align: "left" },
               { title: "ESTADO" },
               { title: "FECHA_REGISTRO" },
               { title: "CODIGO_EXPEDIENTE", align: "left" },

@@ -34,19 +34,19 @@ export function EstablecimientoEtiquetaResult() {
             contentClassName="bg-light">
             <TableSimpleHead
               data={[
-                { title: "NUME_REGI_PRO" },
-                { title: "NOMB_COME_PRO" },
-                { title: "RUC_EMPR_VET" },
-                { title: "RAZO_SOCI_VET" },
-                { title: "TIPO_PRODUCTO" },
-                { title: "TIPO_PROD_PRO" },
-                { title: "REGI_SOLI_PRO" },
-                { title: "FECH_VENC_PRO" },
-                { title: "ANNO_REGI_PRO" },
-                { title: "NUME_REGI_ARC" },
-                { title: "CANT_ETIQUETA" },
-                { title: "VIDA_UTIL" },
-                { title: "RUTA_QR" },
+                { title: "REGISTRO" },
+                { title: "NOMBRE COMERCIAL" },
+                { title: "EMPRESA" },
+                { title: "RAZON SOCIAL" },
+                { title: "TIPO PRODUCTO" },
+                { title: "TIPO" },
+                { title: "REGISTRO SOLICITUD" },
+                { title: "FECHA VENCIMIENTO" },
+                { title: "AÑO REGISTRO" },
+                { title: "NUMERO REGISTRO" },
+                { title: "CANTIDAD ETIQUETA" },
+                { title: "VIDA UTIL" },
+                { title: "RUTA QR" },
                 { title: "ARCHIVOS" },
               ]}
             />

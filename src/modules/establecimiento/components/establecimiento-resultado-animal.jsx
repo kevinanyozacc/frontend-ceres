@@ -9,15 +9,15 @@ export function EstablecimientoResultadoAnimal({ data = [] }) {
     <TableSimple>
       <TableSimpleHead
         data={[
-          { title: "CODI_MUES_MUE" },
-          { title: "NOMB_ENFE_TEA" },
+          { title: "CODIGO MUESTRA" },
+          { title: "NOMBRE ENFERMEDAD" },
           { title: "AREA" },
           { title: "PRUEBA" },
           { title: "RESULTADO" },
-          { title: "FECHA_RECEPCION" },
-          { title: "FECHA_RESULTADO" },
-          { title: "FECHA_CIERRE" },
-          { title: "FECHA_RECHAZO" },
+          { title: "FECHA RECEPCION" },
+          { title: "FECHA RESULTADO" },
+          { title: "FECHA CIERRE" },
+          { title: "FECHA RECHAZO" },
           { title: "INTERPRETACION" },
           { title: "IDENTIFICACION" },
           { title: "CIENTIFICO" },

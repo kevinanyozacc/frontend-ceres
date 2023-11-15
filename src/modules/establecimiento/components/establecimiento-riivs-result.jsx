@@ -36,11 +36,11 @@ export function EstablecimientoRIIVSResult() {
             contentClassName="bg-light">
             <TableSimpleHead
               data={[
-                { title: "CODIGO_IIV" },
+                { title: "CODIGO IIV" },
                 { title: "ESTADO" },
-                { title: "FECHA_REGISTRO" },
-                { title: "CODIGO_EXPEDIENTE" },
-                { title: "DESCRIPCION_SERVICIO" },
+                { title: "FECHA REGISTRO" },
+                { title: "CODIGO EXPEDIENTE" },
+                { title: "DESCRIPCION SERVICIO" },
                 { title: "ARCHIVOS" },
               ]}
             />

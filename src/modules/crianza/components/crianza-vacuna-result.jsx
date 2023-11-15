@@ -39,22 +39,22 @@ export function CrianzaVacunaResult() {
           >
             <TableSimpleHead
               data={[
-                { title: "Nombre", align: "left" },
-                { title: "N° Ficha" },
-                { title: "Fec. Reg." },
-                { title: "Ubicación", align: "left" },
-                { title: "CANT_BOVI_PRG" },
-                { title: "CANT_EQUI_PRG" },
-                { title: "CANT_CAPR_PRG" },
-                { title: "CANT_OVIN_PRG" },
-                { title: "CANT_PORC_PRG" },
-                { title: "CANT_CASU_PRG" },
-                { title: "CANT_AVES_PRG" },
-                { title: "CANT_OTRO_PRG" },
-                { title: "PROP_BIOL_PRG" },
-                { title: "NOMB_COME_PRO" },
-                { title: "NUME_LOTE_BIO" },
-                { title: "FECH_VCMT_BIO" },
+                { title: "NOMBRE", align: "left" },
+                { title: "N° FICHA" },
+                { title: "FECHA" },
+                { title: "UBICACION", align: "left" },
+                { title: "BOBINO" },
+                { title: "EQUINO" },
+                { title: "CAPRINO" },
+                { title: "OVINO" },
+                { title: "PORCINO" },
+                { title: "CASU" },
+                { title: "AVES" },
+                { title: "OTRO PRG" },
+                { title: "BIOLOGICO" },
+                { title: "NOMBRE COMERCIAL" },
+                { title: "LOTE" },
+                { title: "FECHA VENCIMIENTO" },
               ]}
             />
             {predio.data?.map((item, index) => (

@@ -8,14 +8,14 @@ export function EstablecimientoResultadoVegetal({ data = [] }) {
     <TableSimple>
       <TableSimpleHead
         data={[
-          { title: "CODI_PRUE_TPD" },
-          { title: "NOMB_AREA_LAB" },
-          { title: "CODIGO_MUESTRA" },
-          { title: "MOTIVO_RESULTADO" },
-          { title: "REPORTE_RESULTADO" },
-          { title: "TIPO_MUESTRA" },
+          { title: "CODIGO PRUEBA" },
+          { title: "NOMBRE AREA" },
+          { title: "CODIGO MUESTRA" },
+          { title: "MOTIVO RESULTADO" },
+          { title: "REPORTE RESULTADO" },
+          { title: "TIPO MUESTRA" },
           { title: "IDENTIFICADO" },
-          { title: "NOMB_CIEN_PLA" },
+          { title: "NOMB CIENTIFICO" },
           { title: "METODO" },
         ]}
       />
