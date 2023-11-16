@@ -11,16 +11,21 @@ export function useCultivoEcas() {
   const { cultivoSelected } = useSelector((state) => state.cultivo);
 
   const formatter = (tipo, data = []) => {
-    const collections = new Collection(data);
+    const collections = new Collection(data).filter((item) => {
+      return tipo === item.TIPO;
+    });
+
     const tmpData = [];
+
     collections
-      .where("TIPO", tipo)
       .groupBy("ANNO_REGISTRO")
       .keys()
       .each((title) => {
         const body = collections.where("ANNO_REGISTRO", title).toArray();
         tmpData.push({ title, body });
       });
+
+    console.log(collections);
     return tmpData;
   };
 
@@ -31,7 +36,10 @@ export function useCultivoEcas() {
         setData(formatter("LINK", data));
         setDataEcas(formatter("ID", data));
       })
-      .catch(() => setData([]));
+      .catch(() => {
+        setData([]);
+        setDataEcas([]);
+      });
   };
 
   useEffect(() => {
