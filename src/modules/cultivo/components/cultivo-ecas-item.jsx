@@ -20,7 +20,7 @@ export function CultivoEcasItem({ data }) {
   return (
     <div className="Container">
       <h5 className="Container__Title">
-        <Icon icon="iwwa:year" /> Certificados del {data?.title || ""}
+        <Icon icon="iwwa:year" /> {data?.title || ""}
       </h5>
       <div className="Container__Body">
         {data.body?.map((b) => (

@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import Loader from "../../../components/Loader";
 import { FilterEmpty } from "../../../shared/filters/components/filter-empty";
 import { useCultivoEcas } from "../hooks/use-cultivo-ecas";
-import "../styles/cultivo-ecas-result.css";
 import { CultivoEcasItem } from "./cultivo-ecas-item";
+import "../styles/cultivo-ecas-result.css";
 
 export function CultivoEcasResult() {
   const ecas = useCultivoEcas();
@@ -16,8 +16,8 @@ export function CultivoEcasResult() {
   }, [ecas.isLoading, ecas.isFetching]);
 
   const count = useMemo(() => {
-    return ecas.data?.length || 0;
-  }, [ecas.data]);
+    return ecas.data?.length || ecas?.dataEcas?.length || 0;
+  }, [ecas.data, ecas.dataEcas]);
 
   return (
     <Fragment>
@@ -31,12 +31,21 @@ export function CultivoEcasResult() {
           <Loader />
         ) : count ? (
           <div className="Predio__Ecas__Infos__List">
-            {ecas.data?.map((item, index) => (
-              <CultivoEcasItem data={item} key={`item-ruta-${index}`} />
-            ))}
+            <div className="Cultivo__Ecas__Item">
+              <h3 className="Title">ECAS</h3>
+              {ecas.dataEcas?.map((item, index) => (
+                <CultivoEcasItem data={item} key={`item-ruta-${index}`} />
+              ))}
+            </div>
+            <div className="Cultivo__Ecas__Item Right">
+              <h3 className="Title">Buenas Practicas Agricolas</h3>
+              {ecas.data?.map((item, index) => (
+                <CultivoEcasItem data={item} key={`item-ruta-${index}`} />
+              ))}
+            </div>
           </div>
         ) : (
-          <FilterEmpty title="Este productor no cuentra con buenas practicas agricolas" />
+          <FilterEmpty title="Este productor no cuentra con Ecas/buenas practicas agricolas" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

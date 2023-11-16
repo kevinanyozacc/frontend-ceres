@@ -7,23 +7,29 @@ import { Collection } from "collect.js";
 export function useCultivoEcas() {
   const [fetch, { isLoading, isFetching }] = useLazyListEcasToCultivoQuery();
   const [data, setData] = useState([]);
+  const [dataEcas, setDataEcas] = useState([]);
   const { cultivoSelected } = useSelector((state) => state.cultivo);
+
+  const formatter = (tipo, data = []) => {
+    const collections = new Collection(data);
+    const tmpData = [];
+    collections
+      .where("TIPO", tipo)
+      .groupBy("ANNO_REGISTRO")
+      .keys()
+      .each((title) => {
+        const body = collections.where("ANNO_REGISTRO", title).toArray();
+        tmpData.push({ title, body });
+      });
+    return tmpData;
+  };
 
   const handle = () => {
     fetch(cultivoSelected?.DNI || cultivoSelected?.IDEN_PROD_MOS)
       .unwrap()
       .then((data) => {
-        const collections = new Collection(data);
-        const tmpData = [];
-        collections
-          .groupBy("ANNO_REGISTRO")
-          .keys()
-          .each((title) => {
-            const body = collections.where("ANNO_REGISTRO", title).toArray();
-            tmpData.push({ title, body });
-          });
-
-        setData(tmpData);
+        setData(formatter("LINK", data));
+        setDataEcas(formatter("ID", data));
       })
       .catch(() => setData([]));
   };
@@ -37,5 +43,6 @@ export function useCultivoEcas() {
     isFetching,
     handle,
     data,
+    dataEcas,
   };
 }
