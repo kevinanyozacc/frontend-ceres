@@ -25,7 +25,6 @@ export function useCultivoEcas() {
         tmpData.push({ title, body });
       });
 
-    console.log(collections);
     return tmpData;
   };
 
