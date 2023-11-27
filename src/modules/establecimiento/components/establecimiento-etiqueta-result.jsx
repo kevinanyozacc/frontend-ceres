@@ -58,7 +58,7 @@ export function EstablecimientoEtiquetaResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de etiquetas" />
+          <FilterEmpty title="No hay registros de etiquetas del establecimiento" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

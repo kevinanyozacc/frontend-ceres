@@ -60,7 +60,7 @@ export function CrianzaVigilanciaPasiva() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de vigilancia activa" />
+          <FilterEmpty title="No hay registros de vigilancia pasiva del predio" />
         )
       ) : (
         <FilterEmpty title="Seleccionar predio" />

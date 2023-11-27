@@ -58,7 +58,7 @@ export function CultivoExportacionRelacionResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de certificado de exportación" />
+          <FilterEmpty title="No hay registros de certificado de exportación del predio" />
         )
       ) : (
         <FilterEmpty title="Seleccionar cultivo" />

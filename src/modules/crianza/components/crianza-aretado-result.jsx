@@ -63,7 +63,7 @@ export function CrianzaAretadoResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de Aretados" />
+          <FilterEmpty title="No hay registros de Aretados del productor" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

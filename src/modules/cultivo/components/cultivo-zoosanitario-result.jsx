@@ -80,7 +80,7 @@ export function CultivoZoosanitarioResult() {
           {!zoosanitario.isPending && !cultivoZoosanitario?.meta?.totalItems ? (
             <TableSimpleRow>
               <TableSimpleCell colSpan={6}>
-                <FilterEmpty title="No hay registros disponibles" />
+                <FilterEmpty title="No hay registros disponibles del productor" />
               </TableSimpleCell>
             </TableSimpleRow>
           ) : null}
