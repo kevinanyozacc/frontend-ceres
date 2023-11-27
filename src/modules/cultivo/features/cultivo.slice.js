@@ -8,6 +8,7 @@ const cultivoSlice = createSlice({
     cultivoPredioSelected: undefined,
     cultivoVigilancia: { data: [], meta: {} },
     cultivoZoosanitario: { data: [], meta: {} },
+    monitoreoSelected: undefined,
   },
   reducers: {
     setCultivoPaginate: (state, { payload }) => {
@@ -35,6 +36,9 @@ const cultivoSlice = createSlice({
       const newData = payload?.data || [];
       state.cultivoZoosanitario.meta = payload.meta;
       state.cultivoZoosanitario.data?.push(...newData);
+    },
+    setMonitoreoSelected: (state, { payload }) => {
+      state.monitoreoSelected = payload;
     },
   },
 });

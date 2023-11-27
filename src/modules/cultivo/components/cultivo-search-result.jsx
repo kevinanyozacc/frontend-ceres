@@ -19,6 +19,7 @@ import { CultivoRIIVSResult } from "./cultivo-riivs-result";
 import { CultivoOcurrenciaResult } from "./cultivo-ocurrencia-result";
 import { CultivoExportacionRelacionResult } from "./cultivo-exportacion-relacion-result";
 import { useCultivoAutoselect } from "../hooks/use-cultivo-autoselect";
+import { CultivoMonitoreoResult } from "./cultivo-monitoreo-result";
 
 export function CultivoSearchResult({
   autoselect = false,
@@ -100,6 +101,7 @@ export function CultivoSearchResult({
       <div className="PlaceSearchResults CultivoVigilanciaContainer">
         <FilterContainer>
           <CultivoRIIVSResult />
+          <CultivoMonitoreoResult />
         </FilterContainer>
         <FilterContainer>
           <CultivoEcasResult />

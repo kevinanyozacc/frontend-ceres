@@ -1,0 +1,49 @@
+.modal-back {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.modal-back.active {
+  display: block;
+}
+
+
+.modal-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  position: relative;
+  display: block;
+  width: 50%;
+  background: white;
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+
+.box-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.box-title {
+  font-size: 20px;
+  padding: 0.5em;
+}
+
+.modal-body {
+  height: 70vh;
+  width: 100%;
+  overflow: auto;
+}

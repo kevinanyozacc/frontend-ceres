@@ -58,6 +58,17 @@ export const cultivoRtk = createApi({
         url: `/${type}/${id}`,
       }),
     }),
+    listMonitoreoByCultivo: builder.query({
+      query: (dni) => ({
+        url: `search/establecimiento/${dni}/monitoreos`,
+      }),
+    }),
+    listMonitoreoResultadoByCultivo: builder.query({
+      query: ({ numeroRegistro, type }) => ({
+        url: `search/establecimiento/${numeroRegistro}/monitoreo-resultado`,
+        params: { type },
+      }),
+    }),
   }),
 });
 
@@ -71,4 +82,6 @@ export const {
   useLazyListRIIVSToCultivoQuery,
   useLazyListOcurrenciaByDniQuery,
   useLazyListProcesamientoByIdQuery,
+  useLazyListMonitoreoByCultivoQuery,
+  useLazyListMonitoreoResultadoByCultivoQuery,
 } = cultivoRtk;
