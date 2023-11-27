@@ -24,12 +24,12 @@
   left: 0;
   bottom: 0;
   z-index: 10000;
-  transition: all .35s ease;
+  transition: all 0.35s ease;
   pointer-events: none;
 }
 
 .SearchResults__overlay--active {
-  background: rgba(0, 0, 0, .35);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 768px) {
