@@ -9,11 +9,14 @@ import LandingContainer from "../CenteredContainer";
 import "./Landing.css";
 import LandingBigNumber from "./LandingBigNumber";
 import LandingSelection from "./LandingSelection";
+import Modal from "../Modal/Modal";
+import { useState } from 'react'
 
 const Landing = () => {
   const navigate = useNavigate();
   const { data } = useStatsQuery(null);
-
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
   return (
     <div className="Landing">
       <LandingContainer className="Landing__hero">
@@ -29,17 +32,18 @@ const Landing = () => {
             title="Procesamiento Primario"
           />
            <LandingSelection
-            onClick={() => navigate("/")}
+            onClick={() => setIsOpen(true)}
             image={ImageTransporte}
             title="Transporte"
           />
           <LandingSelection
-            onClick={() => navigate("/")}
+            onClick={() => setIsOpen(true)}
             image={ImageComercio}
             title="Comercio"
           />
         </div>
       </LandingContainer>
+      {isOpen && <Modal setIsOpen={setIsOpen} />}
       <LandingContainer>
         <div className="Landing__big_numbers">
           <LandingBigNumber
