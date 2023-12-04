@@ -80,7 +80,7 @@ export function CrianzaZoosanitarioResult() {
           {!zoosanitario.isPending && !crianzaZoosanitario?.meta?.totalItems ? (
             <TableSimpleRow>
               <TableSimpleCell colSpan={6}>
-                <FilterEmpty title="No hay registros disponibles" />
+                <FilterEmpty title="No hay registros de zoosanitario del productor" />
               </TableSimpleCell>
             </TableSimpleRow>
           ) : null}

@@ -87,7 +87,7 @@ export function CrianzaVacunaResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de vacunas" />
+          <FilterEmpty title="No hay registros de vacunas del productor" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

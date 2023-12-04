@@ -53,7 +53,7 @@ export function EstablecimientoMonitoreoResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de monitoreos" />
+          <FilterEmpty title="No hay registros de monitoreos del establecimiento" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

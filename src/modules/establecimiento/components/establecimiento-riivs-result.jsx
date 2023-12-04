@@ -52,7 +52,7 @@ export function EstablecimientoRIIVSResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de RIIVS" />
+          <FilterEmpty title="No hay registros de RIIVS del Establecimiento" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

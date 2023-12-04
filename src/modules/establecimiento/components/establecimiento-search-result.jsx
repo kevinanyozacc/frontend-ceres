@@ -64,7 +64,7 @@ export function EstablecimientoSearchResult({
       <div className="PlaceSearchResults EstablecimientoSearchResults">
         <FilterContainer>
           <h4 className="card-title">
-            <Icon icon="mdi:farm" /> <b>Lista de Productores</b>
+            <Icon icon="mdi:farm" /> <b>Lista de Establecimientos</b>
           </h4>
           {/* mostrar info del productor selecionado */}
           <EstablecimientoSelected />

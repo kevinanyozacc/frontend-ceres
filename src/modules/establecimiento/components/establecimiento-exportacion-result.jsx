@@ -69,7 +69,7 @@ export function EstablecimientoExportacionResult({ predioId }) {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de certificado de exportación" />
+          <FilterEmpty title="No hay registros de certificado de exportación del establecimiento" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />

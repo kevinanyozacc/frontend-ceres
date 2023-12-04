@@ -82,7 +82,7 @@ export default function AlimentoEtiquetaList() {
             />
           ))}
           {/* not data */}
-          <FilterEmpty title="No hay registros disponibles|" />
+          <FilterEmpty title="No hay registros de etiquetas del establecimiento" />
         </CardBody>
       </Fragment>
     </CardSimple>

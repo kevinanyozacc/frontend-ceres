@@ -66,7 +66,7 @@ export function CultivoOcurrenciaResult() {
             ))}
           </TableSimple>
         ) : (
-          <FilterEmpty title="No hay registros de ocurrencias" />
+          <FilterEmpty title="No hay registros de ocurrencias del productor" />
         )
       ) : (
         <FilterEmpty title="Seleccionar productor" />
